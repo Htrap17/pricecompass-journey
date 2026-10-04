@@ -1,0 +1,607 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PriceCompass · One-SKU journey</title><style>:root{--plum:#500B47;--pink:#D61F69;--teal:#0E7490;--green:#15803D;--orange:#C2410C;--amber:#B45309;--ink:#231020;--muted:#6B5A68;--line:#E3D6DF;--tint:#F8F4F7;--bg:#FBF8FA}
+*{box-sizing:border-box}body{margin:0;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);display:flex;min-height:100vh}
+.side{width:250px;flex:none;background:var(--plum);color:#fff;padding:18px 14px;display:flex;flex-direction:column;gap:12px}
+.brand{font-weight:800;font-size:19px}.sub{font-size:10px;letter-spacing:.12em;opacity:.75}.sku{background:rgba(255,255,255,.1);border-radius:8px;padding:8px}.sku b,.sku span{display:block}.sku span{font-size:12px;opacity:.85}
+.group h4{margin:4px 0 6px;font-size:10px;letter-spacing:.12em;opacity:.75}.group button{display:block;width:100%;text-align:left;margin:0 0 5px;padding:7px 9px;border-radius:7px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font:600 12.5px Arial;cursor:pointer}
+.group button:hover,.group button.on{background:#fff;color:var(--plum)}.group button.reset{opacity:.8}.log{list-style:none;margin:0;padding:0;font-size:11px;max-height:220px;overflow:auto}.log li{padding:4px 0;border-bottom:1px solid rgba(255,255,255,.15)}.foot{font-size:11px;opacity:.7;margin-top:auto}
+.wrap{flex:1;min-width:0;padding:16px 22px 40px}
+.strip{display:flex;align-items:stretch;list-style:none;margin:0 0 10px;padding:0;gap:4px}.strip li{flex:1;min-width:0}.strip li.arr{flex:none;align-self:center;color:var(--muted);font-weight:700}
+.strip button{width:100%;height:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:7px 8px;cursor:pointer;font:12px Arial}.strip button b{display:block;color:var(--plum);font-size:11.5px}.strip button span{display:block;color:var(--muted);font-weight:700}
+.strip button.on{border-color:var(--plum);background:#F3E8F1}.strip button.warn span{color:var(--orange)}
+.mode{border-radius:10px;padding:9px 12px;margin-bottom:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.mode.real{background:#FDEEE3;border:1px solid var(--orange)}.mode.scen{background:#EFEAF7;border:1px solid #6B4FA0}
+.status{margin-left:auto;padding:4px 10px;border-radius:99px;font-weight:800;font-size:12px;color:#fff;background:var(--orange)}.status.s-ready{background:var(--green)}.status.s-weak-evidence,.status.s-price{background:var(--amber)}
+.change{background:#FFFBEA;border:1.5px solid #E9B949;border-radius:10px;padding:8px 14px;margin-bottom:12px}.change h3{margin:2px 0 4px;font-size:13px;color:var(--amber)}.change ul{margin:0;padding-left:18px}
+main{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px}h2{margin:0 0 4px;color:var(--plum);font-size:20px}h3{color:var(--plum);font-size:14px;margin:16px 0 6px}.lead{color:var(--muted);margin:0 0 10px}
+.grid{border-collapse:collapse;width:100%;font-size:13px;margin:6px 0}.grid th,.grid td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}.grid thead th{background:var(--plum);color:#fff;font-size:12px}.grid tbody th{color:var(--plum);white-space:nowrap}
+.grid tr.excluded td{color:var(--muted)}.grid tr.chg td{background:#FFF6D6;font-weight:700}.grid.narrow{width:auto;min-width:460px}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;border-radius:99px;padding:1px 7px;border:1px solid;white-space:nowrap}.tag.obs{color:var(--teal)}.tag.hist{color:#6B4FA0}.tag.est{color:var(--amber)}.tag.asm{color:var(--orange)}.tag.gen{color:var(--muted)}.tag.calc{color:var(--green)}.tag.miss{color:#B91C1C}
+.neg{color:#B91C1C}.muted{color:var(--muted)}.callout{background:var(--tint);border-left:4px solid var(--plum);padding:8px 12px;border-radius:6px}.callout.bad{border-color:var(--orange);background:#FDEEE3}
+.formula{font-family:Menlo,Consolas,monospace;font-size:12.5px;background:#F3F7F9;padding:7px 10px;border-radius:6px}
+.kpis{display:flex;gap:10px;margin:10px 0;flex-wrap:wrap}.kpis div{flex:1;min-width:170px;background:var(--tint);border-radius:10px;padding:10px}.kpis b{display:block;font-size:20px;color:var(--plum)}.kpis span{font-size:12px;color:var(--muted)}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0;align-items:flex-end}.field{display:flex;flex-direction:column;font-size:12px;font-weight:700;color:var(--muted)}.field.inline{flex-direction:row;align-items:center;gap:8px}.field input{margin-top:3px;width:130px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;font:14px Arial}
+.check{font-size:13px;display:flex;gap:6px;align-items:center}
+button.mini,.actions button,button.primary{border:1.5px solid var(--plum);background:#fff;color:var(--plum);border-radius:8px;padding:7px 12px;font:700 13px Arial;cursor:pointer}button.mini{padding:3px 8px;font-size:11.5px}button.primary{background:var(--plum);color:#fff}button:disabled{opacity:.4;cursor:not-allowed}
+.card{border:2px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0}.card.ok{border-color:var(--green)}.card.hold{border-color:var(--orange)}.card.warn{border-color:var(--amber)}.cardhead{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px}.cardhead b{color:var(--plum);font-size:16px}.cardhead span{color:var(--muted);font-size:12px}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.dc{background:var(--tint);border-radius:8px;padding:8px 10px}.dc span{display:block;font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase}.dc b{display:block;font-size:18px;color:var(--plum)}.dc small{color:var(--muted)}
+.stress{font-size:12.5px}.reasons{color:var(--orange);font-size:13px}.actions{display:flex;gap:8px;margin-top:8px}
+@media print{.side{display:none}}
+</style></head>
+<body><aside class="side"><div class="brand">◈ PriceCompass</div><div class="sub">ONE-SKU DECISION JOURNEY</div>
+<div class="sku"><b>PC-CABLE-5M · v1</b><span>CAT5e patch cable, 5 m, white, pack of 1</span></div>
+<div class="group"><h4>Evidence mode</h4><button data-mode="real">Real record</button><button data-mode="scenario">Prototype scenario</button></div>
+<div class="group"><h4>Cause and effect demos</h4>
+<button data-demo="comparable">1 · A comparable fails</button>
+<button data-demo="returns">2 · Return cost and damage rise</button>
+<button data-demo="cash">3 · Cash and MOQ block buying</button>
+<button data-demo="weight">+ Packed weight crosses band</button>
+<button data-demo="cost90">+ Acquisition cost ₹90</button>
+<button data-demo="reset" class="reset">Reset everything</button></div>
+<div class="group"><h4>Change log</h4><ul id="log" class="log"></ul></div>
+<p class="foot">Offline. In-memory only. No Meesho connection, no listing edits, no purchases. The seller owns the price.</p></aside>
+<div class="wrap"><nav id="strip" aria-label="Journey"></nav><div id="banner"></div><div id="change"></div><main id="main"></main></div>
+<script>/* PriceCompass one-SKU journey: the decision record for SKU PC-CABLE-5M, version 1.
+   Every value carries a provenance label. Nothing here is a live Meesho record. */
+(function (root) {
+  'use strict';
+  const SOURCES = {
+    audit: 'Team public audit, 28 Sep 2026 (observed Meesho / other-channel listings)',
+    panel: 'Historical seller panel (~1 year old; observed, not a current quote)',
+    panelFee: 'Seller panel / Meesho shipping-and-returns page [12] (fee read 2 Oct 2026; applicability to confirm)',
+    derived: 'Estimate derived from the panel price structure (formula, not an executable quote)',
+    assumed: 'Worked-example assumption (not observed)',
+    generated: 'Generated scenario register (not observed)',
+    synthetic: 'Prototype test cohort (synthetic, labelled; not observed)',
+    calc: 'Calculation from the labelled inputs'
+  };
+
+  function base() {
+    return {
+      mode: 'scenario', // 'real' = only observed evidence; 'scenario' = labelled prototype assumptions
+      weakAck: false,   // seller acknowledges a weak-evidence test when no comparable qualifies
+      product: {
+        sku: 'PC-CABLE-5M', version: 1,
+        title: 'CAT5e Ethernet patch cable',
+        unit: '5 m, white, UTP, RJ45 both ends',
+        conductor: null, // copper vs CCA unresolved: a product-truth gap
+        pack: 'Pack of 1',
+        packedWeight: 250, packedWeightSource: 'assumed', // not measured
+        weightBand: 500,  // fee band used: up to 500 g
+        fulfilment: 'Self-ship through Meesho logistics', fulfilmentSource: 'assumed',
+        offlinePrice: null // not recorded
+      },
+      costs: { C: 55, o: 5, private: false },
+      fees: { R: 153, Rrange: [153, 165], rtoFee: 0, delta: 0 },
+      mix: { k: 85, r: 5, q: 10, source: 'assumed' },
+      seller: { objective: 'competitive', g: 0, denominator: 'dispatch', cash: 1000, owned: 0, cap: 9, moq: 1, reservePct: 20 },
+      quotes: [
+        { id: 'Q189', entry: 110, entryEstimate: 110.19, buyer: 189, transfer: 96, label: 'Platform suggestion', source: 'panel' },
+        { id: 'Q210', entry: 130, entryEstimate: 130.34, buyer: 210, transfer: 116, label: 'Current listing', source: 'panel' }
+      ],
+      quoteValid: true, // scenario assumes the panel pair is current; real mode never does
+      audit: [
+        { id: 'A1', price: 165, what: 'Meesho, 5 m white CAT5e', status: 'excluded', reason: 'Out of stock; construction unresolved' },
+        { id: 'A2', price: 167, what: 'Meesho, CAT6', status: 'excluded', reason: 'Wrong grade (CAT6)' },
+        { id: 'A3', price: 222, what: 'Meesho, 10 m', status: 'excluded', reason: 'Wrong length (10 m)' },
+        { id: 'A4', price: 155, what: 'Shopsy listing', status: 'excluded', reason: 'Other channel; weak reference' },
+        { id: 'A5', price: 130, what: 'Moglix, CAT5', status: 'excluded', reason: 'Wrong grade and channel' }
+      ],
+      register: [
+        { id: 'M1', price: 189, status: 'accepted', reason: 'Accepted by assumption' },
+        { id: 'M2', price: 200, status: 'accepted', reason: 'Accepted by assumption; no quote at ₹200' },
+        { id: 'M3', price: 210, status: 'accepted', reason: 'Accepted by assumption' },
+        { id: 'M4', price: 189, status: 'excluded', reason: 'Duplicate seller' },
+        { id: 'M5', price: 169, status: 'excluded', reason: 'Wrong specification (CAT6)' },
+        { id: 'M6', price: 190, status: 'excluded', reason: 'Unavailable' }
+      ],
+      versions: { product: 1, comparables: 1, quotes: 1, fees: 1, costs: 1, seller: 1, outcomes: 1 },
+      snapshots: [],
+      log: []
+    };
+  }
+
+  /* Synthetic 9-dispatch review cohort for the same SKU and version at ₹189. */
+  const COHORT = [
+    { id: 'D1', status: 'kept', settled: 96, reverse: 0, stock: 'sold' },
+    { id: 'D2', status: 'kept', settled: 96, reverse: 0, stock: 'sold' },
+    { id: 'D3', status: 'kept', settled: 96, reverse: 0, stock: 'sold' },
+    { id: 'D4', status: 'kept', settled: 96, reverse: 0, stock: 'sold' },
+    { id: 'D5', status: 'kept', settled: 96, reverse: 0, stock: 'sold' },
+    { id: 'D6', status: 'kept', settled: 96, reverse: 0, stock: 'sold' },
+    { id: 'D7', status: 'rto', settled: 0, reverse: 0, stock: 'intact' },
+    { id: 'D8', status: 'return', settled: 0, reverse: 165, stock: 'intact' },
+    { id: 'D9', status: 'pending', settled: null, reverse: null, stock: 'with buyer' }
+  ];
+
+  const api = { base, COHORT, SOURCES };
+  if (typeof module !== 'undefined') module.exports = api; else root.PCRecord = api;
+})(globalThis);
+</script><script>/* PriceCompass one-SKU journey model. Pure functions; no network, no storage.
+   Accounting (per dispatch, rupees):
+     kept   = T - C - o
+     RTO    = -o - rtoFee              (intact stock returns at acquisition value C, so C nets out)
+     return = -o - R - delta*C         (reverse fee once; unsellable share loses C)
+     m = k(T - C) - o - qR - q*delta*C (with rtoFee = 0)
+   Contribution = net receipts + recoverable stock value - acquisition - outside costs.
+   The transfer T already nets shipping and platform deductions, so they are never subtracted again.
+   Seller output GST, input credit and TCS/TDS are not modelled: T is taken as the panel shows it. */
+(function (root) {
+  'use strict';
+  const ok = x => typeof x === 'number' && Number.isFinite(x) && x >= 0;
+  const r2 = x => Math.round(x * 100 + (x >= 0 ? 1e-6 : -1e-6)) / 100; // half away from zero, display rounding
+  const shares = s => ({ k: s.mix.k / 100, r: s.mix.r / 100, q: s.mix.q / 100 });
+
+  function errors(s) {
+    const e = [];
+    if (!s.costs.private && !ok(s.costs.C)) e.push('Acquisition cost is blank: blank is unknown, not zero.');
+    if (!ok(s.costs.o)) e.push('Outside cost per dispatch is blank.');
+    if (!ok(s.fees.R)) e.push('Return (reverse) fee is unknown for this weight band.');
+    if (!ok(s.fees.delta) || s.fees.delta > 100) e.push('Damage share must be 0 to 100%.');
+    if (![s.mix.k, s.mix.r, s.mix.q].every(ok) || Math.abs(s.mix.k + s.mix.r + s.mix.q - 100) > 1e-6) e.push('Kept + RTO + return must total 100%.');
+    if (!ok(s.seller.cash)) e.push('Available cash is blank.');
+    for (const key of ['cap', 'moq', 'owned']) if (!Number.isInteger(s.seller[key]) || s.seller[key] < 0) e.push(key + ' must be a whole number.');
+    if (s.seller.cap === 0) e.push('Seller cap must be at least 1.');
+    return e;
+  }
+
+  function perDispatch(s, quote, over) {
+    const v = Object.assign({ C: s.costs.C, o: s.costs.o, R: s.fees.R, delta: s.fees.delta / 100, rtoFee: s.fees.rtoFee }, shares(s), over || {});
+    const T = quote.transfer;
+    const kept = T - v.C - v.o, rto = -v.o - v.rtoFee, ret = -v.o - v.R - v.delta * v.C;
+    const expected = v.k * kept + v.r * rto + v.q * ret;
+    const formula = v.k * (T - v.C) - v.o - v.r * v.rtoFee - v.q * v.R - v.q * v.delta * v.C; // same number, written as m
+    return { kept, rto, ret, expected, formula };
+  }
+
+  /* Highest acquisition cost at which the candidate still meets the seller minimum g. */
+  function ceiling(s, quote) {
+    const { k, r, q } = shares(s), d = s.fees.delta / 100, o = s.costs.o, R = s.fees.R, g = s.seller.g;
+    const positive = (k * quote.transfer - o - r * s.fees.rtoFee - q * R) / (k + q * d);
+    const minimum = s.seller.denominator === 'kept'
+      ? quote.transfer - o - g
+      : (k * quote.transfer - o - r * s.fees.rtoFee - q * R - g) / (k + q * d);
+    return { positive, minimum: Math.min(positive, minimum) };
+  }
+
+  const reserve = s => Math.floor(s.fees.R * s.seller.reservePct / 100); // stress-policy funding held, not an expense
+
+  function funding(s) {
+    const res = reserve(s);
+    return { reserve: res, perNew: s.costs.C + s.costs.o + res, perOwned: s.costs.o + res };
+  }
+
+  /* Cash to keep available for the capped batch. A cap limits exposure; it is not a forecast. */
+  function procurement(s) {
+    if (s.costs.private || !ok(s.costs.C)) return { known: false, blocked: true, reason: 'Private or blank cost: cash cannot be verified.' };
+    const f = funding(s), sel = s.seller;
+    const ownedUsed = Math.min(sel.owned, sel.cap);
+    let newUnits = sel.cap - ownedUsed;
+    const reasons = [];
+    if (newUnits > 0 && newUnits < sel.moq) {
+      reasons.push(`Supplier MOQ ${sel.moq} forces ${sel.moq} new units, above your cap of ${sel.cap}.`);
+      newUnits = sel.moq;
+    }
+    const units = ownedUsed + newUnits;
+    const need = newUnits * f.perNew + ownedUsed * f.perOwned;
+    if (need > sel.cash) reasons.push(`Needs ₹${need} but ₹${sel.cash} is available.`);
+    let fallback = null;
+    if (reasons.length) {
+      for (let n = sel.cap; n >= 1; n--) {
+        const own = Math.min(sel.owned, n), buy = n - own;
+        if (buy > 0 && buy < sel.moq) continue;
+        const c = buy * f.perNew + own * f.perOwned;
+        if (c <= sel.cash) { fallback = { units: n, need: c }; break; }
+      }
+    }
+    const affordableMax = Math.floor((sel.cash - ownedUsed * f.perOwned) / f.perNew) + ownedUsed;
+    const blocked = reasons.length > 0;
+    return { known: true, units, newUnits, ownedUsed, need, reserveHeld: units * f.reserve, funding: f, blocked, reasons, fallback, affordableMax,
+      reason: blocked ? reasons.join(' ') : `${units} units fit: keep ₹${need} available (₹${units * f.reserve} of it is reserve, not an expense).` };
+  }
+
+  function comparables(s) {
+    const list = s.mode === 'real' ? s.audit : s.register;
+    const q = list.filter(x => x.status === 'accepted').map(x => x.price).sort((a, b) => a - b);
+    const n = q.length;
+    const median = n ? (n % 2 ? q[(n - 1) / 2] : (q[n / 2 - 1] + q[n / 2]) / 2) : null;
+    return { source: s.mode === 'real' ? 'audit' : 'register', list, n, min: n ? q[0] : null, max: n ? q[n - 1] : null, median,
+      evidence: n === 0 ? 'none' : n === 1 ? 'weak' : 'range' };
+  }
+
+  /* Supported = at least one qualified alternative at or above the candidate's buyer price. */
+  const supported = (cmp, buyer) => cmp.n > 0 && buyer <= cmp.max;
+
+  function stressCases(s) {
+    const Rmax = s.fees.Rrange[1];
+    const cases = [
+      ['Base', {}],
+      [`Highest listed reverse fee ₹${Rmax}`, { R: Rmax }],
+      ['COD-like mix 73 / 19 / 8', { k: .73, r: .19, q: .08 }],
+      [`Stress: kept 77.5, RTO 7.5, return 15, fee ₹${Rmax}`, { k: .775, r: .075, q: .15, R: Rmax }],
+      ['Every return unsellable (δ 100%)', { delta: 1 }],
+      ['Acquisition cost rises to ₹90', { C: 90 }]
+    ];
+    return cases.map(([label, over]) => ({ label, values: s.quotes.map(q => r2(perDispatch(s, q, over).expected)) }));
+  }
+
+  function sensitivity(s, quote) {
+    const { k, r, q } = shares(s), d = s.fees.delta / 100, T = quote.transfer, C = s.costs.C, o = s.costs.o, g = s.seller.g;
+    const cMax = ceiling(s, quote).minimum;
+    const qFlip = ((1 - r) * (T - C) - o - r * s.fees.rtoFee - g) / (T - C + s.fees.R + d * C);
+    const rFlip = q > 0 ? (k * (T - C) - o - r * s.fees.rtoFee - q * d * C - g) / q : Infinity;
+    const items = [
+      { name: 'Acquisition cost C', now: C, flip: cMax, rel: (cMax - C) / C, text: `flips above ₹${r2(cMax)} (+${Math.round((cMax - C) / C * 100)}%)` },
+      { name: 'Return share', now: q * 100, flip: qFlip * 100, rel: (qFlip - q) / q, text: `flips above ${r2(qFlip * 100)}% (now ${r2(q * 100)}%)` },
+      { name: 'Reverse fee R', now: s.fees.R, flip: rFlip, rel: (rFlip - s.fees.R) / s.fees.R, text: `flips above ₹${r2(rFlip)}` }
+    ].sort((a, b) => a.rel - b.rel);
+    return items;
+  }
+
+  function evaluate(s) {
+    const errs = errors(s);
+    const cmp = comparables(s);
+    const costKnown = !s.costs.private && ok(s.costs.C);
+    const quoteOk = s.mode === 'scenario' && s.quoteValid;
+    const rows = s.quotes.map(q => {
+      const e = costKnown && !errs.length ? perDispatch(s, q) : null;
+      const ceil = !errs.length || s.costs.private ? ceiling(s, q) : null;
+      const metric = e ? (s.seller.denominator === 'kept' ? e.kept : e.expected) : null;
+      const passesMin = e ? metric >= s.seller.g : false;
+      const positive = e ? e.expected > 0 : false;
+      const sup = supported(cmp, q.buyer);
+      return Object.assign({}, q, { econ: e, ceiling: ceil, passesMin, positive, supported: sup, quoteOk,
+        passes: !!(e && passesMin && positive && quoteOk) });
+    });
+    const passing = rows.filter(x => x.passes && (cmp.evidence === 'none' || x.supported));
+    const byBuyer = [...passing].sort((a, b) => a.buyer - b.buyer);
+    const byEarn = [...passing].sort((a, b) => b.econ.expected - a.econ.expected);
+    const choice = s.seller.objective === 'earnings' ? byEarn[0] || null : byBuyer[0] || null;
+    const alternative = choice ? (s.seller.objective === 'earnings' ? byBuyer.find(x => x !== choice) : byEarn.find(x => x !== choice)) || null : null;
+    const proc = procurement(s);
+    const reasons = [...errs];
+    if (s.mode === 'real') {
+      reasons.push('No current quote: the ₹189 / ₹96 and ₹210 / ₹116 pairs are ~1-year-old panel records.');
+      reasons.push(`0 qualified comparables in the 28 Sep 2026 audit (5 asks, all excluded).`);
+      reasons.push('Acquisition cost ₹55, outside cost ₹5 and supplier MOQ are not confirmed by the seller.');
+    } else {
+      if (!s.quoteValid) reasons.push('Quotes are invalid: product, weight or fulfilment changed. Re-capture entry → buyer → transfer.');
+      if (!costKnown) reasons.push('Cost kept private: only cost ceilings are shown; no profit or cash approval.');
+      if (cmp.evidence === 'none' && !s.weakAck) reasons.push('No qualified comparable: a weak-evidence test needs your explicit acknowledgement, otherwise HOLD.');
+      if (!choice && costKnown && s.quoteValid && !errs.length) reasons.push('No quoted candidate meets the earnings check: repair costs or hold.');
+      rows.filter(x => x.passes && cmp.evidence !== 'none' && !x.supported).forEach(x => reasons.push(`₹${x.buyer} is above every qualified alternative (max ₹${cmp.max}): unsupported.`));
+      if (proc.blocked && costKnown) reasons.push('Procurement: ' + proc.reason);
+    }
+    let status;
+    if (errs.length || s.mode === 'real' || !s.quoteValid || !costKnown || !choice || (cmp.evidence === 'none' && !s.weakAck)) status = 'HOLD';
+    else if (proc.blocked) status = 'PRICE PASSES · PROCUREMENT HOLD';
+    else if (cmp.evidence === 'none') status = 'WEAK-EVIDENCE TEST';
+    else status = 'READY FOR YOUR APPROVAL';
+    return { rows, cmp, choice, alternative, proc, status, reasons, errors: errs,
+      stress: costKnown && !errs.length ? stressCases(s) : null,
+      sensitive: choice ? sensitivity(s, choice) : null };
+  }
+
+  /* Ledger for the review cohort: contribution, cash and inventory kept apart. */
+  function ledger(records, s) {
+    const C = s.costs.C, o = s.costs.o;
+    const rows = records.map(x => {
+      if (x.status === 'pending') return Object.assign({}, x, { contribution: null, cash: -C - o, stockValue: 0 });
+      const stockValue = (x.status === 'rto' || x.status === 'return') && x.stock === 'intact' ? C : 0;
+      const cash = x.settled - x.reverse - C - o;
+      return Object.assign({}, x, { contribution: cash + stockValue, cash, stockValue });
+    });
+    const closed = rows.filter(x => x.status !== 'pending');
+    const count = st => rows.filter(x => x.status === st).length;
+    return {
+      rows,
+      kept: count('kept'), rto: count('rto'), returned: count('return'), pending: count('pending'), closed: closed.length,
+      settlements: closed.reduce((a, x) => a + x.settled, 0),
+      reverseCharges: closed.reduce((a, x) => a + x.reverse, 0),
+      contribution: closed.reduce((a, x) => a + x.contribution, 0),
+      cash: rows.reduce((a, x) => a + x.cash, 0),
+      intactUnits: closed.filter(x => x.stockValue > 0).length,
+      inventoryValue: closed.reduce((a, x) => a + x.stockValue, 0),
+      damagedReturns: rows.filter(x => x.status === 'return' && x.stock === 'damaged').length,
+      observedReverse: closed.filter(x => x.reverse > 0).map(x => x.reverse)
+    };
+  }
+
+  /* Blend prior mix with closed outcomes. K is an uncalibrated prior weight (pseudo-dispatches). */
+  function update(s, L, K) {
+    const before = { k: s.mix.k, r: s.mix.r, q: s.mix.q, R: s.fees.R, delta: s.fees.delta, reserve: reserve(s) };
+    const n = L.closed;
+    const kk = (K * s.mix.k / 100 + L.kept) / (K + n) * 100, rr = (K * s.mix.r / 100 + L.rto) / (K + n) * 100;
+    const qq = 100 - kk - rr;
+    const R = L.observedReverse.length ? L.observedReverse.reduce((a, b) => a + b, 0) / L.observedReverse.length : s.fees.R;
+    const delta = L.returned ? (L.damagedReturns / L.returned) * 100 : s.fees.delta;
+    const next = JSON.parse(JSON.stringify(s));
+    next.mix = { k: kk, r: rr, q: qq, source: 'blended' };
+    next.fees.R = R; next.fees.delta = delta;
+    next.versions.outcomes += 1; next.versions.fees += (R !== s.fees.R || delta !== s.fees.delta) ? 1 : 0;
+    const after = { k: kk, r: rr, q: qq, R, delta, reserve: reserve(next) };
+    return { K, before, after, next };
+  }
+
+  function nextDecision(s, L, ev) {
+    const f = funding(s);
+    const bank = s.seller.cash + L.cash;
+    const available = bank - L.pending * f.reserve;
+    const relist = L.intactUnits * f.perOwned;
+    const reorderUnits = Math.max(0, s.seller.cap - L.intactUnits);
+    const reorder = reorderUnits * f.perNew + relist;
+    const current = ev.rows.find(x => x.buyer === 189) || ev.rows[0];
+    const keepPrice = current && current.econ && current.econ.expected >= s.seller.g;
+    return {
+      bank, available, relist, reorderUnits, reorder,
+      price: keepPrice ? `Keep ₹${current.buyer}: expected ₹${r2(current.econ.expected).toFixed(2)} per dispatch still meets the ₹${s.seller.g} minimum. No price change is forced.`
+        : `₹${current.buyer} no longer meets the minimum: review the price with a fresh quote, or hold.`,
+      stock: L.pending > 0
+        ? `Relist the ${L.intactUnits} intact units now (keep ₹${relist} available). Hold new procurement until ${L.pending} pending dispatch matures and the quote is re-captured; then a ${reorderUnits}-unit reorder needs ₹${reorder} against ₹${available} available.`
+        : `A ${reorderUnits}-unit reorder needs ₹${reorder} against ₹${available} available.`,
+      fits: reorder <= available
+    };
+  }
+
+  /* Change control: every edit bumps a version; snapshots record versions; quotes depend on product + fulfilment. */
+  const QUOTE_DEPS = ['product'];
+  function change(s, area, reason, mutate) {
+    mutate(s);
+    s.versions[area] += 1;
+    const quoteHit = QUOTE_DEPS.includes(area);
+    if (quoteHit) s.quoteValid = false;
+    const stale = s.snapshots.filter(x => x.state === 'Current');
+    stale.forEach(x => { x.state = 'Needs review'; x.why = (x.why ? x.why + '; ' : '') + reason; });
+    s.log.unshift({ area, reason, quotes: quoteHit ? 'invalidated' : 'still valid', snapshots: stale.length });
+    return { quoteHit, invalidated: stale.length };
+  }
+
+  function snapshot(s, ev, action, time) {
+    const snap = { id: s.snapshots.length + 1, time: time || new Date().toISOString(), action, state: 'Current', why: '',
+      versions: Object.assign({}, s.versions), status: ev.status,
+      choice: ev.choice ? { entry: ev.choice.entry, buyer: ev.choice.buyer, transfer: ev.choice.transfer, expected: r2(ev.choice.econ.expected) } : null,
+      units: ev.proc.units, cashToKeep: ev.proc.need };
+    s.snapshots.unshift(snap);
+    return snap;
+  }
+
+  const api = { errors, perDispatch, ceiling, reserve, funding, procurement, comparables, supported, stressCases, sensitivity, evaluate, ledger, update, nextDecision, change, snapshot, r2 };
+  if (typeof module !== 'undefined') module.exports = api; else root.PCJourney = api;
+})(globalThis);
+</script><script>'use strict';
+/* PriceCompass one-SKU journey: interface. All state is in memory; nothing leaves the page. */
+const M = PCJourney, P = PCRecord;
+let S = P.base(), step = 'product', review = null, K = 20, lastChange = null, noteMsg = '';
+const $ = id => document.getElementById(id);
+const esc = x => String(x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const inr = x => typeof x === 'number' && Number.isFinite(x)
+  ? (x < 0 ? '−' : '') + '₹' + new Intl.NumberFormat('en-IN', { minimumFractionDigits: Number.isInteger(M.r2(x)) ? 0 : 2, maximumFractionDigits: 2 }).format(Math.abs(M.r2(x)))
+  : '–';
+const inr2 = x => typeof x === 'number' ? (x < 0 ? '−' : '') + '₹' + Math.abs(M.r2(x)).toFixed(2) : '–';
+const pct = x => M.r2(x) + '%';
+const tag = (t, cls = '') => `<span class="tag ${cls}">${esc(t)}</span>`;
+const SRC = { audit: ['Observed · audit 28 Sep 2026', 'obs'], panel: ['Historical panel', 'hist'], panelFee: ['Panel / fee page', 'hist'], derived: ['Estimate (formula)', 'est'],
+  assumed: ['Assumption', 'asm'], generated: ['Generated register', 'gen'], synthetic: ['Synthetic test cohort', 'gen'], calc: ['Calculation', 'calc'], missing: ['Missing', 'miss'] };
+const src = k => tag(SRC[k][0], SRC[k][1]);
+const STEPS = [['product', '1', 'Product truth'], ['alternatives', '2', 'Qualified alternatives'], ['quotes', '3', 'Candidate quotes'], ['economics', '4', 'Outcome economics'],
+  ['constraints', '5', 'Cash and stock'], ['decision', '6', 'Decision card'], ['review', '7', 'Review and learn']];
+const ev = () => M.evaluate(S);
+
+function strip(e) {
+  const prodGaps = [S.product.conductor === null, S.product.packedWeightSource !== 'measured', S.product.offlinePrice === null].filter(Boolean).length;
+  const st = {
+    product: `${prodGaps} gaps`,
+    alternatives: `${e.cmp.n} qualified${S.mode === 'real' ? ' (audit)' : ' (register)'}`,
+    quotes: S.mode === 'real' ? 'not current' : S.quoteValid ? `valid · v${S.versions.quotes}` : 'INVALID',
+    economics: e.choice ? inr(e.choice.econ.expected) + ' / dispatch' : (e.rows[0].econ ? inr(e.rows[0].econ.expected) : 'ceilings only'),
+    constraints: e.proc.known ? (e.proc.blocked ? 'blocked' : `${e.proc.units} units · ${inr(e.proc.need)}`) : 'unverified',
+    decision: e.status,
+    review: review ? `v${S.versions.outcomes} updated` : 'not yet'
+  };
+  const bad = { quotes: S.mode === 'real' || !S.quoteValid, constraints: e.proc.blocked, decision: e.status !== 'READY FOR YOUR APPROVAL', alternatives: e.cmp.n === 0 };
+  return `<ol class="strip">${STEPS.map(([id, n, name]) => `<li><button data-step="${id}" class="${step === id ? 'on' : ''} ${bad[id] ? 'warn' : ''}"><b>${n} · ${name}</b><span>${esc(st[id])}</span></button></li>`).join('<li class="arr" aria-hidden="true">→</li>')}</ol>`;
+}
+
+function banner(e) {
+  const real = S.mode === 'real';
+  return `<div class="mode ${real ? 'real' : 'scen'}"><b>${real ? 'REAL RECORD' : 'PROTOTYPE SCENARIO'}</b> ${real
+    ? 'Only observed evidence is used: the dated audit and the historical panel. Assumed costs and the generated register are switched off.'
+    : 'The historical panel pair is treated as a current quote and the generated register M1–M6 as qualified offers. Both are labelled assumptions, not live Meesho data.'}
+    <span class="status s-${e.status.split(' ')[0].toLowerCase()}">${esc(e.status)}</span></div>`;
+}
+
+function changeBox() {
+  if (!lastChange) return '';
+  return `<section class="change" role="status"><h3>What just changed · ${esc(lastChange.title)}</h3><ul>${lastChange.lines.map(l => `<li>${l}</li>`).join('')}</ul></section>`;
+}
+
+function productView() {
+  const p = S.product;
+  const row = (f, v, s, note = '') => `<tr><th>${f}</th><td>${v}</td><td>${s}</td><td class="muted">${note}</td></tr>`;
+  return `<h2>Product truth · ${esc(p.sku)} · version ${p.version}</h2><p class="lead">What exactly will be shipped. A photo match finds candidates; it does not prove equivalence.</p>
+  <table class="grid"><thead><tr><th>Field</th><th>Value</th><th>Source</th><th>Note</th></tr></thead><tbody>
+  ${row('Unit and specs', esc(p.title + ', ' + p.unit), src('panel'), 'Listing title in the historical panel')}
+  ${row('Conductor', p.conductor ? esc(p.conductor) : '<b class="neg">Unresolved</b>', src('missing'), 'Copper vs copper-clad aluminium changes comparability')}
+  ${row('Pack', esc(p.pack), src('panel'), '')}
+  ${row('Packed weight', p.packedWeight + ' g', src(p.packedWeightSource === 'measured' ? 'calc' : 'assumed'), `Fee band used: up to ${p.weightBand} g. Crossing the band invalidates the quote and the return fee.`)}
+  ${row('Fulfilment', esc(p.fulfilment), src('assumed'), 'Warehouse fees not in scope for v1')}
+  ${row('Offline price', p.offlinePrice ? inr(p.offlinePrice) : '<b class="neg">Not recorded</b>', src('missing'), 'Gap: ask the seller')}
+  ${row('Acquisition cost C', S.costs.private ? 'Private' : inr(S.costs.C), src('assumed'), 'Seller-private; ceiling shown if withheld')}
+  ${row('Outside cost o', inr(S.costs.o) + ' per dispatch', src('assumed'), 'Packing and preparation, paid on every dispatch')}
+  </tbody></table>
+  <div class="row"><label class="field">Packed weight (g)<input type="number" id="in-weight" value="${p.packedWeight}" min="1"></label>
+  <label class="field">Acquisition cost C (₹)<input type="number" id="in-C" value="${S.costs.private ? '' : S.costs.C ?? ''}" min="0" step="any" ${S.costs.private ? 'disabled' : ''}></label>
+  <label class="check"><input type="checkbox" id="in-private" ${S.costs.private ? 'checked' : ''}> Keep my cost private (show ceilings only)</label></div>`;
+}
+
+function alternativesView(e) {
+  const real = S.mode === 'real';
+  const list = (rows, editable) => `<table class="grid"><thead><tr><th>ID</th><th>Offer</th><th>Buyer price</th><th>Status</th><th>Reason</th>${editable ? '<th></th>' : ''}</tr></thead><tbody>${rows.map((x, i) =>
+    `<tr class="${x.status}"><td>${x.id}</td><td>${esc(x.what || 'Register row')}</td><td>${inr(x.price)}</td><td>${x.status === 'accepted' ? '✓ qualified' : '✕ excluded'}</td><td>${esc(x.reason)}</td>${editable ? `<td>${x.status === 'accepted' ? `<button class="mini" data-fail="${i}">Fails re-check</button>` : ''}</td>` : ''}</tr>`).join('')}</tbody></table>`;
+  const c = e.cmp;
+  return `<h2>Qualified alternatives</h2><p class="lead">What this buyer can buy instead: same spec, in stock, independent seller, same buyer context, same date. Every exclusion is logged. <b>A comparable range is not willingness to pay.</b></p>
+  <h3>Observed: public audit, 28 Sep 2026 ${src('audit')}</h3>${list(S.audit, false)}
+  <p class="callout ${real ? 'bad' : ''}">Audit result: <b>0 qualified</b> of 5 asks. With no qualified match the real record can only support a justified HOLD, or a weak-evidence test the seller explicitly accepts.</p>
+  ${real ? '' : `<h3>Prototype register M1–M6 ${src('generated')}</h3>${list(S.register, true)}`}
+  <div class="kpis"><div><b>${c.n}</b><span>qualified (${real ? 'audit' : 'register'})</span></div><div><b>${c.n ? inr(c.min) + '–' + inr(c.max) : 'none'}</b><span>qualified range, not demand</span></div><div><b>${c.median !== null ? inr(c.median) : '–'}</b><span>median: reference only, no quote</span></div></div>
+  ${real ? '' : `<label class="check"><input type="checkbox" id="in-weak" ${S.weakAck ? 'checked' : ''}> If nothing qualifies, I accept a capped weak-evidence test</label>`}`;
+}
+
+function quotesView(e) {
+  return `<h2>Candidate quotes · entry → buyer pays → kept-order transfer</h2><p class="lead">Each candidate is a versioned map. Shipping and platform deductions sit between buyer price and transfer, so they are counted once, inside T.</p>
+  <table class="grid"><thead><tr><th>Candidate</th><th>Seller enters</th><th>Buyer pays</th><th>Transfer T</th><th>Basis</th><th>Quote state</th></tr></thead><tbody>${e.rows.map(r =>
+    `<tr><td>${esc(r.label)}</td><td>${inr(r.entry)} <small class="muted">(estimate ${inr(r.entryEstimate)})</small> ${src('derived')}</td><td>${inr(r.buyer)}</td><td>${inr(r.transfer)}</td><td>${src('panel')}</td><td>${S.mode === 'real' ? '<b class="neg">Not current</b>' : S.quoteValid ? `Valid · v${S.versions.quotes} (assumed current)` : '<b class="neg">Invalid: requote</b>'}</td></tr>`).join('')}</tbody></table>
+  <p class="formula">S = (B − T) ÷ 1.18 = ₹78.81 at ₹189, ₹79.66 at ₹210 · entry = T + 0.18S = ₹110.19 / ₹130.34. The two shipping values differ by ₹0.85: a documented spec-vs-arithmetic conflict, so entries are estimates within about ₹1.</p>
+  ${S.mode === 'scenario' && !S.quoteValid ? `<button data-action="requote" class="primary">Re-capture quotes (demo assumption: same values, new version)</button>` : ''}
+  <p class="muted">The historical panel already suggested ₹189. PriceCompass did not discover it; it adds the economics, the cash cap and the HOLD when evidence is missing.</p>`;
+}
+
+function economicsView(e) {
+  const k = S.mix;
+  const rows = e.rows.map(r => r.econ ? `<tr><td>${inr(r.buyer)} → ${inr(r.transfer)}</td><td>${inr(r.econ.kept)}</td><td>${inr(r.econ.rto)}</td><td>${inr(r.econ.ret)}</td><td><b>${inr(r.econ.expected)}</b></td><td>C ≤ ${inr(r.ceiling.minimum)}</td><td>${r.passes ? '✓' : '✕'}${S.mode === 'scenario' && e.cmp.n && !r.supported ? ' · unsupported' : ''}</td></tr>`
+    : `<tr><td>${inr(r.buyer)} → ${inr(r.transfer)}</td><td colspan="4" class="muted">Cost private or blank: no profit figure</td><td>C ≤ ${r.ceiling ? inr(r.ceiling.minimum) : '–'}</td><td>–</td></tr>`).join('');
+  const st = e.stress ? `<h3>Labelled stress cases · expected ₹ per dispatch ${src('calc')}</h3><table class="grid"><thead><tr><th>What-if (not a confidence interval)</th>${S.quotes.map(q => `<th>${inr(q.buyer)}</th>`).join('')}</tr></thead><tbody>${e.stress.map(x => `<tr><td>${esc(x.label)}</td>${x.values.map(v => `<td class="${v < 0 ? 'neg' : ''}">${inr(v)}</td>`).join('')}</tr>`).join('')}</tbody></table>` : '';
+  return `<h2>Outcome economics per dispatch</h2><p class="lead">Kept ${pct(k.k)} · RTO ${pct(k.r)} · return ${pct(k.q)} ${src(k.source === 'blended' ? 'calc' : 'assumed')} · reverse fee ${inr(S.fees.R)} ${src('panelFee')} · no RTO fee · damaged share of returns ${pct(S.fees.delta)}</p>
+  <table class="grid"><thead><tr><th>Candidate</th><th>Kept</th><th>Intact RTO</th><th>Return</th><th>Expected m</th><th>Cost ceiling</th><th>Passes</th></tr></thead><tbody>${rows}</tbody></table>
+  <p class="formula">m = k(T − C) − o − qR − qδC · ceiling C ≤ (kT − o − qR − g) ÷ (k + qδ) · minimum g = ${inr(S.seller.g)} per ${S.seller.denominator === 'kept' ? 'kept order' : 'expected dispatch'}</p>
+  <div class="row">${[['k', 'Kept %'], ['r', 'RTO %'], ['q', 'Return %']].map(([key, l]) => `<label class="field">${l}<input type="number" data-mix="${key}" value="${M.r2(S.mix[key])}" step="any" min="0"></label>`).join('')}
+  <label class="field">Reverse fee R (₹)<input type="number" id="in-R" value="${S.fees.R ?? ''}" min="0"></label><label class="field">Damaged share of returns (%)<input type="number" id="in-d" value="${S.fees.delta}" min="0" max="100"></label></div>
+  ${st}${e.choice && e.alternative ? `<p class="callout">Demand threshold: ${inr(e.choice.buyer)} needs more than <b>${(e.alternative.econ.expected / e.choice.econ.expected).toFixed(5)}×</b> the mature dispatches of ${inr(e.alternative.buyer)}; ${inr(e.alternative.buyer)} wins while its volume stays above <b>${(e.choice.econ.expected / e.alternative.econ.expected * 100).toFixed(3)}%</b> of ${inr(e.choice.buyer)}'s. Same mix at both prices is an assumption, not learned demand.</p>` : ''}`;
+}
+
+function constraintsView(e) {
+  const p = e.proc, s = S.seller;
+  const body = p.known ? `<div class="kpis"><div><b>${inr(p.funding.perNew)}</b><span>funding per new unit = ${inr(S.costs.C)} purchase + ${inr(S.costs.o)} outside + ${inr(p.funding.reserve)} reserve</span></div>
+    <div><b>${p.units} units</b><span>seller cap ${s.cap}: a limit on exposure, not a sales forecast (${p.affordableMax} would fit the cash)</span></div>
+    <div><b>${inr(p.need)}</b><span>cash to keep available; ${inr(p.reserveHeld)} of it is reserve held, not an expense</span></div></div>
+    <p class="callout ${p.blocked ? 'bad' : ''}">${esc(p.reason)}${p.fallback ? ` Option: shrink to ${p.fallback.units} units (${inr(p.fallback.need)}).` : p.blocked ? ' No smaller batch satisfies the MOQ: renegotiate MOQ, add cash, or hold.' : ''}</p>`
+    : `<p class="callout bad">${esc(p.reason)}</p>`;
+  return `<h2>Cash, inventory, MOQ and exposure cap</h2><p class="lead">A price can pass while procurement fails. Reserve = ${s.reservePct}% × reverse fee, rounded down: a stress policy held as cash, never booked as a cost.</p>${body}
+  <div class="row"><label class="field">Available cash (₹)<input type="number" id="in-cash" value="${s.cash ?? ''}" min="0"></label><label class="field">Owned units<input type="number" id="in-owned" value="${s.owned}" min="0" step="1"></label>
+  <label class="field">Seller cap (units)<input type="number" id="in-cap" value="${s.cap}" min="1" step="1"></label><label class="field">Supplier MOQ<input type="number" id="in-moq" value="${s.moq}" min="0" step="1"></label></div>
+  <p class="muted">Sources: ₹1,000 cash, cap 9 and MOQ 1 are worked-example assumptions ${src('assumed')}. Supplier MOQ is an evidence gap.</p>`;
+}
+
+function decisionView(e) {
+  const c = e.choice, a = e.alternative, p = e.proc;
+  const sens = e.sensitive ? e.sensitive[0] : null;
+  const cell = (l, v, s = '') => `<div class="dc"><span>${l}</span><b>${v}</b>${s ? `<small>${s}</small>` : ''}</div>`;
+  const stress = e.stress && c ? e.stress.slice(1).map(x => `${esc(x.label)}: ${inr(x.values[S.quotes.findIndex(q => q.buyer === c.buyer)])}`).join(' · ') : '';
+  return `<h2>Decision card · ${esc(S.product.sku)} v${S.product.version}</h2>
+  <div class="card ${e.status === 'READY FOR YOUR APPROVAL' ? 'ok' : e.status === 'HOLD' ? 'hold' : 'warn'}"><div class="cardhead"><b>${esc(e.status)}</b><span>Objective: ${S.seller.objective === 'earnings' ? 'earnings per order' : 'competitive start'} · minimum ${inr(S.seller.g)} per ${S.seller.denominator === 'kept' ? 'kept order' : 'expected dispatch'}</span></div>
+  ${c ? `<div class="dgrid">${cell('Enter', inr(c.entry), 'estimate ' + inr(c.entryEstimate))}${cell('Buyer pays', inr(c.buyer), 'historical panel')}${cell('Kept-order transfer', inr(c.transfer), 'historical panel')}
+  ${cell('Expected contribution', inr(c.econ.expected) + ' / dispatch', 'base case; scenario inputs')}${cell('Quantity', p.known && !p.blocked ? p.units + ' units (cap)' : 'blocked', 'cap is not a forecast')}${cell('Cash to keep available', p.known ? inr(p.need) : '–', p.known ? 'incl. ' + inr(p.reserveHeld) + ' reserve, not an expense' : '')}
+  ${cell('Most sensitive assumption', sens ? esc(sens.name) : '–', sens ? esc(sens.text) : '')}${cell('Alternative', a ? inr(a.buyer) + ' → ' + inr(a.econ.expected) : 'none supported', a ? 'earnings per order' : '')}${cell('Review trigger', '9 closed or day 30', 'early: reverse charge > ₹153, damaged return, peer below ₹189, cost > ' + inr(c.ceiling.minimum))}</div>
+  <p class="stress"><b>Stress cases:</b> ${stress}</p>` : `<p>No eligible candidate.</p>`}
+  ${e.reasons.length ? `<ul class="reasons">${e.reasons.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
+  <div class="actions"><button class="primary" data-action="approve" ${['READY FOR YOUR APPROVAL', 'WEAK-EVIDENCE TEST'].includes(e.status) ? '' : 'disabled'}>Approve test</button>
+  <button data-action="alt" ${a ? '' : 'disabled'}>Switch to alternative</button><button data-action="edit">Edit price</button><button data-action="hold">Hold</button></div>
+  <p class="muted">Approving saves a dated snapshot only. No listing edit, purchase or dispatch happens. The seller owns the price.</p></div>
+  ${noteMsg ? `<p class="callout">${noteMsg}</p>` : ''}
+  <h3>Snapshots</h3>${S.snapshots.length ? `<table class="grid"><thead><tr><th>#</th><th>Action</th><th>Status then</th><th>Choice</th><th>Versions</th><th>State now</th></tr></thead><tbody>${S.snapshots.map(x => `<tr><td>${x.id}</td><td>${esc(x.action)}</td><td>${esc(x.status)}</td><td>${x.choice ? inr(x.choice.buyer) + ' · ' + inr(x.choice.expected) : '–'}</td><td class="muted">${Object.entries(x.versions).map(([k, v]) => k[0] + v).join(' ')}</td><td class="${x.state === 'Current' ? '' : 'neg'}">${esc(x.state)}${x.why ? ': ' + esc(x.why) : ''}</td></tr>`).join('')}</tbody></table>` : '<p class="muted">No snapshot yet.</p>'}`;
+}
+
+function reviewView() {
+  const L = M.ledger(P.COHORT, S);
+  const u = review || M.update(S, L, K);
+  const e2 = M.evaluate(u.next), d = M.nextDecision(u.next, L, e2);
+  const st = { kept: 'Kept', rto: 'RTO (refused)', return: 'Customer return', pending: 'Pending' };
+  const b = u.before, a = u.after;
+  const row = (l, x, y, f) => `<tr class="${M.r2(x) !== M.r2(y) ? 'chg' : ''}"><td>${l}</td><td>${f(x)}</td><td>${f(y)}</td></tr>`;
+  return `<h2>Review and learn · same SKU, version 1, launched at ${inr(189)}</h2><p class="lead">${src('synthetic')} Nine labelled test dispatches to exercise the loop. They are not observed Meesho orders.</p>
+  <table class="grid"><thead><tr><th>Dispatch</th><th>Outcome</th><th>Settlement</th><th>Reverse charge</th><th>Stock</th><th>Contribution</th><th>Cash</th></tr></thead><tbody>${L.rows.map(x => `<tr><td>${x.id}</td><td>${st[x.status]}</td><td>${x.settled === null ? 'not settled' : inr(x.settled)}</td><td>${x.reverse === null ? '–' : inr(x.reverse)}</td><td>${esc(x.stock)}</td><td>${x.contribution === null ? 'open' : inr(x.contribution)}</td><td>${inr(x.cash)}</td></tr>`).join('')}</tbody></table>
+  <div class="kpis"><div><b>${inr(L.contribution)}</b><span>closed contribution (${L.closed} closed)</span></div><div><b>${inr(L.cash)}</b><span>net cash so far (bank ${inr(S.seller.cash)} → ${inr(S.seller.cash + L.cash)})</span></div><div><b>${L.intactUnits} units · ${inr(L.inventoryValue)}</b><span>recoverable stock at cost, not cash</span></div><div><b>${L.pending}</b><span>pending: not a sale, not a loss</span></div></div>
+  <p class="formula">Closed cash ${inr(L.contribution - L.inventoryValue)} + recovered stock ${inr(L.inventoryValue)} = contribution ${inr(L.contribution)}. Settlements ${inr(L.settlements)}; reverse charges ${inr(L.reverseCharges)} (counted once, on the return only).</p>
+  <h3>Inputs before → after</h3><label class="field inline">Prior weight K (pseudo-dispatches) <input type="number" id="in-K" value="${K}" min="1" step="1"> <span class="tag miss">uncalibrated</span></label>
+  <table class="grid narrow"><thead><tr><th>Input</th><th>Before</th><th>After</th></tr></thead><tbody>${row('Kept %', b.k, a.k, pct)}${row('RTO %', b.r, a.r, pct)}${row('Return %', b.q, a.q, pct)}${row('Reverse fee R', b.R, a.R, inr)}${row('Damaged share of returns', b.delta, a.delta, pct)}${row('Reserve per unit', b.reserve, a.reserve, inr)}</tbody></table>
+  <p class="formula">Blend: (K × prior + closed count) ÷ (K + ${L.closed}). With K = ${K}: kept (${K} × ${b.k}% + ${L.kept}) ÷ ${K + L.closed} = ${pct(a.k)}. R takes the charge actually debited. K is not fitted to any data.</p>
+  <h3>Recalculated economics</h3><table class="grid narrow"><thead><tr><th>Candidate</th><th>Before</th><th>After</th><th>Cost ceiling after</th></tr></thead><tbody>${e2.rows.map((r, i) => `<tr><td>${inr(r.buyer)}</td><td>${inr2(ev().rows[i].econ ? ev().rows[i].econ.expected : null)}</td><td><b>${inr2(r.econ.expected)}</b></td><td>C ≤ ${inr(r.ceiling.minimum)}</td></tr>`).join('')}</tbody></table>
+  <div class="card ok"><div class="cardhead"><b>Next decision</b><span>seller approves or holds</span></div><p>${esc(d.price)}</p><p>${esc(d.stock)}</p></div>
+  <button class="primary" data-action="apply">Apply the update as version ${S.versions.outcomes + 1} inputs</button>`;
+}
+
+function render() {
+  const e = ev();
+  $('strip').innerHTML = strip(e);
+  $('banner').innerHTML = banner(e);
+  $('change').innerHTML = changeBox();
+  const view = { product: productView, alternatives: alternativesView, quotes: quotesView, economics: economicsView, constraints: constraintsView, decision: decisionView, review: reviewView }[step];
+  $('main').innerHTML = view(e);
+  $('log').innerHTML = S.log.length ? S.log.slice(0, 8).map(x => `<li><b>${esc(x.area)}</b> v${S.versions[x.area]} · ${esc(x.reason)} · quotes ${x.quotes} · ${x.snapshots} snapshot(s) to review</li>`).join('') : '<li class="muted">No changes yet.</li>';
+  document.querySelectorAll('[data-mode]').forEach(b => b.classList.toggle('on', b.dataset.mode === S.mode));
+}
+
+/* Before/after explanation for any change. */
+function explain(title, before, after, extra) {
+  const lines = [];
+  const pick = e => e.choice ? `${inr(e.choice.buyer)} (${inr(e.choice.econ.expected)} / dispatch)` : 'none';
+  if (before.status !== after.status) lines.push(`Status: ${esc(before.status)} → <b>${esc(after.status)}</b>`);
+  if (pick(before) !== pick(after)) lines.push(`Choice: ${pick(before)} → <b>${pick(after)}</b>`);
+  const alt = e => e.alternative ? inr(e.alternative.buyer) : 'none';
+  if (alt(before) !== alt(after)) lines.push(`Alternative: ${alt(before)} → <b>${alt(after)}</b>`);
+  after.rows.forEach((r, i) => { const x = before.rows[i]; if (r.econ && x.econ && M.r2(r.econ.expected) !== M.r2(x.econ.expected)) lines.push(`${inr(r.buyer)} expected: ${inr(x.econ.expected)} → <b>${inr(r.econ.expected)}</b>; cost ceiling ${inr(x.ceiling.minimum)} → ${inr(r.ceiling.minimum)}`); });
+  if (before.proc.need !== after.proc.need || before.proc.blocked !== after.proc.blocked) lines.push(`Cash to keep available: ${inr(before.proc.need)} → <b>${after.proc.known ? inr(after.proc.need) : 'unverified'}</b>${after.proc.blocked ? ' · procurement blocked' : ''}`);
+  if (before.cmp.n !== after.cmp.n) lines.push(`Qualified alternatives: ${before.cmp.n} → <b>${after.cmp.n}</b> (range ${after.cmp.n ? inr(after.cmp.min) + '–' + inr(after.cmp.max) : 'none'})`);
+  (extra || []).forEach(x => lines.push(x));
+  if (!lines.length) lines.push('No decision value changed.');
+  lastChange = { title, lines };
+}
+
+function apply(area, reason, mutate, extraFn) {
+  const before = ev();
+  const r = M.change(S, area, reason, mutate);
+  const after = ev();
+  const extra = [`Quotes: ${r.quoteHit ? '<b>invalidated</b> (product or weight changed what is shipped)' : 'still valid (this change does not alter entry → buyer → transfer)'}`,
+    `Snapshots needing review: ${r.invalidated}`].concat(extraFn ? extraFn(after) : []);
+  explain(reason, before, after, extra);
+  review = null; noteMsg = '';
+  render();
+}
+
+const DEMOS = {
+  comparable: () => { S.mode = 'scenario'; const i = S.register.findIndex(x => x.id === 'M3'); if (S.register[i].status === 'accepted') apply('comparables', 'Comparable M3 ₹210 fails re-check (spec table shows CAT6)', s => { s.register[i].status = 'excluded'; s.register[i].reason = 'Failed re-check: CAT6 in spec table'; }, () => ['₹210 is now priced above every qualified alternative, so it is unsupported. ₹189 stays the competitive start; the comparable range is not willingness to pay.']); step = 'alternatives'; render(); },
+  returns: () => { S.mode = 'scenario'; apply('fees', 'Reverse charge ₹165 and half of returns arrive damaged', s => { s.fees.R = 165; s.fees.delta = 50; }, () => ['Reserve rises to ₹33 per unit (20% × ₹165, rounded down): more cash held, not a cost.']); step = 'economics'; render(); },
+  cash: () => { S.mode = 'scenario'; apply('seller', 'Supplier MOQ 10 and only ₹700 cash', s => { s.seller.moq = 10; s.seller.cash = 700; }, () => ['The price still passes: procurement, not price, is blocked. Options: renegotiate MOQ, add cash, or hold.']); step = 'constraints'; render(); },
+  weight: () => { S.mode = 'scenario'; apply('product', 'Packed weight measured at 520 g (above the 500 g band)', s => { s.product.packedWeight = 520; s.product.packedWeightSource = 'measured'; s.fees.R = null; }, () => ['Return fee for the new band is unknown: no precise earnings until requoted.']); step = 'quotes'; render(); },
+  cost90: () => { S.mode = 'scenario'; apply('costs', 'Acquisition cost rises to ₹90', s => { s.costs.C = 90; }); step = 'decision'; render(); },
+  reset: () => { S = P.base(); step = 'product'; review = null; K = 20; lastChange = null; noteMsg = ''; render(); }
+};
+
+document.addEventListener('click', ev0 => {
+  const t = ev0.target.closest('button'); if (!t) return;
+  if (t.dataset.step) { step = t.dataset.step; render(); return; }
+  if (t.dataset.mode) { const before = ev(); S.mode = t.dataset.mode; explain('Evidence mode: ' + (S.mode === 'real' ? 'real record' : 'prototype scenario'), before, ev()); render(); return; }
+  if (t.dataset.demo) { DEMOS[t.dataset.demo](); return; }
+  if (t.dataset.fail) { const i = +t.dataset.fail; const id = S.register[i].id, price = S.register[i].price; apply('comparables', `Comparable ${id} ₹${price} fails re-check`, s => { s.register[i].status = 'excluded'; s.register[i].reason = 'Failed re-check'; }); return; }
+  const a = t.dataset.action; const e = ev();
+  if (a === 'approve') { M.snapshot(S, e, 'Approve ' + inr(e.choice.buyer)); noteMsg = 'Snapshot saved. Nothing was listed, bought or dispatched.'; render(); }
+  if (a === 'alt' && e.alternative) { const before = e; S.seller.objective = S.seller.objective === 'earnings' ? 'competitive' : 'earnings'; explain('Seller switched objective', before, ev()); render(); }
+  if (a === 'hold') { M.snapshot(S, e, 'Hold'); noteMsg = 'HOLD saved with its reasons.'; render(); }
+  if (a === 'edit') { noteMsg = 'A price of your own needs a fresh quote (entry → buyer → transfer) before any earnings are shown. Status stays HOLD for that price; no transfer is inferred.'; render(); }
+  if (a === 'requote') { const before = ev(); S.quoteValid = true; S.versions.quotes += 1; S.log.unshift({ area: 'quotes', reason: 'Quotes re-captured (demo assumption)', quotes: 'valid', snapshots: 0 }); explain('Quotes re-captured', before, ev()); render(); }
+  if (a === 'apply') { const L = M.ledger(P.COHORT, S); const u = M.update(S, L, K); const before = ev(); const snaps = S.snapshots; const log = S.log; S = u.next; S.snapshots = snaps; S.log = log;
+    S.snapshots.filter(x => x.state === 'Current').forEach(x => { x.state = 'Needs review'; x.why = 'Outcome update v' + S.versions.outcomes; });
+    S.log.unshift({ area: 'outcomes', reason: `Review applied with K = ${K} (uncalibrated)`, quotes: 'still valid', snapshots: snaps.length });
+    explain('Review applied to the same SKU', before, ev(), ['Price is not changed automatically.']); review = u; render(); }
+});
+
+document.addEventListener('change', ev0 => {
+  const t = ev0.target; const v = t.value === '' ? null : Number(t.value);
+  const map = {
+    'in-weight': ['product', 'Packed weight edited', s => { const crosses = (v > s.product.weightBand) !== (s.product.packedWeight > s.product.weightBand); s.product.packedWeight = v; s.product.packedWeightSource = 'measured'; if (crosses && v > s.product.weightBand) s.fees.R = null; }],
+    'in-C': ['costs', 'Acquisition cost edited', s => { s.costs.C = v; }],
+    'in-R': ['fees', 'Reverse fee edited', s => { s.fees.R = v; }],
+    'in-d': ['fees', 'Damaged share edited', s => { s.fees.delta = v; }],
+    'in-cash': ['seller', 'Available cash edited', s => { s.seller.cash = v; }],
+    'in-owned': ['seller', 'Owned units edited', s => { s.seller.owned = v; }],
+    'in-cap': ['seller', 'Seller cap edited', s => { s.seller.cap = v; }],
+    'in-moq': ['seller', 'Supplier MOQ edited', s => { s.seller.moq = v; }]
+  };
+  if (map[t.id]) { const [area, reason, f] = map[t.id]; apply(area, reason, f); return; }
+  if (t.dataset.mix) { apply('outcomes', 'Outcome mix edited', s => { s.mix[t.dataset.mix] = v; s.mix.source = 'assumed'; }); return; }
+  if (t.id === 'in-private') { apply('costs', t.checked ? 'Cost kept private' : 'Cost shared', s => { s.costs.private = t.checked; s.costs.C = t.checked ? null : 55; }); return; }
+  if (t.id === 'in-weak') { const before = ev(); S.weakAck = t.checked; explain('Weak-evidence acknowledgement', before, ev()); render(); return; }
+  if (t.id === 'in-K') { K = Math.max(1, Math.round(v || 20)); review = null; render(); }
+});
+
+window.PCJ = { getState: () => JSON.parse(JSON.stringify(S)), evaluate: () => M.evaluate(S), demo: n => DEMOS[n](), go: s => { step = s; render(); } };
+render();
+</script></body></html>
