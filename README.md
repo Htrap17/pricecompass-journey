@@ -1,19 +1,19 @@
-# PriceCompass Journey Prototype
+# PriceCompass prototype
 
-[Open the interactive Journey demo](https://Htrap17.github.io/pricecompass-journey/)
+[Open the prototype](https://htrap17.github.io/pricecompass-journey/)
 
-[Open the Workspace demo](https://Htrap17.github.io/pricecompass-journey/workspace.html)
+The current prototype has three seller screens: Product costs, Suggested price and Confirm your price. It supports shipping from the seller location or a warehouse, with fee details under More details.
 
-The Journey demo is the main presentation link. Both demos are self-contained browser files and can also be opened offline.
+[Download the complete current project](PriceCompass_Warehouse_Fulfilment.zip)
 
-## Full project
+## Calculation assumptions
 
-Download and extract `PriceCompass_Journey_Prototype.zip` for the original source, documentation, screenshots and tests.
+Forward shipping defaults to half the listed reverse fee, clearly labelled as a demo assumption. Listed courier and warehouse delivery handling fees receive 18% GST. Customer returns use reverse shipping plus GST only, without added warehouse handling. A seller-supplied panel payout and total return charge are used directly without further deductions.
 
-## Validation
+The catalogue, comparison prices, costs used by Try sample values and order outcome rates are demonstration inputs. The supplied rate card is not verified as a current official tariff. Saved choices stay in memory and do not update a Meesho listing. There is no live Meesho connection or automatic stock purchase.
 
-Both calculation test suites passed: 21 Journey checks and 21 Workspace checks.
+## Verification
 
-## Prototype boundaries
+91 calculation checks passed. The seller screens and warehouse fee examples were checked on desktop and a 390px phone, including keyboard use, live price updates and stale confirmation. The full project includes source, rate notes, test results and screenshots. Direct offline file opening remains a manual check.
 
-No Meesho connection. No listing edits or purchases. Scenario inputs and the review cohort are assumptions or synthetic data; no adoption or uplift is claimed.
+The older supplementary workspace and original project archive remain available as historical material.

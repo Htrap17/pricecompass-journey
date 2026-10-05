@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PriceCompass · One-SKU journey</title><style>:root{--plum:#500B47;--pink:#D61F69;--teal:#0E7490;--green:#15803D;--orange:#C2410C;--amber:#B45309;--ink:#231020;--muted:#6B5A68;--line:#E3D6DF;--tint:#F8F4F7;--bg:#FBF8FA}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PriceCompass | Choose your price</title><style>:root{--plum:#500B47;--pink:#D61F69;--teal:#0E7490;--green:#15803D;--orange:#C2410C;--amber:#B45309;--ink:#231020;--muted:#6B5A68;--line:#E3D6DF;--tint:#F8F4F7;--bg:#FBF8FA}
 *{box-sizing:border-box}body{margin:0;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);display:flex;min-height:100vh}
 .side{width:250px;flex:none;background:var(--plum);color:#fff;padding:18px 14px;display:flex;flex-direction:column;gap:12px}
 .brand{font-weight:800;font-size:19px}.sub{font-size:10px;letter-spacing:.12em;opacity:.75}.sku{background:rgba(255,255,255,.1);border-radius:8px;padding:8px}.sku b,.sku span{display:block}.sku span{font-size:12px;opacity:.85}
@@ -25,8 +25,23 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
 .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.dc{background:var(--tint);border-radius:8px;padding:8px 10px}.dc span{display:block;font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase}.dc b{display:block;font-size:18px;color:var(--plum)}.dc small{color:var(--muted)}
 .stress{font-size:12.5px}.reasons{color:var(--orange);font-size:13px}.actions{display:flex;gap:8px;margin-top:8px}
 @media print{.side{display:none}}
+/* Submission revision: decision first, progressive detail and responsive navigation. */
+body{font-size:15px;line-height:1.55}.side{width:250px;position:sticky;top:0;height:100vh;overflow-y:auto;padding:24px 16px}.side #sidebar-tools{min-height:100%;display:flex;flex-direction:column;gap:16px}.menu-toggle{display:none}.wrap{max-width:1450px;padding:30px 32px 48px}h1{font-size:clamp(24px,3vw,36px);line-height:1.16;letter-spacing:-.035em;margin:4px 0 12px;color:var(--plum)}h2{font-size:clamp(21px,2.2vw,28px);line-height:1.25}h3{font-size:16px}.intro{display:flex;align-items:center;gap:28px;margin-bottom:26px}.intro>div:first-child{flex:1}.intro p:not(.eyebrow){color:var(--muted);max-width:720px;margin:0}.eyebrow{font-size:10px;letter-spacing:.13em;font-weight:800;color:var(--muted);margin:0 0 8px}.intro-actions{display:flex;flex-direction:column;gap:8px;flex:none}.intro-actions button,main button,#step-nav button{border:1px solid var(--plum);background:#fff;color:var(--plum);border-radius:8px;padding:9px 12px;font:600 13px/1.35 Arial,sans-serif;cursor:pointer}.intro-actions button.primary,main button.primary{background:var(--plum);color:#fff}.strip{gap:6px;overflow-x:auto;padding-bottom:8px}.strip li{min-width:110px}.strip li.arr{display:none}.strip button{padding:10px;height:100%;min-height:70px}.strip button b{font-size:12px}.strip button span{font-size:11px;margin-top:5px}.mode{font-size:12px;line-height:1.5;display:block;padding:12px 16px;margin-bottom:18px}.mode>b{display:block;font-size:10px;letter-spacing:.08em;margin-bottom:5px}.mode .status{display:none}.mode.real .status{display:inline-block;margin-top:8px}.change{font-size:13px}.change ul{padding-left:20px}main{padding:26px;border-radius:16px;box-shadow:0 4px 20px #500b4706;min-width:0}.decision-heading{margin-bottom:18px}.decision-heading h2{max-width:800px;margin-bottom:12px}.decision-status{display:inline-flex;border-radius:99px;padding:5px 12px;font-size:11px;font-weight:800;letter-spacing:.04em}.decision-status.good{color:#166534;background:#DCFCE7}.decision-status.warning{color:#9A3412;background:#FFEDD5}.card{padding:20px;border-width:1px}.card.ok{border-color:#A7CFB1}.card.hold,.card.warn{border-color:#F1BD97}.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.summary-grid .dc{padding:16px;background:#F8F4F7}.summary-grid .dc b{font-size:clamp(22px,2.4vw,32px);margin:6px 0;line-height:1.2;overflow-wrap:anywhere}.summary-grid .dc span{font-size:10px;letter-spacing:.06em}.summary-grid .dc small{font-size:12px;display:block}.recommendation{font-size:14px;margin:18px 0;color:var(--muted)}.quote-line{display:flex;flex-wrap:wrap;gap:8px 18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;font-size:13px}.quote-line b{color:var(--plum)}.alternative{font-size:13px;padding:12px;background:#EFF6F8;border-radius:8px}.review-trigger{font-size:13px}.actions{flex-wrap:wrap;margin-top:20px}.actions button{min-height:42px}details{border-top:1px solid var(--line);margin-top:20px;padding-top:14px}summary{font-size:13px;font-weight:700;color:var(--plum);cursor:pointer;padding:4px 0}details[open]>summary{margin-bottom:14px}.goal-controls{background:var(--tint);padding:16px;border-radius:12px;margin:24px 0}.goal-controls h3{margin:0}.goal-controls p{font-size:12px;margin-bottom:0}.field input,.field select{height:40px;padding:8px;border:1px solid #CAB8C5;border-radius:7px;font:14px Arial;max-width:100%}.field select{margin-top:3px;min-width:180px;color:var(--ink);background:#fff}.goal-controls .row{align-items:flex-start}.goal-controls .field{flex:1;min-width:160px}.goal-controls input,.goal-controls select{width:100%;min-width:0}.quote-editor{background:var(--tint);padding:18px;border-radius:10px;margin-top:16px}.quote-editor h3{margin-top:0}.quote-editor .primary{margin-top:12px}.table-scroll{width:100%;overflow-x:auto;overscroll-behavior-x:contain;margin:10px 0}.grid{margin:0;font-size:13px}.grid.narrow{min-width:460px}.grid th,.grid td{padding:10px;min-width:85px}.grid tbody th{white-space:normal}.kpis div{min-width:150px}.formula{overflow-wrap:anywhere}.reasons{padding-left:20px}.callout ul{padding-left:20px}.foot{margin-top:auto}#step-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:20px}#step-nav span{font-size:12px;color:var(--muted)}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,.table-scroll:focus-visible{outline:3px solid #0E7490;outline-offset:3px}button:disabled{opacity:.45;cursor:not-allowed}main:focus{outline:none}
+@media(min-width:1500px){.summary-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:1100px){.wrap{padding:22px}.intro{display:block}.intro-actions{flex-direction:row;flex-wrap:wrap;margin-top:16px}.strip li{min-width:130px}.side{width:220px}main{padding:20px}}
+@media(max-width:760px){body{display:block}.side{width:100%;height:auto;position:relative;padding:12px 16px}.menu-toggle{display:flex;width:100%;justify-content:space-between;align-items:center;border:0;background:transparent;color:#fff;font:700 16px Arial;padding:6px 0;cursor:pointer}.side #sidebar-tools{display:none;margin-top:14px}.side.expanded #sidebar-tools{display:flex}.side.expanded .group button{min-height:40px}.side .foot{margin:0}.wrap{padding:20px 16px 30px}.intro{margin-bottom:20px}.intro p:not(.eyebrow){font-size:13px}.intro-actions button{flex:1;min-width:140px}.strip li{min-width:140px}.strip{margin-bottom:6px}.mode{margin-bottom:14px}main{padding:16px}.card{padding:14px}.summary-grid{gap:8px}.summary-grid .dc{padding:12px}.summary-grid .dc b{font-size:23px}.summary-grid .dc small{font-size:11px}.quote-line{display:block}.quote-line span{display:block;margin:5px 0}.actions button{flex:1;min-width:120px}.goal-controls{padding:14px}.goal-controls .field{min-width:100%;flex-basis:100%}.row{gap:10px}.row .field{max-width:100%}.grid{min-width:540px}.grid.narrow{min-width:460px}.grid tbody th{white-space:normal}.kpis div{min-width:calc(50% - 10px)}.kpis b{font-size:19px}.field.inline{flex-wrap:wrap}.intro-actions{gap:8px}.change ul{overflow-wrap:anywhere}#step-nav button{font-size:12px;padding:9px;max-width:44%}#step-nav span{flex:none;font-size:11px}.formula{font-size:11px}.decision-status{font-size:10px}.decision-heading .eyebrow{font-size:9px}.table-scroll .grid{width:100%}}
+@media(max-width:360px){.summary-grid{grid-template-columns:1fr}.wrap{padding:16px 12px}.kpis div{min-width:100%}}
+@media print{.intro-actions,.side,#step-nav,.actions,.goal-controls{display:none}.wrap{padding:0}.strip{display:none}main{border:0;box-shadow:none}.table-scroll{overflow:visible}.card{break-inside:avoid}}
+.pricing-modes{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 22px}.pricing-modes button{flex:1;min-width:150px}.pricing-modes button.selected{background:var(--plum);color:#fff}.shipping-form{padding:20px;background:var(--tint);border-radius:12px;margin-bottom:24px}.shipping-form h3{margin-top:0}.shipping-form .field{flex:1;min-width:190px}.shipping-form input,.shipping-form select{width:100%;min-width:0}.shipping-form p{font-size:13px}.shipping-form button[type=submit]{margin-top:18px}.shipping-form .row{align-items:stretch}.shipping-result{border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0}.shipping-result-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.shipping-result-head h3{font-size:23px;margin:0;color:var(--plum)}.shipping-result .grid tbody th{min-width:180px}.shipping-sources{font-size:13px}.shipping-sources a{color:var(--teal);overflow-wrap:anywhere}.shipping-form .panel-quote{background:#fff;padding:16px;border:1px solid var(--line);border-radius:8px;margin-top:18px}.shipping-form #shipping-feedback{color:var(--orange)}
+@media(max-width:760px){.shipping-form{padding:14px}.shipping-form .field{min-width:100%}.shipping-result{padding:14px}.shipping-result-head h3{font-size:21px}.pricing-modes button{min-width:100%;flex-basis:100%}.shipping-form .check{align-items:flex-start}.shipping-form .check input{flex:none;width:auto;height:auto;margin-top:5px}}
+
+/* Submission clarity: evidence and actionable decisions. */
+.next-action,.payout-explanation,.evidence-summary{padding:18px;border:1px solid #d7c8df;border-radius:12px;margin:16px 0;background:#faf7fc}.next-action{border-left:4px solid #55174e;background:#fff9ed}.next-action h3,.payout-explanation h3,.evidence-summary h3{margin:0 0 8px}.evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.evidence-grid>div{padding:12px;border-radius:8px;background:white}.evidence-grid b,.evidence-grid span{display:block}.evidence-grid span{margin-top:5px;font-size:13px;line-height:1.5}.payout-explanation .formula{overflow-wrap:anywhere}@media(max-width:600px){.evidence-grid{grid-template-columns:1fr}.next-action,.payout-explanation,.evidence-summary{padding:14px}}
+
+/* Main seller flow */
+body{display:block}.seller-shell{max-width:980px;margin:auto;padding:24px 28px 40px}.seller-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.seller-header b{font-size:24px;color:var(--plum)}.seller-demo{font-size:13px;margin:0 0 20px;color:var(--muted)}.seller-progress{display:flex;list-style:none;margin:0 0 24px;padding:0;gap:10px}.seller-progress li{flex:1;min-width:0}.seller-progress button{display:flex;align-items:center;gap:9px;width:100%;text-align:left;padding:12px;background:white;border:1px solid var(--line);border-radius:10px;font-size:14px}.seller-progress span{background:var(--tint);border-radius:50%;width:26px;height:26px;display:grid;place-items:center;flex:none}.seller-progress [aria-current="step"] button{border-color:var(--plum);color:var(--plum);font-weight:700}.seller-progress [aria-current="step"] span{background:var(--plum);color:white}#seller-main{padding:28px}#seller-main h1{font-size:27px;line-height:1.25;margin:0 0 18px;color:var(--plum)}.catalogue-card{background:var(--tint);border:1px solid var(--line);border-radius:10px;padding:16px;margin:0 0 22px}.catalogue-card>b,.catalogue-card>span{display:block}.catalogue-card>div{display:flex;gap:24px;flex-wrap:wrap;margin:14px 0 8px}.catalogue-card small,.seller-small{color:var(--muted);font-size:13px}.seller-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:20px 0}.seller-field{display:flex;flex-direction:column;gap:8px;font-weight:600;min-width:0}.seller-field input,.seller-field select{width:100%;padding:11px;border:1px solid #bcacb8;border-radius:8px;font-size:16px;color:var(--ink);background:white}.seller-field small{font-weight:400;color:var(--muted);font-size:12px}.seller-actions{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 10px}.seller-shell button{min-height:42px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--plum);padding:9px 14px;font:600 14px -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;cursor:pointer}.seller-shell button:disabled{opacity:.5;cursor:not-allowed}.seller-shell .primary{background:var(--plum);color:white;border-color:var(--plum)}.seller-message{border-radius:8px;padding:12px;background:#f3edf4;margin:16px 0;color:var(--ink)}.seller-message:empty{display:none}.seller-message.bad{background:#fff0e6;color:#84320c}.seller-numbers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0 16px}.seller-numbers>div{padding:18px;background:var(--tint);border-radius:10px;min-width:0}.seller-numbers span,.seller-numbers b,.seller-numbers small{display:block}.seller-numbers span{font-size:13px;margin-bottom:9px}.seller-numbers b{font-size:21px;line-height:1.35;color:var(--plum);overflow-wrap:anywhere}.seller-numbers small{font-size:12px;margin-top:10px;color:var(--muted)}.seller-price-control{display:grid;grid-template-columns:180px 1fr;align-items:start;gap:28px;background:var(--tint);padding:18px;border-radius:10px;margin:22px 0}.seller-price-control input[type="range"]{padding:0;min-height:42px;accent-color:var(--plum)}.seller-target{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.seller-shell .text-button{min-height:36px;border:0;background:transparent;text-decoration:underline;color:var(--plum);padding:0 4px}.seller-panel,.seller-save{padding:18px;border:1px solid var(--line);border-radius:10px;margin-top:24px}.seller-panel .seller-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.seller-check{display:flex;gap:10px;align-items:start;margin:20px 0}.seller-check input{margin-top:4px}.seller-more{margin:20px 0}.seller-more>summary{padding:14px;background:white;border:1px solid var(--line);border-radius:10px;font-weight:600;cursor:pointer}.seller-more #seller-advanced{padding:6px 12px}.seller-more details{margin:16px 0}.seller-more summary{cursor:pointer}.seller-footer{font-size:12px;color:var(--muted);margin-top:24px}.legacy-workspace .side{width:auto;padding:16px;border-radius:12px}.legacy-workspace #sidebar-tools{display:block!important}.legacy-workspace .menu-toggle,.legacy-workspace .intro{display:none!important}.legacy-workspace .group{margin-top:12px}.legacy-workspace .wrap{padding:16px 0}.historical-details{border-top:1px solid var(--line);padding:16px 12px}.seller-shell :focus-visible{outline:3px solid var(--teal);outline-offset:3px}@media(max-width:650px){.seller-shell{padding:16px 12px 24px}#seller-main{padding:20px 16px}#seller-main h1{font-size:24px}.seller-progress{gap:6px}.seller-progress button{flex-direction:column;align-items:start;padding:9px 7px;font-size:12px;min-height:78px}.seller-fields,.seller-numbers{grid-template-columns:1fr}.seller-price-control{grid-template-columns:1fr;gap:18px}.seller-panel .seller-fields{grid-template-columns:1fr}.catalogue-card>div{gap:10px}.seller-numbers b{font-size:24px}.seller-actions button{flex:1}.legacy-workspace .side{position:static;max-height:none;overflow:visible}.legacy-workspace .wrap{margin:0}.seller-fields{gap:16px}}
 </style></head>
-<body><aside class="side"><div class="brand">◈ PriceCompass</div><div class="sub">ONE-SKU DECISION JOURNEY</div>
+<body><div id="seller-shell" class="seller-shell"><header class="seller-header"><b>PriceCompass</b><button data-seller="reset">Start again</button></header><p class="seller-demo">Demo using a sample catalogue</p><nav aria-label="Price steps"><ol id="seller-progress" class="seller-progress"></ol></nav><main id="seller-main" tabindex="-1"></main><details id="seller-more" class="seller-more"><summary>More details</summary><div id="seller-advanced"></div><details class="historical-details"><summary>Historical demonstrations</summary><p>These are separate examples. They do not change your price choice above.</p><div id="legacy-workspace" class="legacy-workspace"><aside class="side"><button class="menu-toggle" aria-label="Demo menu" aria-expanded="false" aria-controls="sidebar-tools">◈ PriceCompass <span>☰</span></button><div id="sidebar-tools"><div class="brand">◈ PriceCompass</div><div class="sub">ONE-SKU DECISION JOURNEY</div>
 <div class="sku"><b>PC-CABLE-5M · v1</b><span>CAT5e patch cable, 5 m, white, pack of 1</span></div>
 <div class="group"><h4>Evidence mode</h4><button data-mode="real">Real record</button><button data-mode="scenario">Prototype scenario</button></div>
 <div class="group"><h4>Cause and effect demos</h4>
@@ -35,11 +50,158 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
 <button data-demo="cash">3 · Cash and MOQ block buying</button>
 <button data-demo="weight">+ Packed weight crosses band</button>
 <button data-demo="cost90">+ Acquisition cost ₹90</button>
+<button data-action="open-shipping">Estimate shipping and payout</button>
 <button data-demo="reset" class="reset">Reset everything</button></div>
 <div class="group"><h4>Change log</h4><ul id="log" class="log"></ul></div>
-<p class="foot">Offline. In-memory only. No Meesho connection, no listing edits, no purchases. The seller owns the price.</p></aside>
-<div class="wrap"><nav id="strip" aria-label="Journey"></nav><div id="banner"></div><div id="change"></div><main id="main"></main></div>
-<script>/* PriceCompass one-SKU journey: the decision record for SKU PC-CABLE-5M, version 1.
+<p class="foot">Offline. In-memory only. No Meesho connection, no listing edits, no purchases. The seller owns the price.</p></div></aside>
+<div class="wrap"><header class="intro"><div><p class="eyebrow">A FIRST PRICE. A LIMITED BATCH. A CLEAR REVIEW.</p><h1>Estimate your payout. Check what you can earn.</h1><p>Start with parcel weight and delivery zone. Check earnings after returns and the cash needed for a limited test.</p></div><div class="intro-actions"><button class="primary" data-step="decision">Check earnings and decision</button><button data-action="real-hold">Review missing seller evidence</button></div></header><nav id="strip" aria-label="Journey"></nav><div id="banner"></div><div id="change"></div><main id="main" tabindex="-1"></main><nav id="step-nav" aria-label="Step navigation"></nav></div>
+</div></details></details><footer class="seller-footer">Your choice is saved only in this session. No Meesho connection or listing changes.</footer></div><script>/* Bundled indicative observations, not an official Meesho tariff. No network calls. */
+(function(root){
+ 'use strict';
+ const sources = {
+  ecomarray: {name:'EcomArray · indicative observations',url:'https://www.ecomarray.com/what-are-the-shipping-charges-for-sellers-on-meesho',published:'2025-12-02',retrieved:'2026-10-05'},
+  shiprocket: {name:'Shiprocket · reproduces seller-reported observations',url:'https://www.shiprocket.in/blog/meesho-shipping-charges/',published:'2026-02-17',retrieved:'2026-10-05'},
+  rto: {name:'Meesho shipping policy · no additional RTO shipping fee',url:'https://supplier.meesho.com/shipping',published:null,retrieved:'2026-10-05'}
+ };
+ const cards = [
+  {max:500,local:[35,45],regional:[45,70],national:[55,90]},
+  {max:1000,local:[50,70],regional:[65,95],national:[80,120]},
+  {max:1500,local:[60,85],regional:[80,120],national:[100,150]},
+  {max:2000,local:[70,95],regional:[95,135],national:[120,170]}
+ ];
+ const carriers = {valmo:[153,163,169,184],ecom:[165,175,181,196],shadowfax:[162,172,178,192],delhivery:[161,203,244,290],xpressbees:[155,165,171,186]};
+ const supplied = {
+  source:{name:'Seller-supplied screenshot',url:null,published:null,retrieved:'2026-10-05',taxBasis:'GST exclusive, confirmed by seller',returnCoverage:'Reverse shipping only, confirmed by seller'},
+  bands:[500,1000,1500,2000,2500],
+  self:{valmo:[153,163,169,184,202],xpressbees:[155,165,171,186,204],shadowfax:[162,172,178,192,210],delhivery:[161,203,244,290,340],ecom:[165,175,181,196,213]},
+  warehouse:{valmo:[145,155,161,176,194],xpressbees:[147,157,163,178,196],shadowfax:[154,164,170,184,202],delhivery:[153,195,236,282,332],ecom:[157,167,173,188,205]},
+  handling:[
+   {max:150,local:4,national:15,returnHandling:12.75,oldInventory:7.5,reject:4},
+   {max:500,local:10,national:20,returnHandling:14,oldInventory:17,reject:11},
+   {max:1000,local:13.5,national:27,returnHandling:14.75,oldInventory:28,reject:17},
+   {max:2000,local:28,national:40,returnHandling:20.5,oldInventory:50,reject:30},
+   {max:null,local:38,national:67,returnHandling:20.5,oldInventory:104,reject:66}
+  ]
+ };
+ const carrierNames = {unknown:'Carrier not confirmed',valmo:'Valmo',ecom:'Ecom Express',shadowfax:'Shadowfax',delhivery:'Delhivery',xpressbees:'Xpressbees'};
+ const round=x=>Math.round((x+Number.EPSILON)*100)/100;
+ const amount=x=>typeof x==='number'&&Number.isFinite(x)&&x>=0;
+ const rangeOK=x=>Array.isArray(x)&&x.length===2&&x.every(amount)&&x[0]<=x[1];
+ function defaults(){return {mode:'historical',buyer:189,zone:'national',taxBasis:'exclusive',carrier:'unknown',returnTaxBasis:'unknown',panelWeight:null,other:0,rateSource:'ecomarray',manualForward:[null,null],manualReturn:[null,null],confirmed:null};}
+ function slab(weight){return typeof weight==='number'&&Number.isFinite(weight)&&weight>0?cards.findIndex(c=>weight<=c.max):-1;}
+ function tax(value,basis){
+  if(!amount(value)||!['exclusive','inclusive'].includes(basis))return null;
+  if(basis==='exclusive'){const gst=round(value*.18);return {base:round(value),gst,gross:round(value+gst)};}
+  const base=round(value/1.18);return {base,gst:round(value-base),gross:round(value)};
+ }
+ function taxes(values,basis){const endpoints=values.map(x=>tax(x,basis));return {base:endpoints.map(x=>x.base),gst:endpoints.map(x=>x.gst),gross:endpoints.map(x=>x.gross)};}
+ function context(s){const c=s.shipping||defaults();return JSON.stringify({weight:s.product.packedWeight,weightSource:s.product.packedWeightSource,panelWeight:c.panelWeight,fulfilment:s.product.fulfilment,buyer:c.buyer,zone:c.zone,taxBasis:c.taxBasis,carrier:c.carrier,returnTaxBasis:c.returnTaxBasis,other:c.other,rateSource:c.rateSource,manualForward:c.manualForward,manualReturn:c.manualReturn,feeProfile:c.feeProfile||'legacy',fulfilmentOption:c.fulfilment||'self',forwardMethod:c.forwardMethod||'published',warehouseDistance:c.warehouseDistance||'unknown',cardVersion:c.feeProfile==='supplied'?'seller-screenshot-2026-10-05':'observations-2026-10-05'});}
+ function calculate(s){
+  if(s.shipping?.feeProfile==='supplied')return calculateSupplied(s);
+  const c=s.shipping||defaults(),errs=[],weight=c.panelWeight===null?s.product.packedWeight:c.panelWeight;
+  if(typeof weight!=='number'||!Number.isFinite(weight)||weight<=0)errs.push('Enter a positive packed or panel chargeable weight.');
+  if(!amount(c.buyer)||c.buyer<=0)errs.push('Buyer total must be greater than zero.');
+  if(!amount(c.other))errs.push('Other deductions must be zero or more.');
+  if(!['local','regional','national'].includes(c.zone))errs.push('Choose a delivery zone.');
+  if(!['exclusive','inclusive'].includes(c.taxBasis))errs.push('Choose the forward-fee GST basis.');
+  if(!['unknown','exclusive','inclusive'].includes(c.returnTaxBasis))errs.push('Choose a return-fee GST basis.');
+  if(!Object.hasOwn(carrierNames,c.carrier))errs.push('Choose a return carrier.');
+  if(!['ecomarray','shiprocket','manual'].includes(c.rateSource))errs.push('Choose a rate source.');
+  const hardErrors=[...errs];
+  const index=slab(weight);let forward=null,reverse=null;
+  if(c.rateSource==='manual'){
+   if(!rangeOK(c.manualForward))errs.push('Enter a valid manual forward-fee range.');else forward=c.manualForward;
+  }else if(index<0){errs.push('No published band above 2 kg. Enter manual forward and return rates; no extrapolation.');}
+  else forward=cards[index][c.zone];
+  if(c.rateSource==='manual'){
+   if(!rangeOK(c.manualReturn))errs.push('Enter a valid manual return-fee range.');else reverse=c.manualReturn;
+  }else if(index>=0){const vals=c.carrier==='unknown'?Object.values(carriers).map(x=>x[index]):[carriers[c.carrier]?.[index]];if(vals.every(amount))reverse=[Math.min(...vals),Math.max(...vals)];}
+  const result={ok:false,errors:errs,mode:c.mode,weight,weightBasis:c.panelWeight===null?(s.product.packedWeightSource==='measured'?'Measured packed weight; panel slab not confirmed':'Scenario packed weight; enter your measured packed weight'):'Panel-assigned chargeable weight supplied',slab:index>=0?`${index===0?'0':cards[index-1].max}–${cards[index].max} g`:'Manual rates required',source:c.rateSource==='manual'?{name:'Manual scenario rates · not an official quote',url:null,published:null,retrieved:null}:sources[c.rateSource],returnSource:sources.ecomarray,rtoSource:sources.rto,rtoFee:0,other:c.other,buyer:c.buyer,confirmed:false,forward:null,returns:null,payout:null};
+  if(c.rateSource==='manual')result.returnSource=result.source;
+  if(!errs.length&&forward&&reverse){
+   result.forward=taxes(forward,c.taxBasis);
+   const alternatives=['inclusive','exclusive'].map(b=>({basis:b,...taxes(reverse,b)}));
+   const active=c.returnTaxBasis==='unknown'?alternatives:alternatives.filter(x=>x.basis===c.returnTaxBasis);
+   result.returns={listed:reverse,alternatives,taxBasis:c.returnTaxBasis,gross:[Math.min(...active.map(x=>x.gross[0])),Math.max(...active.map(x=>x.gross[1]))]};
+   result.payout=[round(c.buyer-result.forward.gross[1]-c.other),round(c.buyer-result.forward.gross[0]-c.other)];result.ok=true;
+  }
+  // A supplied payout is already net. Do not subtract forward fees or GST from it again.
+  if(c.mode==='confirmed'){
+   const quote=c.confirmed;
+   if(hardErrors.length){result.ok=false;}
+   else if(!quote){errs.push('Enter and confirm a supplier-panel payout and total return fee.');}
+   else if(quote.context!==context(s)){errs.push('Shipping context changed. Reconfirm the panel quote for this weight, zone and fee basis.');}
+   else if(!amount(quote.transfer)||quote.transfer>c.buyer||!amount(quote.returnGross)){errs.push('Confirmed payout and return fee are invalid.');}
+   else{
+    result.payout=[quote.transfer,quote.transfer];result.returns={listed:[quote.returnGross,quote.returnGross],taxBasis:'inclusive',alternatives:[],gross:[quote.returnGross,quote.returnGross]};result.confirmed=true;result.source={name:'Supplier-panel quote · manually confirmed by seller',url:null,published:quote.date,retrieved:quote.date};
+    // Missing online rates do not invalidate a complete, context-matched panel quote.
+    result.errors=[];result.ok=true;result.returnSource=result.source;if(index<0)result.slab='Outside bundled bands · panel quote used';
+   }
+   if(!result.confirmed){result.ok=false;result.payout=null;}
+  }
+  result.estimateStatus=result.confirmed?'seller-confirmed':!result.ok?'needs-input-or-revalidation':c.rateSource==='manual'?'manual-estimate':'indicative-estimate';
+  return result;
+ }
+ function calculateSupplied(s){
+  const c=s.shipping,errors=[],weight=c.panelWeight===null?s.product.packedWeight:c.panelWeight;
+  if(!Number.isFinite(weight)||weight<=0)errors.push('Enter a positive packed or panel chargeable weight.');
+  if(!amount(c.buyer)||c.buyer<=0)errors.push('Buyer total must be greater than zero.');
+  if(!amount(c.other))errors.push('Other deductions must be zero or more.');
+  if(!['self','warehouse'].includes(c.fulfilment))errors.push('Choose how you will ship this product.');
+  if(!['half-return','published','manual'].includes(c.forwardMethod))errors.push('Choose a shipping calculation method.');
+  if(!['local','regional','national'].includes(c.zone))errors.push('Choose a delivery zone.');
+  if(!['local','national','unknown'].includes(c.warehouseDistance))errors.push('Choose a warehouse distance.');
+  if(!Object.hasOwn(carrierNames,c.carrier))errors.push('Choose a return carrier.');
+  if(!['ecomarray','shiprocket','manual'].includes(c.rateSource))errors.push('Choose a rate source.');
+  if(c.taxBasis!=='exclusive'||c.returnTaxBasis!=='exclusive')errors.push('The supplied fees exclude GST. Add 18% GST.');
+  if(c.forwardMethod==='published'&&!['ecomarray','shiprocket'].includes(c.rateSource))errors.push('Choose a published forward-rate source.');
+  const hardErrors=[...errors],index=weight>0?supplied.bands.findIndex(max=>weight<=max):-1;
+  const handling=weight>0?supplied.handling.find(row=>row.max===null||weight<=row.max):null;
+  let reverse=null,forward=null;
+  if(c.forwardMethod==='manual'){
+   if(!rangeOK(c.manualForward))errors.push('Enter a valid manual forward-fee range.');else forward=c.manualForward;
+   if(!rangeOK(c.manualReturn))errors.push('Enter a valid manual return-fee range.');else reverse=c.manualReturn;
+  }else{
+   if(index<0)errors.push('For parcels above 2,500 g, enter shipping and return fees in More details.');
+   else if(Object.hasOwn(supplied,c.fulfilment)){
+    const table=supplied[c.fulfilment],values=c.carrier==='unknown'?Object.values(table).map(row=>row[index]):[table[c.carrier]?.[index]];
+    if(values.every(amount))reverse=[Math.min(...values),Math.max(...values)];
+   }
+   if(c.forwardMethod==='half-return'&&reverse)forward=reverse.map(x=>round(x/2));
+   if(c.forwardMethod==='published'){
+    if(c.fulfilment!=='self')errors.push('Published shipping estimates apply only to shipping from your location.');
+    const band=slab(weight);
+    if(band<0)errors.push('Published forward estimates stop at 2,000 g. Choose the demo formula or enter rates.');
+    else forward=cards[band][c.zone];
+   }
+  }
+  const result={ok:false,errors,mode:c.mode,weight,weightBasis:c.panelWeight===null?(s.product.packedWeightSource==='measured'?'Measured packed weight':'Sample catalogue weight'):'Panel chargeable weight',slab:index>=0?`${index===0?0:supplied.bands[index-1]} to ${supplied.bands[index]} g`:'Manual rates required',source:c.forwardMethod==='manual'?{name:'Manually entered fees excluding GST',url:null,published:null,retrieved:null}:c.forwardMethod==='published'?sources[c.rateSource]:supplied.source,returnSource:c.forwardMethod==='manual'?{name:'Manually entered reverse fee',url:null}:supplied.source,rtoSource:sources.rto,rtoFee:0,other:c.other,buyer:c.buyer,confirmed:false,forward:null,warehouse:null,returns:null,payout:null,fulfilment:c.fulfilment,forwardMethod:c.forwardMethod,assumption:c.forwardMethod==='half-return'?'Shipping uses a demo assumption: forward fee is half the listed reverse fee.':'',warehouseSource:supplied.source};
+  if(!errors.length&&forward&&reverse&&handling){
+   const w=c.fulfilment==='warehouse'?(c.warehouseDistance==='unknown'?[handling.local,handling.national]:[handling[c.warehouseDistance],handling[c.warehouseDistance]]):[0,0];
+   result.forward=taxes(forward,'exclusive');result.warehouse=taxes(w,'exclusive');
+   result.returns={listed:reverse,taxBasis:'exclusive',alternatives:[{basis:'exclusive',...taxes(reverse,'exclusive')}],...taxes(reverse,'exclusive')};
+   result.payout=[round(c.buyer-result.forward.gross[1]-result.warehouse.gross[1]-c.other),round(c.buyer-result.forward.gross[0]-result.warehouse.gross[0]-c.other)];result.ok=true;
+  }
+  if(c.mode==='confirmed'){
+   const quote=c.confirmed;
+   if(hardErrors.length)result.ok=false;
+   else if(!quote)errors.push('Enter and confirm the net payout and total return charge from Meesho.');
+   else if(quote.context!==context(s))errors.push('Your shipping details changed. Confirm the panel payout again.');
+   else if(!amount(quote.transfer)||quote.transfer>c.buyer||!amount(quote.returnGross))errors.push('Confirmed payout and return fee are invalid.');
+   else{
+    result.ok=true;result.errors=[];result.confirmed=true;result.payout=[quote.transfer,quote.transfer];
+    result.forward=null;result.warehouse=null;result.returns={listed:[quote.returnGross,quote.returnGross],gross:[quote.returnGross,quote.returnGross],taxBasis:'inclusive',alternatives:[]};
+    result.source={name:'Net panel payout supplied by seller',url:null,published:quote.date,retrieved:quote.date};result.returnSource=result.source;result.assumption='';
+   }
+   if(!result.confirmed){result.ok=false;result.payout=null;}
+  }
+  result.estimateStatus=result.confirmed?'seller-confirmed':!result.ok?'needs-input-or-revalidation':c.forwardMethod==='half-return'?'demo-assumption':c.forwardMethod==='manual'?'manual-estimate':'indicative-estimate';
+  return result;
+ }
+ const api={sources,supplied,cards,carriers,carrierNames,defaults,slab,tax,taxes,context,calculate,round};
+ if(typeof module!=='undefined')module.exports=api;else root.PCShipping=api;
+})(globalThis);
+</script><script>/* PriceCompass one-SKU journey: the decision record for SKU PC-CABLE-5M, version 1.
    Every value carries a provenance label. Nothing here is a live Meesho record. */
 (function (root) {
   'use strict';
@@ -56,6 +218,7 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
 
   function base() {
     return {
+      shipping: (typeof module !== 'undefined' ? require('./shipping.js') : PCShipping).defaults(),
       mode: 'scenario', // 'real' = only observed evidence; 'scenario' = labelled prototype assumptions
       weakAck: false,   // seller acknowledges a weak-evidence test when no comparable qualifies
       product: {
@@ -93,7 +256,8 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
         { id: 'M5', price: 169, status: 'excluded', reason: 'Wrong specification (CAT6)' },
         { id: 'M6', price: 190, status: 'excluded', reason: 'Unavailable' }
       ],
-      versions: { product: 1, comparables: 1, quotes: 1, fees: 1, costs: 1, seller: 1, outcomes: 1 },
+      versions: { product: 1, shipping: 1, comparables: 1, quotes: 1, fees: 1, costs: 1, seller: 1, outcomes: 1 },
+      reviewedCohorts: [],
       snapshots: [],
       log: []
     };
@@ -126,12 +290,16 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
    Seller output GST, input credit and TCS/TDS are not modelled: T is taken as the panel shows it. */
 (function (root) {
   'use strict';
+  const Shipping = typeof module !== 'undefined' ? require('./shipping.js') : root.PCShipping;
   const ok = x => typeof x === 'number' && Number.isFinite(x) && x >= 0;
   const r2 = x => Math.round(x * 100 + (x >= 0 ? 1e-6 : -1e-6)) / 100; // half away from zero, display rounding
   const shares = s => ({ k: s.mix.k / 100, r: s.mix.r / 100, q: s.mix.q / 100 });
 
   function errors(s) {
     const e = [];
+    if (!ok(s.seller.g)) e.push('Minimum earnings must be zero or more.');
+    if (!Number.isFinite(s.product.packedWeight) || s.product.packedWeight <= 0) e.push('Packed weight must be greater than zero.');
+    if (!ok(s.fees.rtoFee)) e.push('RTO fee is unknown.');
     if (!s.costs.private && !ok(s.costs.C)) e.push('Acquisition cost is blank: blank is unknown, not zero.');
     if (!ok(s.costs.o)) e.push('Outside cost per dispatch is blank.');
     if (!ok(s.fees.R)) e.push('Return (reverse) fee is unknown for this weight band.');
@@ -162,7 +330,7 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
     return { positive, minimum: Math.min(positive, minimum) };
   }
 
-  const reserve = s => Math.floor(s.fees.R * s.seller.reservePct / 100); // stress-policy funding held, not an expense
+  const reserve = s => (s.fees.reserveConservative ? Math.ceil : Math.floor)(s.fees.R * s.seller.reservePct / 100); // stress-policy funding held, not an expense
 
   function funding(s) {
     const res = reserve(s);
@@ -220,7 +388,7 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
       ['Every return unsellable (δ 100%)', { delta: 1 }],
       ['Acquisition cost rises to ₹90', { C: 90 }]
     ];
-    return cases.map(([label, over]) => ({ label, values: s.quotes.map(q => r2(perDispatch(s, q, over).expected)) }));
+    return cases.map(([label, over], i) => ({ label, scope: i === 5 ? 'Exploratory cost change' : 'Demo downside check', values: s.quotes.map(q => r2(perDispatch(s, q, over).expected)), passes: s.quotes.map(q => { const e = perDispatch(s, q, over); return e.expected > 0 && (s.seller.denominator === 'kept' ? e.kept : e.expected) >= s.seller.g; }) }));
   }
 
   function sensitivity(s, quote) {
@@ -236,14 +404,15 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
     return items;
   }
 
-  function evaluate(s) {
+  function evaluateBase(s) {
     const errs = errors(s);
     const cmp = comparables(s);
-    const costKnown = !s.costs.private && ok(s.costs.C);
+    const costKnown = s.mode === 'scenario' && !s.costs.private && ok(s.costs.C);
     const quoteOk = s.mode === 'scenario' && s.quoteValid;
     const rows = s.quotes.map(q => {
       const e = costKnown && !errs.length ? perDispatch(s, q) : null;
-      const ceil = !errs.length || s.costs.private ? ceiling(s, q) : null;
+      const ceilingReady = [s.costs.o, s.fees.R, s.fees.rtoFee, s.fees.delta, s.seller.g, s.mix.k, s.mix.r, s.mix.q].every(ok) && s.fees.delta <= 100 && Math.abs(s.mix.k + s.mix.r + s.mix.q - 100) < 1e-6 && (s.mix.k + s.mix.q * s.fees.delta / 100) > 0;
+      const ceil = s.mode === 'scenario' && ceilingReady ? ceiling(s, q) : null;
       const metric = e ? (s.seller.denominator === 'kept' ? e.kept : e.expected) : null;
       const passesMin = e ? metric >= s.seller.g : false;
       const positive = e ? e.expected > 0 : false;
@@ -256,7 +425,7 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
     const byEarn = [...passing].sort((a, b) => b.econ.expected - a.econ.expected);
     const choice = s.seller.objective === 'earnings' ? byEarn[0] || null : byBuyer[0] || null;
     const alternative = choice ? (s.seller.objective === 'earnings' ? byBuyer.find(x => x !== choice) : byEarn.find(x => x !== choice)) || null : null;
-    const proc = procurement(s);
+    const proc = s.mode === 'real' ? { known: false, blocked: true, reason: 'Real seller costs, cash and MOQ are not confirmed.' } : procurement(s);
     const reasons = [...errs];
     if (s.mode === 'real') {
       reasons.push('No current quote: the ₹189 / ₹96 and ₹210 / ₹116 pairs are ~1-year-old panel records.');
@@ -270,14 +439,59 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
       rows.filter(x => x.passes && cmp.evidence !== 'none' && !x.supported).forEach(x => reasons.push(`₹${x.buyer} is above every qualified alternative (max ₹${cmp.max}): unsupported.`));
       if (proc.blocked && costKnown) reasons.push('Procurement: ' + proc.reason);
     }
+    const stress = costKnown && !errs.length ? stressCases(s) : null;
+    const choiceIndex = choice ? s.quotes.findIndex(q => q.id === choice.id) : -1;
+    const downsideFailures = choiceIndex >= 0 && stress ? stress.slice(1, 5).filter(x => !x.passes[choiceIndex]) : [];
+    if (s.mode === 'scenario' && downsideFailures.length) reasons.push('Base case passes, but a demo downside check fails. Review the candidate, costs or exposure before approving.');
     let status;
     if (errs.length || s.mode === 'real' || !s.quoteValid || !costKnown || !choice || (cmp.evidence === 'none' && !s.weakAck)) status = 'HOLD';
     else if (proc.blocked) status = 'PRICE PASSES · PROCUREMENT HOLD';
+    else if (downsideFailures.length) status = 'ASSISTED REVIEW REQUIRED';
     else if (cmp.evidence === 'none') status = 'WEAK-EVIDENCE TEST';
     else status = 'READY FOR YOUR APPROVAL';
     return { rows, cmp, choice, alternative, proc, status, reasons, errors: errs,
-      stress: costKnown && !errs.length ? stressCases(s) : null,
+      stress, downsideFailures,
       sensitive: choice ? sensitivity(s, choice) : null };
+  }
+
+  function evaluate(s) {
+    if (!s.shipping || s.shipping.mode === 'historical') return evaluateBase(s);
+    const calc = Shipping.calculate(s);
+    const low = JSON.parse(JSON.stringify(s)), high = JSON.parse(JSON.stringify(s));
+    for (const [state, i] of [[low,0],[high,1]]) {
+      state.shipping.mode = 'historical';
+      state.fees.R = calc.ok ? calc.returns.gross[i === 0 ? 1 : 0] : null;
+      state.fees.Rrange = calc.ok ? calc.returns.gross : [null,null];
+      state.fees.rtoFee = 0; state.fees.reserveConservative = true;
+      state.quotes = [{id:'Qshipping', label:calc.confirmed ? 'Confirmed panel quote' : 'Online estimate', buyer:s.shipping.buyer, entry:calc.confirmed ? s.shipping.confirmed.entry : null, transfer:calc.ok ? calc.payout[i] : null, source:calc.confirmed ? 'confirmed' : 'estimate'}];
+      state.quoteValid = calc.ok;
+    }
+    const worst = evaluateBase(low), best = evaluateBase(high);
+    const originalStatus = worst.status, originalReasons = [...worst.reasons];
+    const e = worst, row = e.rows[0], upper = best.rows[0];
+    e.shipping = calc;
+    if (!calc.ok) e.proc = {known:false,blocked:true,reason:'Confirm shipping and return charges before calculating funding.'};
+    e.errors = [...new Set([...e.errors,...calc.errors])];
+    row.transferRange = calc.payout;
+    row.econRange = row.econ && upper.econ ? {expected:[row.econ.expected,upper.econ.expected],kept:[row.econ.kept,upper.econ.kept],ret:[row.econ.ret,upper.econ.ret]} : null;
+    e.choice = row.econ ? row : null; // Display the range even when it fails; never treat it as approval.
+    e.alternative = null;
+    e.reasons = [...e.errors];
+    const passes = r => r.econ && r.positive && r.passesMin;
+    const downsideOK = passes(row), upsideOK = passes(upper);
+    if(s.mode==='real'){e.status='HOLD';e.reasons.push('Online calculations cannot confirm the real seller costs or product record.');}
+    else if(!calc.ok || e.errors.length || !row.econ){e.status='Review shipping uncertainty';}
+    else if(!upsideOK){e.status='Repair economics';e.reasons.push('Even the favourable shipping endpoint fails positive contribution or your earnings minimum.');}
+    else if(!downsideOK){e.status='Review shipping uncertainty';e.reasons.push('Only part of the shipping/return range passes your earnings check. Confirm charges or repair the economics.');}
+    else if(e.proc.blocked){e.status=calc.confirmed?'PRICE PASSES · PROCUREMENT HOLD':'Review shipping uncertainty';e.reasons.push(e.proc.reason);}
+    else if(calc.confirmed){
+      e.status=originalStatus;
+      e.reasons=originalReasons;
+    }else{e.status='Estimate passes—confirm panel quote';e.reasons.push('This is a sourced estimate, not a current Meesho quote. Confirm the panel payout before approval.');}
+    if(calc.ok && e.cmp.n && !row.supported){e.reasons.push('Buyer price is above the qualified comparison range.');if(calc.confirmed)e.status='HOLD';}
+    if(calc.ok && !calc.confirmed && s.shipping.other===0)e.reasons.push('Other deductions are assumed zero; taxes on product sales and withholding are not reconciled here.');
+    if(calc.ok && !calc.confirmed && s.shipping.returnTaxBasis==='unknown')e.reasons.push('Return-fee tax basis is unconfirmed. The range includes GST-inclusive and GST-exclusive alternatives.');
+    return e;
   }
 
   /* Ledger for the review cohort: contribution, cash and inventory kept apart. */
@@ -321,6 +535,14 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
     return { K, before, after, next };
   }
 
+  /* Process each settled cohort once. Previewing does not consume evidence. */
+  function commitReview(s, L, K, cohortId) {
+    if ((s.reviewedCohorts || []).includes(cohortId)) return { applied: false, next: s };
+    const u = update(s, L, K);
+    u.next.reviewedCohorts = [...(s.reviewedCohorts || []), cohortId];
+    return Object.assign(u, { applied: true, cohortId });
+  }
+
   function nextDecision(s, L, ev) {
     const f = funding(s);
     const bank = s.seller.cash + L.cash;
@@ -329,11 +551,13 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
     const reorderUnits = Math.max(0, s.seller.cap - L.intactUnits);
     const reorder = reorderUnits * f.perNew + relist;
     const current = ev.rows.find(x => x.buyer === 189) || ev.rows[0];
-    const keepPrice = current && current.econ && current.econ.expected >= s.seller.g;
+    const currentIndex = current ? ev.rows.findIndex(q => q.id === current.id) : -1;
+    const downsidePasses = ev.stress && currentIndex >= 0 && ev.stress.slice(1,5).every(x => x.passes[currentIndex]);
+    const keepPrice = (!ev.shipping || ev.shipping.confirmed) && current && current.passes && (current.supported || s.weakAck) && downsidePasses;
     return {
       bank, available, relist, reorderUnits, reorder,
-      price: keepPrice ? `Keep ₹${current.buyer}: expected ₹${r2(current.econ.expected).toFixed(2)} per dispatch still meets the ₹${s.seller.g} minimum. No price change is forced.`
-        : `₹${current.buyer} no longer meets the minimum: review the price with a fresh quote, or hold.`,
+      price: keepPrice ? `Keep ₹${current.buyer}: base expected ₹${r2(current.econ.expected).toFixed(2)} per dispatch. It passes the ₹${s.seller.g} per ${s.seller.denominator === 'kept' ? 'kept order' : 'dispatch'} minimum and demo downside checks. No price change is forced.`
+        : `₹${current.buyer} does not pass all next-test checks: review the price with a fresh quote, or hold.`,
       stock: L.pending > 0
         ? `Relist the ${L.intactUnits} intact units now (keep ₹${relist} available). Hold new procurement until ${L.pending} pending dispatch matures and the quote is re-captured; then a ${reorderUnits}-unit reorder needs ₹${reorder} against ₹${available} available.`
         : `A ${reorderUnits}-unit reorder needs ₹${reorder} against ₹${available} available.`,
@@ -346,8 +570,8 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
   function change(s, area, reason, mutate) {
     mutate(s);
     s.versions[area] += 1;
-    const quoteHit = QUOTE_DEPS.includes(area);
-    if (quoteHit) s.quoteValid = false;
+    const quoteHit = QUOTE_DEPS.includes(area) || (area === 'shipping' && s.shipping && s.shipping.mode === 'confirmed');
+    if (QUOTE_DEPS.includes(area)) s.quoteValid = false;
     const stale = s.snapshots.filter(x => x.state === 'Current');
     stale.forEach(x => { x.state = 'Needs review'; x.why = (x.why ? x.why + '; ' : '') + reason; });
     s.log.unshift({ area, reason, quotes: quoteHit ? 'invalidated' : 'still valid', snapshots: stale.length });
@@ -358,18 +582,23 @@ button.mini,.actions button,button.primary{border:1.5px solid var(--plum);backgr
     const snap = { id: s.snapshots.length + 1, time: time || new Date().toISOString(), action, state: 'Current', why: '',
       versions: Object.assign({}, s.versions), status: ev.status,
       choice: ev.choice ? { entry: ev.choice.entry, buyer: ev.choice.buyer, transfer: ev.choice.transfer, expected: r2(ev.choice.econ.expected) } : null,
+      shipping: ev.shipping ? JSON.parse(JSON.stringify(ev.shipping)) : null,
       units: ev.proc.units, cashToKeep: ev.proc.need };
     s.snapshots.unshift(snap);
     return snap;
   }
 
-  const api = { errors, perDispatch, ceiling, reserve, funding, procurement, comparables, supported, stressCases, sensitivity, evaluate, ledger, update, nextDecision, change, snapshot, r2 };
+  const api = { errors, perDispatch, ceiling, reserve, funding, procurement, comparables, supported, stressCases, sensitivity, evaluate, ledger, update, nextDecision, change, snapshot, commitReview, r2 };
   if (typeof module !== 'undefined') module.exports = api; else root.PCJourney = api;
 })(globalThis);
 </script><script>'use strict';
 /* PriceCompass one-SKU journey: interface. All state is in memory; nothing leaves the page. */
 const M = PCJourney, P = PCRecord;
-let S = P.base(), step = 'product', review = null, K = 20, lastChange = null, noteMsg = '';
+function startingState(){const s=P.base();s.shipping.mode='online';return s;}
+let S = startingState(), step = 'quotes', review = null, K = 20, lastChange = null, noteMsg = '';
+let quoteEditor = false, quoteMessage = '';
+const COHORT_ID = 'PC-CABLE-5M-v1-D1-D9';
+const HISTORICAL_INPUTS = P.base();
 const $ = id => document.getElementById(id);
 const esc = x => String(x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const inr = x => typeof x === 'number' && Number.isFinite(x)
@@ -381,8 +610,8 @@ const tag = (t, cls = '') => `<span class="tag ${cls}">${esc(t)}</span>`;
 const SRC = { audit: ['Observed · audit 28 Sep 2026', 'obs'], panel: ['Historical panel', 'hist'], panelFee: ['Panel / fee page', 'hist'], derived: ['Estimate (formula)', 'est'],
   assumed: ['Assumption', 'asm'], generated: ['Generated register', 'gen'], synthetic: ['Synthetic test cohort', 'gen'], calc: ['Calculation', 'calc'], missing: ['Missing', 'miss'] };
 const src = k => tag(SRC[k][0], SRC[k][1]);
-const STEPS = [['product', '1', 'Product truth'], ['alternatives', '2', 'Qualified alternatives'], ['quotes', '3', 'Candidate quotes'], ['economics', '4', 'Outcome economics'],
-  ['constraints', '5', 'Cash and stock'], ['decision', '6', 'Decision card'], ['review', '7', 'Review and learn']];
+const STEPS = [['product', '1', 'Confirm your product'], ['alternatives', '2', 'Comparable offers'], ['quotes', '3', 'Price and payout'], ['economics', '4', 'Earnings after returns'],
+  ['constraints', '5', 'Cash and stock'], ['decision', '6', 'Your decision'], ['review', '7', 'Review and learn']];
 const ev = () => M.evaluate(S);
 
 function strip(e) {
@@ -390,22 +619,23 @@ function strip(e) {
   const st = {
     product: `${prodGaps} gaps`,
     alternatives: `${e.cmp.n} qualified${S.mode === 'real' ? ' (audit)' : ' (register)'}`,
-    quotes: S.mode === 'real' ? 'not current' : S.quoteValid ? `valid · v${S.versions.quotes}` : 'INVALID',
-    economics: e.choice ? inr(e.choice.econ.expected) + ' / dispatch' : (e.rows[0].econ ? inr(e.rows[0].econ.expected) : 'ceilings only'),
+    quotes: S.shipping.mode!=='historical' ? pricingLabels[S.shipping.mode] + (e.shipping.confirmed?' · current context':' · estimate/review') : S.mode === 'real' ? 'not current' : S.quoteValid ? `valid · v${S.versions.quotes}` : 'INVALID',
+    economics: e.shipping ? (e.rows[0].econRange ? moneyRange(e.rows[0].econRange.expected) : 'unconfirmed') : e.choice ? inr(e.choice.econ.expected) + ' / dispatch' : (e.rows[0].econ ? inr(e.rows[0].econ.expected) : 'ceilings only'),
     constraints: e.proc.known ? (e.proc.blocked ? 'blocked' : `${e.proc.units} units · ${inr(e.proc.need)}`) : 'unverified',
-    decision: e.status,
+    decision: decisionLabel(e),
     review: review ? `v${S.versions.outcomes} updated` : 'not yet'
   };
   const bad = { quotes: S.mode === 'real' || !S.quoteValid, constraints: e.proc.blocked, decision: e.status !== 'READY FOR YOUR APPROVAL', alternatives: e.cmp.n === 0 };
-  return `<ol class="strip">${STEPS.map(([id, n, name]) => `<li><button data-step="${id}" class="${step === id ? 'on' : ''} ${bad[id] ? 'warn' : ''}"><b>${n} · ${name}</b><span>${esc(st[id])}</span></button></li>`).join('<li class="arr" aria-hidden="true">→</li>')}</ol>`;
+  return `<ol class="strip">${STEPS.map(([id, n, name]) => `<li><button data-step="${id}" aria-current="${step === id ? 'step' : 'false'}" class="${step === id ? 'on' : ''} ${bad[id] ? 'warn' : ''}"><b>${n} · ${name}</b><span>${esc(st[id])}</span></button></li>`).join('<li class="arr" aria-hidden="true">→</li>')}</ol>`;
 }
 
 function banner(e) {
+  if(e.shipping) return `<div class="mode scen"><b>${esc(pricingLabels[S.shipping.mode].toUpperCase())}</b> ${e.shipping.confirmed?'Panel values manually supplied by the seller. Confirmation is tied to the current weight, zone and fee context.':'Published observations give an estimated range, not an exact Meesho quote. Outcome rates and seller costs remain labelled scenario inputs.'}${S.mode==='real'?' Real seller evidence remains incomplete; approval is held.':''}</div>`;
   const real = S.mode === 'real';
   return `<div class="mode ${real ? 'real' : 'scen'}"><b>${real ? 'REAL RECORD' : 'PROTOTYPE SCENARIO'}</b> ${real
     ? 'Only observed evidence is used: the dated audit and the historical panel. Assumed costs and the generated register are switched off.'
-    : 'The historical panel pair is treated as a current quote and the generated register M1–M6 as qualified offers. Both are labelled assumptions, not live Meesho data.'}
-    <span class="status s-${e.status.split(' ')[0].toLowerCase()}">${esc(e.status)}</span></div>`;
+    : 'Illustrative inputs only. Historical or manually entered price/payout pairs are assumed current for this demo; comparable offers are generated. This is not a live Meesho recommendation.'}
+    <span class="status s-${e.status.split(' ')[0].toLowerCase()}">${esc(decisionLabel(e))}</span></div>`;
 }
 
 function changeBox() {
@@ -416,7 +646,7 @@ function changeBox() {
 function productView() {
   const p = S.product;
   const row = (f, v, s, note = '') => `<tr><th>${f}</th><td>${v}</td><td>${s}</td><td class="muted">${note}</td></tr>`;
-  return `<h2>Product truth · ${esc(p.sku)} · version ${p.version}</h2><p class="lead">What exactly will be shipped. A photo match finds candidates; it does not prove equivalence.</p>
+  return `<h2>Confirm your product · ${esc(p.sku)} · version ${p.version}</h2><p class="lead">What exactly will be shipped. A photo match finds candidates; it does not prove equivalence.</p>
   <table class="grid"><thead><tr><th>Field</th><th>Value</th><th>Source</th><th>Note</th></tr></thead><tbody>
   ${row('Unit and specs', esc(p.title + ', ' + p.unit), src('panel'), 'Listing title in the historical panel')}
   ${row('Conductor', p.conductor ? esc(p.conductor) : '<b class="neg">Unresolved</b>', src('missing'), 'Copper vs copper-clad aluminium changes comparability')}
@@ -429,7 +659,8 @@ function productView() {
   </tbody></table>
   <div class="row"><label class="field">Packed weight (g)<input type="number" id="in-weight" value="${p.packedWeight}" min="1"></label>
   <label class="field">Acquisition cost C (₹)<input type="number" id="in-C" value="${S.costs.private ? '' : S.costs.C ?? ''}" min="0" step="any" ${S.costs.private ? 'disabled' : ''}></label>
-  <label class="check"><input type="checkbox" id="in-private" ${S.costs.private ? 'checked' : ''}> Keep my cost private (show ceilings only)</label></div>`;
+  <label class="field">Packing and preparation (₹ / dispatch)<input type="number" id="in-o" value="${S.costs.o ?? ''}" min="0" step="0.01"></label>
+  <label class="check"><input type="checkbox" id="in-private" ${S.costs.private ? 'checked' : ''}> Keep my cost private (show ceilings only)</label></div><button data-action="inputs">Apply inputs and recalculate</button>`;
 }
 
 function alternativesView(e) {
@@ -437,7 +668,7 @@ function alternativesView(e) {
   const list = (rows, editable) => `<table class="grid"><thead><tr><th>ID</th><th>Offer</th><th>Buyer price</th><th>Status</th><th>Reason</th>${editable ? '<th></th>' : ''}</tr></thead><tbody>${rows.map((x, i) =>
     `<tr class="${x.status}"><td>${x.id}</td><td>${esc(x.what || 'Register row')}</td><td>${inr(x.price)}</td><td>${x.status === 'accepted' ? '✓ qualified' : '✕ excluded'}</td><td>${esc(x.reason)}</td>${editable ? `<td>${x.status === 'accepted' ? `<button class="mini" data-fail="${i}">Fails re-check</button>` : ''}</td>` : ''}</tr>`).join('')}</tbody></table>`;
   const c = e.cmp;
-  return `<h2>Qualified alternatives</h2><p class="lead">What this buyer can buy instead: same spec, in stock, independent seller, same buyer context, same date. Every exclusion is logged. <b>A comparable range is not willingness to pay.</b></p>
+  return `<h2>Comparable offers</h2><p class="lead">What this buyer can buy instead: same spec, in stock, independent seller, same buyer context, same date. Every exclusion is logged. <b>A comparable range is not willingness to pay.</b></p>
   <h3>Observed: public audit, 28 Sep 2026 ${src('audit')}</h3>${list(S.audit, false)}
   <p class="callout ${real ? 'bad' : ''}">Audit result: <b>0 qualified</b> of 5 asks. With no qualified match the real record can only support a justified HOLD, or a weak-evidence test the seller explicitly accepts.</p>
   ${real ? '' : `<h3>Prototype register M1–M6 ${src('generated')}</h3>${list(S.register, true)}`}
@@ -445,26 +676,109 @@ function alternativesView(e) {
   ${real ? '' : `<label class="check"><input type="checkbox" id="in-weak" ${S.weakAck ? 'checked' : ''}> If nothing qualifies, I accept a capped weak-evidence test</label>`}`;
 }
 
+const moneyRange = values => values && values.every(Number.isFinite) ? values[0] === values[1] ? inr2(values[0]) : `${inr2(values[0])}–${inr2(values[1])}` : 'Not available';
+const pricingLabels = {historical:'Historical example',online:'Online estimate',confirmed:'Confirmed panel quote'};
+function shippingModes(){return `<div class="pricing-modes" role="group" aria-label="Payout calculation source">${Object.entries(pricingLabels).map(([id,label])=>`<button data-pricing="${id}" class="${S.shipping.mode===id?'selected':''}" aria-pressed="${S.shipping.mode===id}">${label}</button>`).join('')}</div>`;}
+function shippingSources(){const sh=PCShipping;return `<details class="shipping-sources"><summary>Rate sources, dates and assumptions</summary><p>Indicative observations, not an official Meesho tariff. Rates are bundled for offline use; they do not refresh automatically.</p><p>${[sh.sources.ecomarray,sh.sources.shiprocket].map(x=>`<a href="${x.url}" target="_blank" rel="noopener">${esc(x.name)}</a> · published ${x.published} · retrieved ${x.retrieved}`).join('<br>')}</p><p><a href="${sh.sources.rto.url}" target="_blank" rel="noopener">Meesho shipping policy</a> · retrieved ${sh.sources.rto.retrieved}: no additional RTO shipping fee. This does not make failed orders cost-free.</p><p>Forward rates are treated as excluding 18% shipping GST by default. Return tax treatment is not specified by the rate table; both interpretations are shown until confirmed. The old ₹153 total-return-fee example is retained only in Historical example mode. Outcome rates, product cost and other deductions remain scenario assumptions.</p><p>Weight slabs use measured packed weight unless you supply a panel-assigned chargeable weight. No volumetric divisor, pincode tariff or payment-mode surcharge is invented. Handling/other deductions default to zero; enter any confirmed extra charges. Contribution is before seller product-tax and withholding reconciliation.</p><table class="grid"><thead><tr><th>Weight</th><th>Local</th><th>Regional</th><th>National</th></tr></thead><tbody>${sh.cards.map((x,i)=>`<tr><td>${i?sh.cards[i-1].max:0}–${x.max} g</td><td>${moneyRange(x.local)}</td><td>${moneyRange(x.regional)}</td><td>${moneyRange(x.national)}</td></tr>`).join('')}</tbody></table><table class="grid"><thead><tr><th>Return carrier</th>${sh.cards.map(x=>`<th>≤${x.max} g</th>`).join('')}</tr></thead><tbody>${Object.entries(sh.carriers).map(([key,fees])=>`<tr><td>${esc(sh.carrierNames[key])}</td>${fees.map(x=>`<td>${inr2(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></details>`;}
+function shippingForm(){
+ const c=S.shipping,q=c.confirmed||{},option=(value,label,selected)=>`<option value="${value}" ${value===selected?'selected':''}>${label}</option>`;
+ return `<form id="shipping-form" class="shipping-form"><h3>${c.mode==='confirmed'?'Confirm your panel quote':'Estimate shipping and payout'}</h3><p>Keep the buyer total fixed. Choose the delivery zone yourself; this is not an exact pincode quote.</p><div class="row">
+ <label class="field">Buyer total, fixed (₹)<input name="ship-buyer" type="number" min="0.01" step="0.01" required value="${c.buyer??''}"></label>
+ <label class="field">Packed weight estimate (g)<input name="ship-weight" type="number" min="0.01" step="any" required value="${S.product.packedWeight??''}"></label>
+ <label class="field">Panel chargeable weight (g, optional)<input name="ship-panel-weight" type="number" min="0.01" step="any" value="${c.panelWeight??''}"></label>
+ <label class="field">Delivery zone<select name="ship-zone">${[['local','Local · intra-city'],['regional','Regional · intra-state'],['national','National · inter-state']].map(([v,l])=>option(v,l,c.zone)).join('')}</select></label>
+ <label class="field">Forward shipping GST basis<select name="ship-tax">${option('exclusive','Fee excludes GST · add 18%',c.taxBasis)}${option('inclusive','Fee includes GST · split only',c.taxBasis)}</select></label>
+ <label class="field">Other deductions (₹, total)<input name="ship-other" type="number" min="0" step="0.01" required value="${c.other??''}"></label>
+ <label class="field">Rate source<select name="ship-source">${option('ecomarray','EcomArray · published observations',c.rateSource)}${option('shiprocket','Shiprocket · same observed forward bands',c.rateSource)}${option('manual','Manual ranges · scenario input',c.rateSource)}</select></label>
+ <label class="field">Customer-return carrier<select name="ship-carrier">${Object.entries(PCShipping.carrierNames).map(([v,l])=>option(v,l,c.carrier)).join('')}</select></label>
+ <label class="field">Return fee GST basis<select name="ship-return-tax">${option('unknown','Not confirmed · show both cases',c.returnTaxBasis)}${option('inclusive','Return fee already includes GST',c.returnTaxBasis)}${option('exclusive','Return fee excludes GST · add 18%',c.returnTaxBasis)}</select></label></div>
+ <p class="muted">Packed weight includes packaging; enter a measured value. The optional panel weight means you have checked the assigned chargeable weight and it overrides the measured weight. A fee-source change needs quote revalidation.</p>
+ <details id="manual-fees" ${c.rateSource==='manual'?'open':''}><summary>Manual fee ranges · needed above 2 kg</summary><p>Select “Manual ranges” as the rate source. Enter both ranges; they remain assumptions until a panel quote is confirmed.</p><div class="row">${[['ship-forward-min','Forward fee minimum (₹)',c.manualForward[0]],['ship-forward-max','Forward fee maximum (₹)',c.manualForward[1]],['ship-return-min','Return fee minimum (₹)',c.manualReturn[0]],['ship-return-max','Return fee maximum (₹)',c.manualReturn[1]]].map(([name,label,value])=>`<label class="field">${label}<input type="number" name="${name}" min="0" step="0.01" value="${value??''}"></label>`).join('')}</div></details>
+ ${c.mode==='confirmed'?`<div class="panel-quote"><h3>Supplier-panel values</h3><p>Use the current payout for this buyer offer and shipping context. It already contains the platform deductions; no shipping is subtracted again.</p><div class="row"><label class="field">Panel seller entry (₹, optional)<input name="panel-entry" type="number" min="0" step="0.01" value="${q.entry??''}"></label><label class="field">Panel net payout (₹)<input name="panel-transfer" type="number" min="0" step="0.01" required value="${q.transfer??''}"></label><label class="field">Panel total return fee (₹, including tax)<input name="panel-return" type="number" min="0" step="0.01" required value="${q.returnGross??''}"></label><label class="field">Quote date<input name="panel-date" type="date" required value="${q.date||'2026-10-05'}"></label></div><label class="check"><input name="panel-confirm" type="checkbox" required> I checked this payout and total return fee in the supplier panel for the stated context.</label></div>`:''}
+ <button class="primary" type="submit">${c.mode==='confirmed'?'Confirm panel quote':'Calculate shipping and payout'}</button><p id="shipping-feedback" role="status"></p></form>`;
+}
+function nextAction(e) {
+  const offer=e.shipping?e.rows[0]:e.choice;
+  if(S.mode==='real')return {title:'Confirm seller evidence',detail:'Confirm the product, current payout and your own costs before a test.',step:'product',label:'Review seller inputs'};
+  if(e.shipping&&!e.shipping.ok)return {title:S.shipping.mode==='confirmed'?'Reconfirm panel payout':'Complete shipping inputs',detail:'The shipping context is incomplete or changed. Enter the missing values before using the payout or cash figures.',step:'quotes',label:'Review shipping inputs'};
+  if(S.costs.private)return {title:'Check your private costs',detail:'Assess the estimate using your own costs. Profit and funding stay unconfirmed while costs are private.',step:'product',label:'Review product inputs'};
+  if(!S.quoteValid&&!e.shipping)return {title:'Confirm panel payout',detail:'Product or packed weight changed. Replace the stale price/payout quote and return fee before approval.',step:'quotes',label:'Review price and payout'};
+  if(e.errors.some(x=>/return.*fee|reverse.*fee/i.test(x)))return {title:'Confirm return charges',detail:'Confirm the return charge for this weight band before checking earnings and funding.',step:'quotes',label:'Review price and payout'};
+  if(e.errors.some(x=>/outcome|mix|share|percent|sum|100/i.test(x)))return {title:'Review order outcomes',detail:'Complete the outcome inputs and ensure the shares total 100%.',step:'economics',label:'Review outcome inputs'};
+  if(e.errors.length)return {title:'Confirm missing inputs',detail:'Resolve the missing seller costs or outcome inputs shown below before approval.',step:'product',label:'Review product costs'};
+  if(e.status==='Repair economics'||(offer&&offer.econ&&offer.econ.expected<=0&&!e.shipping))return {title:'Review product costs',detail:'The earnings check fails. Check acquisition, packing and return costs; a smaller batch limits exposure but does not fix losing units.',step:'product',label:'Review product costs'};
+  if(e.proc.blocked)return {title:'Review batch funding',detail:'Reduce the batch where the supplier MOQ allows, renegotiate MOQ or confirm more available cash. Review the cash requirement before buying.',step:'constraints',label:'Review cash and batch size'};
+  if(e.shipping&&!e.shipping.confirmed)return {title:'Confirm panel payout',detail:e.status==='Review shipping uncertainty'?'Only part of the range passes. Confirm the actual payout and return fee, then review earnings again.':'The estimate passes the earnings check. Confirm the actual payout and return fee before approval.',action:'confirm-shipping',label:'Confirm panel payout'};
+  if(!S.quoteValid&&!e.shipping)return {title:'Confirm panel payout',detail:'Product or packed weight changed. Replace the stale price/payout quote before approval.',step:'quotes',label:'Review price and payout'};
+  if(e.cmp.n===0)return {title:'Review comparable offers',detail:'Add qualified offers for the same product and selling context before relying on this price.',step:'alternatives',label:'Review comparable offers'};
+  if(!['READY FOR YOUR APPROVAL','WEAK-EVIDENCE TEST'].includes(e.status))return {title:'Review downside earnings',detail:'Review the failed earnings checks and another candidate before committing.',step:'economics',label:'Review earnings checks'};
+  return {title:'Review and approve your test',detail:'Check the evidence and batch limit below. Approval only saves your decision in this prototype.',step:'constraints',label:'Review cash and stock'};
+}
+function decisionLabel(e){return ['HOLD','PRICE PASSES · PROCUREMENT HOLD','ASSISTED REVIEW REQUIRED'].includes(e.status)?nextAction(e).title:e.status;}
+function nextActionCard(e){const a=nextAction(e);return `<section class="next-action"><p class="eyebrow">NEXT ACTION</p><h3>${esc(a.title)}</h3><p>${esc(a.detail)}</p><button class="primary" ${a.action?`data-action="${a.action}"`:`data-step="${a.step}"`}>${esc(a.label)}</button></section>`;}
+function evidenceSummary(e){
+ const c=e.shipping,measured=S.product.packedWeightSource==='measured',real=S.mode==='real';
+ const values=[['Weight',c&&S.shipping.panelWeight!==null?'Seller-supplied panel weight':measured?'Seller-entered measured weight':'Scenario weight · measure your parcel'],['Payout',c?(c.confirmed?'Seller-confirmed panel value':S.shipping.rateSource==='manual'?'Manual scenario estimate':'Published estimate · confirm panel'):'Historical example · not a current quote'],['Product costs',S.costs.private?'Private · profit unconfirmed':real?'Seller costs missing':`${inr(S.costs.C)} acquisition + ${inr(S.costs.o)} packing · scenario inputs`],['Order outcomes',real?'Seller outcomes missing':S.mix.source==='blended'?'Scenario + sample cohort · calculated':`${pct(S.mix.k)} kept / ${pct(S.mix.r)} RTO / ${pct(S.mix.q)} return · assumptions`]];
+ return `<section class="evidence-summary" aria-label="Evidence behind this result"><h3>What supports this result?</h3><div class="evidence-grid">${values.map(([label,value])=>`<div><b>${label}</b><span>${esc(value)}</span></div>`).join('')}</div><p class="muted">${c&&!c.confirmed?'Public shipping rates are indicative observations. ':''}${real?'Complete the real seller record before approving.':'Entering a measured weight or confirming a payout does not confirm the scenario costs, comparable offers or order outcomes.'}</p></section>`;
+}
+function payoutExplanation(c){if(!c.ok)return '';return `<section class="payout-explanation"><h3>Why this payout?</h3><p>${c.confirmed?`The supplier-panel net payout is <b>${moneyRange(c.payout)}</b>. Use it directly; shipping is already accounted for. The reference fees below are not deducted again.`:`For <b>${c.weight} g · ${esc(c.slab)} · ${esc(S.shipping.zone)} delivery</b>, ${S.shipping.rateSource==='manual'?'your manual inputs':'the published observations'} give the fee range below. The highest total charge gives the lowest payout.`}</p>${!c.confirmed?`<p>Forward fee: <b>${moneyRange(c.forward.base)}</b> · GST: <b>${moneyRange(c.forward.gst)}</b> · other deductions: <b>${inr2(c.other)}</b>.</p><p class="formula">${inr2(c.buyer)} buyer total − ${moneyRange(c.forward.gross)} shipping including GST − ${inr2(c.other)} other deductions = <b>${moneyRange(c.payout)} payout</b></p><p class="muted">${S.shipping.taxBasis==='inclusive'?'GST is split from the fee; it is not added again.':'Shipping total includes the forward fee plus rounded 18% GST.'}</p>`:''}</section>`;}
+
+function shippingBreakdown(calc){
+ if(!calc.ok)return `<div class="callout bad"><b>Complete the shipping inputs</b><ul>${calc.errors.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
+ const line=(label,value,note='')=>`<tr><th>${label}</th><td>${value}</td><td>${note}</td></tr>`;
+ return `<section class="shipping-result"><div class="shipping-result-head"><div><p class="eyebrow">${calc.confirmed?'SELLER-CONFIRMED PANEL PAYOUT':'ONLINE ESTIMATE · NOT A LIVE QUOTE'}</p><h3>${calc.confirmed?'Net payout supplied by you':'Estimated net payout'}: ${moneyRange(calc.payout)}</h3></div><span class="tag asm">Buyer total stays ${inr2(calc.buyer)}</span></div><p>${esc(calc.weightBasis)} · ${calc.weight} g · ${esc(calc.slab)} · ${esc(S.shipping.zone)} delivery</p>
+ ${payoutExplanation(calc)}
+ <table class="grid"><thead><tr><th>Component</th><th>Amount</th><th>Basis</th></tr></thead><tbody>
+ ${line('Buyer total',inr2(calc.buyer),'Fixed customer-facing amount')}
+ ${line('Forward fee before GST',calc.forward?moneyRange(calc.forward.base):'Not available',calc.confirmed?'Online reference only; not deducted again':'Sourced fee range')}
+ ${line('Shipping GST · 18%',calc.forward?moneyRange(calc.forward.gst):'Not available',S.shipping.taxBasis==='inclusive'?'Split from the listed inclusive fee':'Added to exclusive forward fee')}
+ ${line('Total forward shipping',calc.forward?moneyRange(calc.forward.gross):'Not available',calc.confirmed?'Informational estimate only':'Forward fee + its GST, counted once')}
+ ${line('Other deductions',inr2(calc.other),calc.confirmed?'Included in supplied net payout':'Zero is a scenario assumption until confirmed')}
+ ${line(calc.confirmed?'Panel net payout':'Estimated payout',`<b>${moneyRange(calc.payout)}</b>`,calc.confirmed?'Used directly; no further logistics deduction':'Buyer total − total forward fee − other deductions')}
+ ${line('Customer-return total fee',moneyRange(calc.returns.gross),calc.confirmed?'Total fee supplied by seller, including tax':S.shipping.returnTaxBasis==='unknown'?'Includes both possible tax interpretations':'Selected return-fee tax basis')}
+ ${line('Additional RTO shipping fee',inr2(calc.rtoFee),'Meesho official policy; preparation still costs money')}
+ </tbody></table>
+ ${!calc.confirmed&&calc.returns.alternatives.length?`<details ${S.shipping.returnTaxBasis==='unknown'?'open':''}><summary>Return-fee tax alternatives</summary><table class="grid"><thead><tr><th>Interpretation</th><th>Before GST</th><th>GST</th><th>Total return fee</th></tr></thead><tbody>${calc.returns.alternatives.map(x=>`<tr><td>${x.basis==='inclusive'?'Published fee includes GST':'Published fee excludes GST'}</td><td>${moneyRange(x.base)}</td><td>${moneyRange(x.gst)}</td><td>${moneyRange(x.gross)}</td></tr>`).join('')}</tbody></table><p class="muted">${S.shipping.rateSource==='manual'?'Manual return rates are scenario inputs.':'Unknown carrier spans the listed carriers; the published return table does not specify GST treatment.'} Neither tax alternative is claimed as confirmed.</p></details>`:''}
+ <p class="muted">${esc(calc.source.name)}${calc.source.published?` · published ${calc.source.published}`:''}${calc.source.retrieved?` · retrieved ${calc.source.retrieved}`:''}. No seller-entry price is inferred.</p></section>`;
+}
+function shippingEconomics(e){
+ const r=e.rows[0],range=r.econRange;
+ return `<h2>Earnings after shipping and returns</h2><p class="lead">Kept ${pct(S.mix.k)} · RTO ${pct(S.mix.r)} · return ${pct(S.mix.q)}. These outcome rates remain labelled assumptions; shipping rates do not predict returns.</p>${range?`<div class="kpis"><div><b>${moneyRange(range.expected)}</b><span>expected contribution per dispatch</span></div><div><b>${moneyRange(range.kept)}</b><span>contribution on a kept order</span></div><div><b>${moneyRange(range.ret)}</b><span>contribution on a customer return</span></div></div><p class="callout">Downside uses the lowest payout and highest return fee. Upside uses the highest payout and lowest return fee. Minimum ${inr(S.seller.g)} applies per ${S.seller.denominator==='kept'?'kept order':'dispatch'}.</p>`:'<p class="callout bad">Confirm the missing inputs. Private or unconfirmed seller costs do not produce a profit figure.</p>'}
+ <p class="decision-status warning">${esc(decisionLabel(e))}</p>${e.reasons.length?`<ul class="reasons">${e.reasons.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+ <div class="row">${[['k','Kept %'],['r','RTO %'],['q','Return %']].map(([key,label])=>`<label class="field">${label}<input type="number" data-mix="${key}" value="${M.r2(S.mix[key])}" min="0" step="any"></label>`).join('')}<label class="field">Damaged share of returns (%)<input id="in-d" type="number" min="0" max="100" value="${S.fees.delta}"></label></div><button data-action="inputs">Apply inputs and recalculate</button><button data-step="quotes">Review shipping breakdown</button><details><summary>View calculation and evidence</summary><p class="formula">Expected = kept share × (net payout − acquisition cost) − preparation − return share × total return fee − return share × damaged share × acquisition cost. Additional RTO shipping = ₹0.</p>${shippingSources()}</details>`;
+}
+function shippingDecision(e){const c=e.shipping,r=e.rows[0],range=r.econRange,p=e.proc,canApprove=c.confirmed&&['READY FOR YOUR APPROVAL','WEAK-EVIDENCE TEST'].includes(e.status);return `<p class="eyebrow">${c.confirmed?'CONFIRMED PANEL QUOTE · SELLER SUPPLIED':'ONLINE ESTIMATE · PREPARE YOUR TEST'}</p><h2>${esc(decisionLabel(e))}</h2><p class="lead">Buyer total is fixed at ${inr2(c.buyer)}. ${c.confirmed?'Use the net payout you confirmed in the panel.':'Confirm your actual charges before approving a test.'}</p><div class="card ${canApprove?'ok':'warn'}"><div class="dgrid summary-grid"><div class="dc"><span>${c.confirmed?'Panel net payout':'Estimated net payout'}</span><b>${moneyRange(c.payout)}</b><small>shipping and GST already accounted for</small></div><div class="dc"><span>Expected contribution / dispatch</span><b>${range?moneyRange(range.expected):'Unconfirmed'}</b><small>downside through upside · scenario outcome rates</small></div><div class="dc"><span>Cash to keep available</span><b>${p.known?inr2(p.need):'Unconfirmed'}</b><small>${p.known?`includes ${inr2(p.reserveHeld)} held reserve using the highest return fee`:'Confirm private costs and charges'}</small></div><div class="dc"><span>Batch exposure limit</span><b>${p.known&&!p.blocked?p.units+' units':'Review funding'}</b><small>limit, not a demand forecast</small></div></div>${nextActionCard(e)}${evidenceSummary(e)}${e.reasons.length?`<ul class="reasons">${e.reasons.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}<div class="actions"><button data-action="confirm-shipping" class="primary">${c.confirmed?'Review panel quote':'Confirm charges in the panel'}</button><button data-action="save-estimate" ${c.ok?'':'disabled'}>Save ${c.confirmed?'quote review':'estimated plan'}</button><button data-action="approve" ${canApprove?'':'disabled'}>Approve test</button><button data-action="hold">Save for later</button></div><p class="muted">Public rates cannot create a confirmed approval. A supplied panel quote still needs earnings, comparable support and affordable cash.</p></div>${noteMsg?`<p class="callout" role="status">${noteMsg}</p>`:''}${goalControls()}<details><summary>View shipping breakdown</summary>${shippingBreakdown(c)}</details>${shippingSavedDecisions()}`;}
+function shippingSavedDecisions(){return `<details ${S.snapshots.length?'open':''}><summary>Saved decisions (${S.snapshots.length})</summary>${S.snapshots.length?`<table class="grid"><thead><tr><th>Action</th><th>Source</th><th>Saved expected range</th><th>State now</th></tr></thead><tbody>${S.snapshots.map(x=>`<tr><td>${esc(x.action)}</td><td>${x.shipping?esc(x.shipping.source.name):'Historical scenario'}</td><td>${x.expectedRange?moneyRange(x.expectedRange):x.choice?inr2(x.choice.expected):'–'}</td><td>${esc(x.state)}${x.why?': '+esc(x.why):''}</td></tr>`).join('')}</tbody></table>`:'<p>No saved decision yet.</p>'}</details>`;}
+
 function quotesView(e) {
-  return `<h2>Candidate quotes · entry → buyer pays → kept-order transfer</h2><p class="lead">Each candidate is a versioned map. Shipping and platform deductions sit between buyer price and transfer, so they are counted once, inside T.</p>
-  <table class="grid"><thead><tr><th>Candidate</th><th>Seller enters</th><th>Buyer pays</th><th>Transfer T</th><th>Basis</th><th>Quote state</th></tr></thead><tbody>${e.rows.map(r =>
-    `<tr><td>${esc(r.label)}</td><td>${inr(r.entry)} <small class="muted">(estimate ${inr(r.entryEstimate)})</small> ${src('derived')}</td><td>${inr(r.buyer)}</td><td>${inr(r.transfer)}</td><td>${src('panel')}</td><td>${S.mode === 'real' ? '<b class="neg">Not current</b>' : S.quoteValid ? `Valid · v${S.versions.quotes} (assumed current)` : '<b class="neg">Invalid: requote</b>'}</td></tr>`).join('')}</tbody></table>
-  <p class="formula">S = (B − T) ÷ 1.18 = ₹78.81 at ₹189, ₹79.66 at ₹210 · entry = T + 0.18S = ₹110.19 / ₹130.34. The two shipping values differ by ₹0.85: a documented spec-vs-arithmetic conflict, so entries are estimates within about ₹1.</p>
-  ${S.mode === 'scenario' && !S.quoteValid ? `<button data-action="requote" class="primary">Re-capture quotes (demo assumption: same values, new version)</button>` : ''}
-  <p class="muted">The historical panel already suggested ₹189. PriceCompass did not discover it; it adds the economics, the cash cap and the HOLD when evidence is missing.</p>`;
+  const editable = S.mode === 'scenario';
+  if(S.shipping.mode!=='historical') return `<h2>Estimate your shipping and payout</h2><p class="lead">Start with your buyer total and parcel details. The example values below help you explore; replace them with your own inputs.</p>${shippingModes()}${shippingForm()}${shippingBreakdown(e.shipping)}${evidenceSummary(e)}${shippingSources()}`;
+  return `<h2>Price and payout</h2>${shippingModes()}<p class="lead">Historical example · Keep three prices separate: what you enter, what the buyer pays, and what you receive on a kept order. Never infer a payout for a new price.</p>
+  <table class="grid"><thead><tr><th>Candidate</th><th>Seller enters</th><th>Buyer pays</th><th>Transfer on kept order</th><th>Source</th><th>Quote state</th></tr></thead><tbody>${e.rows.map(r =>
+    `<tr><td>${esc(r.label)}</td><td>${inr(r.entry)}${r.entryEstimate != null ? ` <small>(estimate ${inr(r.entryEstimate)})</small>` : ''}</td><td>${inr(r.buyer)}</td><td>${inr(r.transfer)}</td><td>${r.source === 'manual' ? 'Manually entered · demo assumption' : 'Historical panel · entry estimated'}</td><td>${!editable ? 'Not current' : S.quoteValid ? `Assumed current · v${S.versions.quotes}` : 'Invalid · fresh quote needed'}</td></tr>`).join('')}</tbody></table>
+  ${editable ? `<button class="primary" data-action="edit">${quoteEditor ? 'Close quote editor' : 'Add a different price quote'}</button>` : '<p class="callout bad">The real record has no current quote. The editor is available in prototype scenario mode only; entered values cannot repair missing real evidence.</p>'}
+  ${quoteEditor && editable ? `<form id="quote-form" class="quote-editor"><h3>Add a candidate quote</h3><p>Enter the complete pair from a quote. This offline prototype records your input as a demo assumption.</p><div class="row">
+  <label class="field">Seller entry (₹)<input name="entry" type="number" min="0.01" step="0.01" required></label>
+  <label class="field">Buyer pays (₹)<input name="buyer" type="number" min="0.01" step="0.01" required></label>
+  <label class="field">Kept-order transfer (₹)<input name="transfer" type="number" min="0" step="0.01" required></label></div>
+  <label class="check"><input name="confirmed" type="checkbox" required> I have entered all three values; the transfer is not inferred.</label>
+  <button class="primary" type="submit">Save candidate and recalculate</button><p id="quote-feedback" role="status">${esc(quoteMessage)}</p></form>` : ''}
+  ${editable && !S.quoteValid ? `<p class="callout bad">A product or weight change needs a new quote and the correct return fee. Adding a quote does not fill an unknown fee.</p><button data-action="requote">Re-capture existing pairs (demo assumption)</button>` : ''}
+  <details><summary>View calculation and evidence</summary><p class="formula">Historical pairs: S = (B − T) ÷ 1.18 = ₹78.81 at ₹189, ₹79.66 at ₹210 · entry = T + 0.18S = ₹110.19 / ₹130.34. Entries are estimates, not executable quotes.</p><p>The historical panel already suggested ₹189. PriceCompass adds earnings after returns, a cash cap and a hold when evidence is missing.</p></details>`;
 }
 
 function economicsView(e) {
+  if(e.shipping) return shippingEconomics(e);
   const k = S.mix;
-  const rows = e.rows.map(r => r.econ ? `<tr><td>${inr(r.buyer)} → ${inr(r.transfer)}</td><td>${inr(r.econ.kept)}</td><td>${inr(r.econ.rto)}</td><td>${inr(r.econ.ret)}</td><td><b>${inr(r.econ.expected)}</b></td><td>C ≤ ${inr(r.ceiling.minimum)}</td><td>${r.passes ? '✓' : '✕'}${S.mode === 'scenario' && e.cmp.n && !r.supported ? ' · unsupported' : ''}</td></tr>`
-    : `<tr><td>${inr(r.buyer)} → ${inr(r.transfer)}</td><td colspan="4" class="muted">Cost private or blank: no profit figure</td><td>C ≤ ${r.ceiling ? inr(r.ceiling.minimum) : '–'}</td><td>–</td></tr>`).join('');
-  const st = e.stress ? `<h3>Labelled stress cases · expected ₹ per dispatch ${src('calc')}</h3><table class="grid"><thead><tr><th>What-if (not a confidence interval)</th>${S.quotes.map(q => `<th>${inr(q.buyer)}</th>`).join('')}</tr></thead><tbody>${e.stress.map(x => `<tr><td>${esc(x.label)}</td>${x.values.map(v => `<td class="${v < 0 ? 'neg' : ''}">${inr(v)}</td>`).join('')}</tr>`).join('')}</tbody></table>` : '';
-  return `<h2>Outcome economics per dispatch</h2><p class="lead">Kept ${pct(k.k)} · RTO ${pct(k.r)} · return ${pct(k.q)} ${src(k.source === 'blended' ? 'calc' : 'assumed')} · reverse fee ${inr(S.fees.R)} ${src('panelFee')} · no RTO fee · damaged share of returns ${pct(S.fees.delta)}</p>
+  const rows = e.rows.map(r => r.econ ? `<tr><td>${inr(r.buyer)} → ${inr(r.transfer)}</td><td>${inr(r.econ.kept)}</td><td>${inr(r.econ.rto)}</td><td>${inr(r.econ.ret)}</td><td><b>${inr(r.econ.expected)}</b></td><td>C ≤ ${inr(r.ceiling ? r.ceiling.minimum : null)}</td><td>${r.passes ? '✓' : '✕'}${S.mode === 'scenario' && e.cmp.n && !r.supported ? ' · unsupported' : ''}</td></tr>`
+    : `<tr><td>${inr(r.buyer)} → ${inr(r.transfer)}</td><td colspan="4" class="muted">Unconfirmed or private inputs: no profit figure</td><td>C ≤ ${r.ceiling ? inr(r.ceiling ? r.ceiling.minimum : null) : '–'}</td><td>–</td></tr>`).join('');
+  const st = e.stress ? `<h3>Labelled stress cases · expected ₹ per dispatch ${src('calc')}</h3><table class="grid"><thead><tr><th>Demo what-if (not a confidence interval)</th>${S.quotes.map(q => `<th>${inr(q.buyer)}</th>`).join('')}</tr></thead><tbody>${e.stress.map(x => `<tr><td>${esc(x.label)}<br><small>${esc(x.scope)}</small></td>${x.values.map(v => `<td class="${v < 0 ? 'neg' : ''}">${inr(v)}</td>`).join('')}</tr>`).join('')}</tbody></table>` : '';
+  return `<h2>Earnings after returns</h2><p class="lead">Kept ${pct(k.k)} · RTO ${pct(k.r)} · return ${pct(k.q)} ${src(k.source === 'blended' ? 'calc' : 'assumed')} · reverse fee ${inr(S.fees.R)} ${src('panelFee')} · no RTO fee · damaged share of returns ${pct(S.fees.delta)}</p>
   <table class="grid"><thead><tr><th>Candidate</th><th>Kept</th><th>Intact RTO</th><th>Return</th><th>Expected m</th><th>Cost ceiling</th><th>Passes</th></tr></thead><tbody>${rows}</tbody></table>
-  <p class="formula">m = k(T − C) − o − qR − qδC · ceiling C ≤ (kT − o − qR − g) ÷ (k + qδ) · minimum g = ${inr(S.seller.g)} per ${S.seller.denominator === 'kept' ? 'kept order' : 'expected dispatch'}</p>
+  <details><summary>View calculation and evidence</summary><p class="formula">m = k(T − C) − o − qR − qδC · ceiling C ≤ (kT − o − qR − g) ÷ (k + qδ) · minimum g = ${inr(S.seller.g)} per ${S.seller.denominator === 'kept' ? 'kept order' : 'expected dispatch'}</p></details>
   <div class="row">${[['k', 'Kept %'], ['r', 'RTO %'], ['q', 'Return %']].map(([key, l]) => `<label class="field">${l}<input type="number" data-mix="${key}" value="${M.r2(S.mix[key])}" step="any" min="0"></label>`).join('')}
   <label class="field">Reverse fee R (₹)<input type="number" id="in-R" value="${S.fees.R ?? ''}" min="0"></label><label class="field">Damaged share of returns (%)<input type="number" id="in-d" value="${S.fees.delta}" min="0" max="100"></label></div>
-  ${st}${e.choice && e.alternative ? `<p class="callout">Demand threshold: ${inr(e.choice.buyer)} needs more than <b>${(e.alternative.econ.expected / e.choice.econ.expected).toFixed(5)}×</b> the mature dispatches of ${inr(e.alternative.buyer)}; ${inr(e.alternative.buyer)} wins while its volume stays above <b>${(e.choice.econ.expected / e.alternative.econ.expected * 100).toFixed(3)}%</b> of ${inr(e.choice.buyer)}'s. Same mix at both prices is an assumption, not learned demand.</p>` : ''}`;
+  <button data-action="inputs">Apply inputs and recalculate</button>${st}${e.choice && e.alternative ? `<p class="callout">Demand threshold: ${inr(e.choice.buyer)} needs more than <b>${(e.alternative.econ.expected / e.choice.econ.expected).toFixed(5)}×</b> the mature dispatches of ${inr(e.alternative.buyer)}; ${inr(e.alternative.buyer)} wins while its volume stays above <b>${(e.choice.econ.expected / e.alternative.econ.expected * 100).toFixed(3)}%</b> of ${inr(e.choice.buyer)}'s. Same mix at both prices is an assumption, not learned demand.</p>` : ''}`;
 }
 
 function constraintsView(e) {
@@ -474,48 +788,72 @@ function constraintsView(e) {
     <div><b>${inr(p.need)}</b><span>cash to keep available; ${inr(p.reserveHeld)} of it is reserve held, not an expense</span></div></div>
     <p class="callout ${p.blocked ? 'bad' : ''}">${esc(p.reason)}${p.fallback ? ` Option: shrink to ${p.fallback.units} units (${inr(p.fallback.need)}).` : p.blocked ? ' No smaller batch satisfies the MOQ: renegotiate MOQ, add cash, or hold.' : ''}</p>`
     : `<p class="callout bad">${esc(p.reason)}</p>`;
-  return `<h2>Cash, inventory, MOQ and exposure cap</h2><p class="lead">A price can pass while procurement fails. Reserve = ${s.reservePct}% × reverse fee, rounded down: a stress policy held as cash, never booked as a cost.</p>${body}
+  return `<h2>Cash, inventory, MOQ and exposure cap</h2><p class="lead">A price can pass while procurement fails. Reserve = ${s.reservePct}% × ${e.shipping?'highest total return fee, rounded up':'reverse fee, rounded down'}: a stress policy held as cash, never booked as a cost.</p>${body}
   <div class="row"><label class="field">Available cash (₹)<input type="number" id="in-cash" value="${s.cash ?? ''}" min="0"></label><label class="field">Owned units<input type="number" id="in-owned" value="${s.owned}" min="0" step="1"></label>
   <label class="field">Seller cap (units)<input type="number" id="in-cap" value="${s.cap}" min="1" step="1"></label><label class="field">Supplier MOQ<input type="number" id="in-moq" value="${s.moq}" min="0" step="1"></label></div>
-  <p class="muted">Sources: ₹1,000 cash, cap 9 and MOQ 1 are worked-example assumptions ${src('assumed')}. Supplier MOQ is an evidence gap.</p>`;
+  <button data-action="inputs">Apply inputs and recalculate</button><p class="muted">Sources: ₹1,000 cash, cap 9 and MOQ 1 are worked-example assumptions ${src('assumed')}. Supplier MOQ is an evidence gap.</p>`;
+}
+
+function goalControls() {
+  return `<section class="goal-controls"><h3>Your goal for this batch</h3><div class="row">
+  <label class="field">What matters most?<select id="in-objective"><option value="competitive" ${S.seller.objective === 'competitive' ? 'selected' : ''}>Competitive starting offer</option><option value="earnings" ${S.seller.objective === 'earnings' ? 'selected' : ''}>Earnings per order</option></select></label>
+  <label class="field">Minimum earnings (₹)<input type="number" id="in-minimum" min="0" step="0.01" value="${S.seller.g ?? ''}"></label>
+  <label class="field">Minimum applies to<select id="in-denominator"><option value="dispatch" ${S.seller.denominator === 'dispatch' ? 'selected' : ''}>Each dispatch, after returns</option><option value="kept" ${S.seller.denominator === 'kept' ? 'selected' : ''}>Each kept order</option></select></label></div>
+  <button data-action="goal">Update goal and recalculate</button><p class="muted">Dispatch means every shipped order, including returns and failed deliveries. A kept-order minimum still requires positive expected contribution after returns.</p></section>`;
 }
 
 function decisionView(e) {
+  if(e.shipping) return shippingDecision(e);
   const c = e.choice, a = e.alternative, p = e.proc;
   const sens = e.sensitive ? e.sensitive[0] : null;
-  const cell = (l, v, s = '') => `<div class="dc"><span>${l}</span><b>${v}</b>${s ? `<small>${s}</small>` : ''}</div>`;
-  const stress = e.stress && c ? e.stress.slice(1).map(x => `${esc(x.label)}: ${inr(x.values[S.quotes.findIndex(q => q.buyer === c.buyer)])}`).join(' · ') : '';
-  return `<h2>Decision card · ${esc(S.product.sku)} v${S.product.version}</h2>
-  <div class="card ${e.status === 'READY FOR YOUR APPROVAL' ? 'ok' : e.status === 'HOLD' ? 'hold' : 'warn'}"><div class="cardhead"><b>${esc(e.status)}</b><span>Objective: ${S.seller.objective === 'earnings' ? 'earnings per order' : 'competitive start'} · minimum ${inr(S.seller.g)} per ${S.seller.denominator === 'kept' ? 'kept order' : 'expected dispatch'}</span></div>
-  ${c ? `<div class="dgrid">${cell('Enter', inr(c.entry), 'estimate ' + inr(c.entryEstimate))}${cell('Buyer pays', inr(c.buyer), 'historical panel')}${cell('Kept-order transfer', inr(c.transfer), 'historical panel')}
-  ${cell('Expected contribution', inr(c.econ.expected) + ' / dispatch', 'base case; scenario inputs')}${cell('Quantity', p.known && !p.blocked ? p.units + ' units (cap)' : 'blocked', 'cap is not a forecast')}${cell('Cash to keep available', p.known ? inr(p.need) : '–', p.known ? 'incl. ' + inr(p.reserveHeld) + ' reserve, not an expense' : '')}
-  ${cell('Most sensitive assumption', sens ? esc(sens.name) : '–', sens ? esc(sens.text) : '')}${cell('Alternative', a ? inr(a.buyer) + ' → ' + inr(a.econ.expected) : 'none supported', a ? 'earnings per order' : '')}${cell('Review trigger', '9 closed or day 30', 'early: reverse charge > ₹153, damaged return, peer below ₹189, cost > ' + inr(c.ceiling.minimum))}</div>
-  <p class="stress"><b>Stress cases:</b> ${stress}</p>` : `<p>No eligible candidate.</p>`}
+  const cell = (l, v, sub = '') => `<div class="dc"><span>${l}</span><b>${v}</b>${sub ? `<small>${sub}</small>` : ''}</div>`;
+  const canApprove = ['READY FOR YOUR APPROVAL', 'WEAK-EVIDENCE TEST'].includes(e.status);
+  const cashFits = p.known && !p.blocked;
+  const title = !canApprove ? nextAction(e).title : `Scenario: test the ${inr(c.buyer)} buyer offer${cashFits ? ` with up to ${p.units} units` : ''}.`;
+  return `<div class="decision-heading"><p class="eyebrow">YOUR DECISION · ${esc(S.product.sku)} · SCENARIO INPUTS ${S.mode === 'real' ? 'OFF' : 'ON'}</p><h2>${title}</h2><span class="decision-status ${canApprove ? 'good' : 'warning'}">${esc(decisionLabel(e))}</span></div>
+  ${nextActionCard(e)}${evidenceSummary(e)}<div class="card ${canApprove ? 'ok' : e.status === 'HOLD' ? 'hold' : 'warn'}">
+  ${c ? `<div class="dgrid summary-grid">
+  ${cell('Buyer offer', inr(c.buyer), 'what the buyer pays')}
+  ${cell('Expected contribution', inr2(c.econ.expected) + ' / dispatch', 'base case · before seller tax reconciliation')}
+  ${cell('Cash to keep available', p.known ? inr(p.need) : 'Unverified', p.known ? `includes ${inr(p.reserveHeld)} reserve, held rather than spent` : '')}
+  ${cell('First batch limit', cashFits ? p.units + ' units' : 'Buying blocked', 'exposure limit, not a sales forecast')}</div>
+  <p class="recommendation">${S.seller.objective === 'earnings' ? 'This candidate leaves the most per dispatch among the supported base-case passes.' : 'This is the lowest supported candidate that passes the base earnings check.'} ${canApprove ? 'The demo downside checks also pass.' : 'The remaining checks must be resolved before approval.'} Buyer response determines total earnings; this is a starting test.</p>
+  <div class="quote-line"><span>Seller enters <b>${inr(c.entry)}</b> ${c.entryEstimate != null ? '(estimate)' : '(manual input)'}</span><span>→ buyer pays <b>${inr(c.buyer)}</b></span><span>→ kept-order transfer <b>${inr(c.transfer)}</b></span></div>
+  ${a ? `<p class="alternative">Alternative: <b>${inr(a.buyer)} → ${inr(a.econ.expected)} / dispatch</b>. ${a.econ.expected > c.econ.expected ? 'It earns more per dispatch; demand decides whether it earns more overall.' : 'It is a lower buyer offer with less contribution per dispatch.'}</p>` : ''}
+  <p class="review-trigger"><b>Review trigger:</b> ${S.seller.cap} closed dispatches or day 30. Earlier if fees, damage, cost or comparable offers change.</p>
+  ${e.downsideFailures.length ? `<div class="callout bad"><b>Base case passes; downside does not.</b><ul>${e.downsideFailures.map(x => `<li>${esc(x.label)}: ${inr(x.values[S.quotes.findIndex(q => q.id === c.id)])} / dispatch; fails the selected minimum or positive-contribution check.</li>`).join('')}</ul>Review another candidate or repair the economics. A smaller batch limits exposure but does not fix a losing unit.</div>` : ''}` : '<p>No eligible candidate. Resolve the missing inputs or failed checks below.</p>'}
   ${e.reasons.length ? `<ul class="reasons">${e.reasons.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
-  <div class="actions"><button class="primary" data-action="approve" ${['READY FOR YOUR APPROVAL', 'WEAK-EVIDENCE TEST'].includes(e.status) ? '' : 'disabled'}>Approve test</button>
-  <button data-action="alt" ${a ? '' : 'disabled'}>Switch to alternative</button><button data-action="edit">Edit price</button><button data-action="hold">Hold</button></div>
-  <p class="muted">Approving saves a dated snapshot only. No listing edit, purchase or dispatch happens. The seller owns the price.</p></div>
-  ${noteMsg ? `<p class="callout">${noteMsg}</p>` : ''}
-  <h3>Snapshots</h3>${S.snapshots.length ? `<table class="grid"><thead><tr><th>#</th><th>Action</th><th>Status then</th><th>Choice</th><th>Versions</th><th>State now</th></tr></thead><tbody>${S.snapshots.map(x => `<tr><td>${x.id}</td><td>${esc(x.action)}</td><td>${esc(x.status)}</td><td>${x.choice ? inr(x.choice.buyer) + ' · ' + inr(x.choice.expected) : '–'}</td><td class="muted">${Object.entries(x.versions).map(([k, v]) => k[0] + v).join(' ')}</td><td class="${x.state === 'Current' ? '' : 'neg'}">${esc(x.state)}${x.why ? ': ' + esc(x.why) : ''}</td></tr>`).join('')}</tbody></table>` : '<p class="muted">No snapshot yet.</p>'}`;
+  <div class="actions"><button class="primary" data-action="approve" ${canApprove ? '' : 'disabled'}>Approve test</button><button data-action="alt" ${a ? '' : 'disabled'}>Switch to alternative</button><button data-action="edit">Edit price</button><button data-action="hold">Save for later</button></div>
+  <p class="muted">Approval saves an in-memory decision only. No listing edit or purchase. Refresh clears the session.</p></div>
+  ${noteMsg ? `<p class="callout" role="status">${noteMsg}</p>` : ''}
+  ${goalControls()}
+  <details><summary>View calculation and evidence</summary>
+  ${c ? `<p>Most sensitive assumption: <b>${sens ? esc(sens.name) : '–'}</b> · ${sens ? esc(sens.text) : ''}. Review changes before committing.</p><table class="grid"><thead><tr><th>Check</th><th>Expected / dispatch</th><th>Scope</th></tr></thead><tbody>${e.stress.map(x => `<tr><td>${esc(x.label)}</td><td class="${x.values[S.quotes.findIndex(q => q.id === c.id)] < 0 ? 'neg' : ''}">${inr(x.values[S.quotes.findIndex(q => q.id === c.id)])}</td><td>${esc(x.scope)}</td></tr>`).join('')}</tbody></table><p>Downside checks are labelled demo assumptions, not a calibrated probability range. The exploratory acquisition-cost change is a separate future scenario; entering that cost recalculates the whole decision.</p>` : ''}
+  <p>Product and quotes: historical panel. Comparable register: generated. Cash, costs and outcome mix: assumptions. <button data-step="product">Inspect inputs</button></p></details>
+  <details ${S.snapshots.length ? 'open' : ''}><summary>Saved decisions (${S.snapshots.length})</summary>${S.snapshots.length ? `<table class="grid"><thead><tr><th>#</th><th>Action</th><th>Saved at</th><th>Status then</th><th>Choice</th><th>State now</th></tr></thead><tbody>${S.snapshots.map(x => `<tr><td>${x.id}</td><td>${esc(x.action)}</td><td>${esc(new Date(x.time).toLocaleString('en-IN', {timeZone:'Asia/Kolkata'}))} IST</td><td>${esc(x.status)}</td><td>${x.choice ? inr(x.choice.buyer) + ' · ' + inr(x.choice.expected) : '–'}</td><td>${esc(x.state)}${x.why ? ': ' + esc(x.why) : ''}</td></tr>`).join('')}</tbody></table>` : '<p>No saved decision yet.</p>'}</details>`;
 }
 
 function reviewView() {
-  const L = M.ledger(P.COHORT, S);
+  if(S.shipping.mode!=='historical') return `<h2>Review settled orders</h2><p class="callout">The sample cohort belongs to the historical ₹189 / ₹96 launch. It is kept separate from new shipping estimates and panel quotes so a new rate cannot rewrite old orders.</p><button data-action="historical-review">Open the historical cohort review</button>`;
+  if (S.mode === 'real' || S.costs.private || ev().errors.length || !S.quoteValid || !S.quotes.some(q => q.buyer === 189)) return `<h2>Review settled orders</h2><p class="callout bad">${S.mode === 'real' ? 'No real dispatch record has been attached. Switch to prototype scenario to explore the labelled sample cohort.' : 'Confirm costs, valid quotes and the missing inputs before calculating the next decision. This sample cohort also needs its original ₹189 quote. Private cost mode shows ceilings only.'}</p><button data-step="product">Review inputs</button>`;
+  const L = M.ledger(P.COHORT, HISTORICAL_INPUTS);
+  const alreadyApplied = S.reviewedCohorts.includes(COHORT_ID);
   const u = review || M.update(S, L, K);
-  const e2 = M.evaluate(u.next), d = M.nextDecision(u.next, L, e2);
+  const beforeEv = M.evaluate(review && review.beforeState ? review.beforeState : S);
+  const e2 = M.evaluate(u.next), liveNext = alreadyApplied ? S : u.next, d = M.nextDecision(liveNext, L, M.evaluate(liveNext));
   const st = { kept: 'Kept', rto: 'RTO (refused)', return: 'Customer return', pending: 'Pending' };
   const b = u.before, a = u.after;
   const row = (l, x, y, f) => `<tr class="${M.r2(x) !== M.r2(y) ? 'chg' : ''}"><td>${l}</td><td>${f(x)}</td><td>${f(y)}</td></tr>`;
-  return `<h2>Review and learn · same SKU, version 1, launched at ${inr(189)}</h2><p class="lead">${src('synthetic')} Nine labelled test dispatches to exercise the loop. They are not observed Meesho orders.</p>
+  return `<h2>Review and learn · sample launch · version 1 at ${inr(189)}</h2><p class="lead">${src('synthetic')} Nine labelled test dispatches to exercise the loop. They are not observed Meesho orders. Sample launch costs are fixed at ₹55 acquisition and ₹5 preparation; editing future costs never rewrites the ledger.</p>
   <table class="grid"><thead><tr><th>Dispatch</th><th>Outcome</th><th>Settlement</th><th>Reverse charge</th><th>Stock</th><th>Contribution</th><th>Cash</th></tr></thead><tbody>${L.rows.map(x => `<tr><td>${x.id}</td><td>${st[x.status]}</td><td>${x.settled === null ? 'not settled' : inr(x.settled)}</td><td>${x.reverse === null ? '–' : inr(x.reverse)}</td><td>${esc(x.stock)}</td><td>${x.contribution === null ? 'open' : inr(x.contribution)}</td><td>${inr(x.cash)}</td></tr>`).join('')}</tbody></table>
   <div class="kpis"><div><b>${inr(L.contribution)}</b><span>closed contribution (${L.closed} closed)</span></div><div><b>${inr(L.cash)}</b><span>net cash so far (bank ${inr(S.seller.cash)} → ${inr(S.seller.cash + L.cash)})</span></div><div><b>${L.intactUnits} units · ${inr(L.inventoryValue)}</b><span>recoverable stock at cost, not cash</span></div><div><b>${L.pending}</b><span>pending: not a sale, not a loss</span></div></div>
   <p class="formula">Closed cash ${inr(L.contribution - L.inventoryValue)} + recovered stock ${inr(L.inventoryValue)} = contribution ${inr(L.contribution)}. Settlements ${inr(L.settlements)}; reverse charges ${inr(L.reverseCharges)} (counted once, on the return only).</p>
-  <h3>Inputs before → after</h3><label class="field inline">Prior weight K (pseudo-dispatches) <input type="number" id="in-K" value="${K}" min="1" step="1"> <span class="tag miss">uncalibrated</span></label>
+  <h3>Inputs before → after</h3><label class="field inline">Prior weight K (pseudo-dispatches) <input type="number" id="in-K" value="${K}" min="1" step="1" ${alreadyApplied ? 'disabled' : ''}> <span class="tag miss">uncalibrated</span></label>
   <table class="grid narrow"><thead><tr><th>Input</th><th>Before</th><th>After</th></tr></thead><tbody>${row('Kept %', b.k, a.k, pct)}${row('RTO %', b.r, a.r, pct)}${row('Return %', b.q, a.q, pct)}${row('Reverse fee R', b.R, a.R, inr)}${row('Damaged share of returns', b.delta, a.delta, pct)}${row('Reserve per unit', b.reserve, a.reserve, inr)}</tbody></table>
   <p class="formula">Blend: (K × prior + closed count) ÷ (K + ${L.closed}). With K = ${K}: kept (${K} × ${b.k}% + ${L.kept}) ÷ ${K + L.closed} = ${pct(a.k)}. R takes the charge actually debited. K is not fitted to any data.</p>
-  <h3>Recalculated economics</h3><table class="grid narrow"><thead><tr><th>Candidate</th><th>Before</th><th>After</th><th>Cost ceiling after</th></tr></thead><tbody>${e2.rows.map((r, i) => `<tr><td>${inr(r.buyer)}</td><td>${inr2(ev().rows[i].econ ? ev().rows[i].econ.expected : null)}</td><td><b>${inr2(r.econ.expected)}</b></td><td>C ≤ ${inr(r.ceiling.minimum)}</td></tr>`).join('')}</tbody></table>
+  <h3>Recalculated economics</h3><table class="grid narrow"><thead><tr><th>Candidate</th><th>Before</th><th>After</th><th>Cost ceiling after</th></tr></thead><tbody>${e2.rows.map((r, i) => `<tr><td>${inr(r.buyer)}</td><td>${inr2(beforeEv.rows[i].econ ? beforeEv.rows[i].econ.expected : null)}</td><td><b>${inr2(r.econ ? r.econ.expected : null)}</b></td><td>C ≤ ${inr(r.ceiling ? r.ceiling.minimum : null)}</td></tr>`).join('')}</tbody></table>
   <div class="card ok"><div class="cardhead"><b>Next decision</b><span>seller approves or holds</span></div><p>${esc(d.price)}</p><p>${esc(d.stock)}</p></div>
-  <button class="primary" data-action="apply">Apply the update as version ${S.versions.outcomes + 1} inputs</button>`;
+  <button class="primary" data-action="apply" ${alreadyApplied ? 'disabled' : ''}>${alreadyApplied ? 'Cohort already applied — waiting for new outcomes' : `Apply the update as version ${S.versions.outcomes + 1} inputs`}</button><p class="muted">Each cohort is processed once. Reset everything starts a fresh demo.</p>`;
 }
 
 function render() {
@@ -525,6 +863,9 @@ function render() {
   $('change').innerHTML = changeBox();
   const view = { product: productView, alternatives: alternativesView, quotes: quotesView, economics: economicsView, constraints: constraintsView, decision: decisionView, review: reviewView }[step];
   $('main').innerHTML = view(e);
+  document.querySelectorAll('main table').forEach(table => { const wrapper = document.createElement('div'); wrapper.className = 'table-scroll'; wrapper.tabIndex = 0; wrapper.setAttribute('role', 'region'); wrapper.setAttribute('aria-label', 'Scrollable evidence table'); table.before(wrapper); wrapper.append(table); });
+  const current = STEPS.findIndex(x => x[0] === step);
+  $('step-nav').innerHTML = `<button data-step="${STEPS[Math.max(0,current-1)][0]}" ${current === 0 ? 'disabled' : ''}>← Previous check</button><span>${current+1} of 7</span><button data-step="${STEPS[Math.min(6,current+1)][0]}" ${current === 6 ? 'disabled' : ''}>${step === 'decision' ? 'Review settled orders' : 'Next check'} →</button>`;
   $('log').innerHTML = S.log.length ? S.log.slice(0, 8).map(x => `<li><b>${esc(x.area)}</b> v${S.versions[x.area]} · ${esc(x.reason)} · quotes ${x.quotes} · ${x.snapshots} snapshot(s) to review</li>`).join('') : '<li class="muted">No changes yet.</li>';
   document.querySelectorAll('[data-mode]').forEach(b => b.classList.toggle('on', b.dataset.mode === S.mode));
 }
@@ -537,7 +878,7 @@ function explain(title, before, after, extra) {
   if (pick(before) !== pick(after)) lines.push(`Choice: ${pick(before)} → <b>${pick(after)}</b>`);
   const alt = e => e.alternative ? inr(e.alternative.buyer) : 'none';
   if (alt(before) !== alt(after)) lines.push(`Alternative: ${alt(before)} → <b>${alt(after)}</b>`);
-  after.rows.forEach((r, i) => { const x = before.rows[i]; if (r.econ && x.econ && M.r2(r.econ.expected) !== M.r2(x.econ.expected)) lines.push(`${inr(r.buyer)} expected: ${inr(x.econ.expected)} → <b>${inr(r.econ.expected)}</b>; cost ceiling ${inr(x.ceiling.minimum)} → ${inr(r.ceiling.minimum)}`); });
+  after.rows.forEach((r, i) => { const x = before.rows[i]; if (r.econ && x && x.econ && M.r2(r.econ.expected) !== M.r2(x.econ.expected)) lines.push(`${inr(r.buyer)} expected: ${inr(x.econ.expected)} → <b>${inr(r.econ.expected)}</b>; cost ceiling ${inr(x.ceiling.minimum)} → ${inr(r.ceiling ? r.ceiling.minimum : null)}`); });
   if (before.proc.need !== after.proc.need || before.proc.blocked !== after.proc.blocked) lines.push(`Cash to keep available: ${inr(before.proc.need)} → <b>${after.proc.known ? inr(after.proc.need) : 'unverified'}</b>${after.proc.blocked ? ' · procurement blocked' : ''}`);
   if (before.cmp.n !== after.cmp.n) lines.push(`Qualified alternatives: ${before.cmp.n} → <b>${after.cmp.n}</b> (range ${after.cmp.n ? inr(after.cmp.min) + '–' + inr(after.cmp.max) : 'none'})`);
   (extra || []).forEach(x => lines.push(x));
@@ -549,44 +890,77 @@ function apply(area, reason, mutate, extraFn) {
   const before = ev();
   const r = M.change(S, area, reason, mutate);
   const after = ev();
-  const extra = [`Quotes: ${r.quoteHit ? '<b>invalidated</b> (product or weight changed what is shipped)' : 'still valid (this change does not alter entry → buyer → transfer)'}`,
+  const extra = [after.shipping ? `Shipping context: ${after.shipping.confirmed ? 'panel quote validated' : 'estimate or panel revalidation required'}` : `Quotes: ${r.quoteHit ? '<b>invalidated</b> (product or weight changed what is shipped)' : 'still valid (this change does not alter entry → buyer → transfer)'}`,
     `Snapshots needing review: ${r.invalidated}`].concat(extraFn ? extraFn(after) : []);
   explain(reason, before, after, extra);
-  review = null; noteMsg = '';
+  if (!S.reviewedCohorts.includes(COHORT_ID)) review = null; noteMsg = '';
   render();
 }
 
 const DEMOS = {
-  comparable: () => { S.mode = 'scenario'; const i = S.register.findIndex(x => x.id === 'M3'); if (S.register[i].status === 'accepted') apply('comparables', 'Comparable M3 ₹210 fails re-check (spec table shows CAT6)', s => { s.register[i].status = 'excluded'; s.register[i].reason = 'Failed re-check: CAT6 in spec table'; }, () => ['₹210 is now priced above every qualified alternative, so it is unsupported. ₹189 stays the competitive start; the comparable range is not willingness to pay.']); step = 'alternatives'; render(); },
-  returns: () => { S.mode = 'scenario'; apply('fees', 'Reverse charge ₹165 and half of returns arrive damaged', s => { s.fees.R = 165; s.fees.delta = 50; }, () => ['Reserve rises to ₹33 per unit (20% × ₹165, rounded down): more cash held, not a cost.']); step = 'economics'; render(); },
-  cash: () => { S.mode = 'scenario'; apply('seller', 'Supplier MOQ 10 and only ₹700 cash', s => { s.seller.moq = 10; s.seller.cash = 700; }, () => ['The price still passes: procurement, not price, is blocked. Options: renegotiate MOQ, add cash, or hold.']); step = 'constraints'; render(); },
-  weight: () => { S.mode = 'scenario'; apply('product', 'Packed weight measured at 520 g (above the 500 g band)', s => { s.product.packedWeight = 520; s.product.packedWeightSource = 'measured'; s.fees.R = null; }, () => ['Return fee for the new band is unknown: no precise earnings until requoted.']); step = 'quotes'; render(); },
-  cost90: () => { S.mode = 'scenario'; apply('costs', 'Acquisition cost rises to ₹90', s => { s.costs.C = 90; }); step = 'decision'; render(); },
-  reset: () => { S = P.base(); step = 'product'; review = null; K = 20; lastChange = null; noteMsg = ''; render(); }
+  comparable: () => { S.mode = 'scenario'; S.shipping.mode='historical'; const i = S.register.findIndex(x => x.id === 'M3'); if (S.register[i].status === 'accepted') apply('comparables', 'Comparable M3 ₹210 fails re-check (spec table shows CAT6)', s => { s.register[i].status = 'excluded'; s.register[i].reason = 'Failed re-check: CAT6 in spec table'; }, () => ['₹210 is now priced above every qualified alternative, so it is unsupported. ₹189 stays the competitive start; the comparable range is not willingness to pay.']); step = 'alternatives'; render(); },
+  returns: () => { S.mode = 'scenario'; S.shipping.mode='historical'; apply('fees', 'Reverse charge ₹165 and half of returns arrive damaged', s => { s.fees.R = 165; s.fees.delta = 50; }, () => ['Reserve rises to ₹33 per unit (20% × ₹165, rounded down): more cash held, not a cost.']); step = 'economics'; render(); },
+  cash: () => { S.mode = 'scenario'; S.shipping.mode='historical'; apply('seller', 'Supplier MOQ 10 and only ₹700 cash', s => { s.seller.moq = 10; s.seller.cash = 700; }, () => ['The price still passes: procurement, not price, is blocked. Options: renegotiate MOQ, add cash, or hold.']); step = 'constraints'; render(); },
+  weight: () => { S.mode = 'scenario'; S.shipping.mode='historical'; apply('product', 'Packed weight measured at 520 g (above the 500 g band)', s => { s.product.packedWeight = 520; s.product.packedWeightSource = 'measured'; s.fees.R = null; }, () => ['Return fee for the new band is unknown: no precise earnings until requoted.']); step = 'quotes'; render(); },
+  cost90: () => { S.mode = 'scenario'; S.shipping.mode='historical'; apply('costs', 'Acquisition cost rises to ₹90', s => { s.costs.C = 90; }); step = 'decision'; render(); },
+  reset: () => { S = startingState(); step = 'quotes'; quoteEditor = false; quoteMessage = ''; review = null; K = 20; lastChange = null; noteMsg = ''; render(); }
 };
 
 document.addEventListener('click', ev0 => {
   const t = ev0.target.closest('button'); if (!t) return;
+  if (t.classList.contains('menu-toggle')) { const open = t.getAttribute('aria-expanded') !== 'true'; t.setAttribute('aria-expanded', String(open)); document.querySelector('.side').classList.toggle('expanded', open); return; }
+  if (t.dataset.pricing) { step='quotes'; quoteEditor=false; apply('quotes','Calculation source changed',s=>{s.shipping.mode=t.dataset.pricing;}); return; }
   if (t.dataset.step) { step = t.dataset.step; render(); return; }
-  if (t.dataset.mode) { const before = ev(); S.mode = t.dataset.mode; explain('Evidence mode: ' + (S.mode === 'real' ? 'real record' : 'prototype scenario'), before, ev()); render(); return; }
+  if (t.dataset.action === 'real-hold') { S.mode = 'real'; step = 'decision'; quoteEditor = false; noteMsg = ''; render(); return; }
+  if (t.dataset.mode) { const before = ev(); S.mode = t.dataset.mode; quoteEditor = false; noteMsg = ''; explain('Evidence mode: ' + (S.mode === 'real' ? 'real record' : 'prototype scenario'), before, ev()); render(); return; }
   if (t.dataset.demo) { DEMOS[t.dataset.demo](); return; }
   if (t.dataset.fail) { const i = +t.dataset.fail; const id = S.register[i].id, price = S.register[i].price; apply('comparables', `Comparable ${id} ₹${price} fails re-check`, s => { s.register[i].status = 'excluded'; s.register[i].reason = 'Failed re-check'; }); return; }
   const a = t.dataset.action; const e = ev();
-  if (a === 'approve') { M.snapshot(S, e, 'Approve ' + inr(e.choice.buyer)); noteMsg = 'Snapshot saved. Nothing was listed, bought or dispatched.'; render(); }
-  if (a === 'alt' && e.alternative) { const before = e; S.seller.objective = S.seller.objective === 'earnings' ? 'competitive' : 'earnings'; explain('Seller switched objective', before, ev()); render(); }
-  if (a === 'hold') { M.snapshot(S, e, 'Hold'); noteMsg = 'HOLD saved with its reasons.'; render(); }
-  if (a === 'edit') { noteMsg = 'A price of your own needs a fresh quote (entry → buyer → transfer) before any earnings are shown. Status stays HOLD for that price; no transfer is inferred.'; render(); }
+  if (a === 'confirm-shipping') { step='quotes'; if(S.shipping.mode==='confirmed'){render();return;} apply('quotes', 'Review supplier-panel quote', s=>{s.shipping.mode='confirmed';}); return; }
+  if (a === 'open-shipping') { step='quotes'; apply('quotes', 'Opened online shipping estimates', s=>{s.shipping.mode='online';}); return; }
+  if (a === 'historical-review') { step='review'; apply('quotes', 'Opened original historical cohort', s=>{s.shipping.mode='historical';}); return; }
+  if (a === 'save-estimate' && e.shipping && e.shipping.ok) { const snap=M.snapshot(S,e,e.shipping.confirmed?'Save quote review':'Save estimated plan'); snap.expectedRange=e.rows[0].econRange?e.rows[0].econRange.expected:null; noteMsg='Plan saved with its source and ranges. This is not approval or a listing change.';render();return; }
+  if (a === 'inputs') { commitVisibleInputs(); return; }
+  if (a === 'goal') { apply('seller', 'Seller goal and minimum confirmed', s => { s.seller.objective = $('in-objective').value; s.seller.denominator = $('in-denominator').value; s.seller.g = $('in-minimum').value === '' ? null : Number($('in-minimum').value); }); }
+  if (a === 'approve' && (!e.shipping || e.shipping.confirmed) && ['READY FOR YOUR APPROVAL', 'WEAK-EVIDENCE TEST'].includes(e.status)) { M.snapshot(S, e, 'Approve ' + inr(e.choice.buyer)); noteMsg = 'Snapshot saved. Nothing was listed, bought or dispatched.'; render(); }
+  if (a === 'alt' && e.alternative) { const before = e; apply('seller', 'Seller switched objective', s => { s.seller.objective = s.seller.objective === 'earnings' ? 'competitive' : 'earnings'; }); }
+  if (a === 'hold') { M.snapshot(S, e, 'Hold'); noteMsg = 'Decision saved for later with its reasons and next action.'; render(); }
+  if (a === 'edit') { S.shipping.mode='historical'; quoteEditor = !quoteEditor; quoteMessage = ''; step = 'quotes'; render(); }
   if (a === 'requote') { const before = ev(); S.quoteValid = true; S.versions.quotes += 1; S.log.unshift({ area: 'quotes', reason: 'Quotes re-captured (demo assumption)', quotes: 'valid', snapshots: 0 }); explain('Quotes re-captured', before, ev()); render(); }
-  if (a === 'apply') { const L = M.ledger(P.COHORT, S); const u = M.update(S, L, K); const before = ev(); const snaps = S.snapshots; const log = S.log; S = u.next; S.snapshots = snaps; S.log = log;
-    S.snapshots.filter(x => x.state === 'Current').forEach(x => { x.state = 'Needs review'; x.why = 'Outcome update v' + S.versions.outcomes; });
-    S.log.unshift({ area: 'outcomes', reason: `Review applied with K = ${K} (uncalibrated)`, quotes: 'still valid', snapshots: snaps.length });
-    explain('Review applied to the same SKU', before, ev(), ['Price is not changed automatically.']); review = u; render(); }
+  if (a === 'apply') {
+    if(S.shipping.mode!=='historical')return;
+    if (S.mode !== 'scenario' || S.costs.private || e.errors.length || !S.quoteValid || S.reviewedCohorts.includes(COHORT_ID)) return;
+    const L = M.ledger(P.COHORT, HISTORICAL_INPUTS);
+    const u = M.commitReview(S, L, K, COHORT_ID); if (!u.applied) return;
+    const before = ev(), beforeState = JSON.parse(JSON.stringify(S)); S = u.next;
+    const stale = S.snapshots.filter(x => x.state === 'Current');
+    stale.forEach(x => { x.state = 'Needs review'; x.why = 'Outcome update v' + S.versions.outcomes; });
+    S.log.unshift({ area: 'outcomes', reason: `Review applied once with K = ${K} (uncalibrated)`, quotes: 'still valid', snapshots: stale.length });
+    explain('Review applied to the same SKU', before, ev(), ['This cohort is now processed. New outcomes are needed before another update.']); review = JSON.parse(JSON.stringify(u)); review.beforeState = beforeState; render();
+  }
 });
 
 document.addEventListener('change', ev0 => {
-  const t = ev0.target; const v = t.value === '' ? null : Number(t.value);
+  const t = ev0.target;
+  if(t.closest('#shipping-form')) {
+    if(!t.name.startsWith('ship-'))return;
+    const value=t.value===''?null:Number(t.value);
+    if(t.name==='ship-weight')apply('product','Packed weight changed; review shipping quote',s=>{s.product.packedWeight=value;s.product.packedWeightSource='measured';});
+    else {
+      const fields={'ship-buyer':'buyer','ship-panel-weight':'panelWeight','ship-zone':'zone','ship-tax':'taxBasis','ship-other':'other','ship-source':'rateSource','ship-carrier':'carrier','ship-return-tax':'returnTaxBasis'};
+      apply('shipping','Shipping context changed; saved decisions need review',s=>{
+        if(fields[t.name])s.shipping[fields[t.name]]=['ship-buyer','ship-panel-weight','ship-other'].includes(t.name)?value:t.value;
+        else {const manual={'ship-forward-min':['manualForward',0],'ship-forward-max':['manualForward',1],'ship-return-min':['manualReturn',0],'ship-return-max':['manualReturn',1]}[t.name];if(manual)s.shipping[manual[0]][manual[1]]=value;}
+      });
+    }
+    return;
+  }
+  if (['in-objective', 'in-denominator', 'in-minimum'].includes(t.id)) return; // Confirm the goal as one edit to preserve unfinished fields.
+  const v = t.value === '' ? null : Number(t.value);
   const map = {
+    'in-minimum': ['seller', 'Minimum earnings edited', s => { s.seller.g = v; }],
     'in-weight': ['product', 'Packed weight edited', s => { const crosses = (v > s.product.weightBand) !== (s.product.packedWeight > s.product.weightBand); s.product.packedWeight = v; s.product.packedWeightSource = 'measured'; if (crosses && v > s.product.weightBand) s.fees.R = null; }],
+    'in-o': ['costs', 'Packing and preparation edited', s => { s.costs.o = v; }],
     'in-C': ['costs', 'Acquisition cost edited', s => { s.costs.C = v; }],
     'in-R': ['fees', 'Reverse fee edited', s => { s.fees.R = v; }],
     'in-d': ['fees', 'Damaged share edited', s => { s.fees.delta = v; }],
@@ -599,9 +973,198 @@ document.addEventListener('change', ev0 => {
   if (t.dataset.mix) { apply('outcomes', 'Outcome mix edited', s => { s.mix[t.dataset.mix] = v; s.mix.source = 'assumed'; }); return; }
   if (t.id === 'in-private') { apply('costs', t.checked ? 'Cost kept private' : 'Cost shared', s => { s.costs.private = t.checked; s.costs.C = t.checked ? null : 55; }); return; }
   if (t.id === 'in-weak') { const before = ev(); S.weakAck = t.checked; explain('Weak-evidence acknowledgement', before, ev()); render(); return; }
-  if (t.id === 'in-K') { K = Math.max(1, Math.round(v || 20)); review = null; render(); }
+  if (t.id === 'in-K' && !S.reviewedCohorts.includes(COHORT_ID)) { K = Math.max(1, Math.round(v || 20)); review = null; render(); }
+});
+
+function commitVisibleInputs() {
+  const fields = {
+    'in-weight': ['product', 'packedWeight'], 'in-C': ['costs', 'C'], 'in-o': ['costs', 'o'],
+    'in-R': ['fees', 'R'], 'in-d': ['fees', 'delta'], 'in-cash': ['seller', 'cash'],
+    'in-owned': ['seller', 'owned'], 'in-cap': ['seller', 'cap'], 'in-moq': ['seller', 'moq']
+  };
+  const changes = [];
+  for (const [id, [area, key]] of Object.entries(fields)) {
+    const input = $(id); if (!input || input.disabled) continue;
+    const value = input.value === '' ? null : Number(input.value);
+    if (S[area][key] !== value) changes.push({area, key, value});
+  }
+  for (const input of document.querySelectorAll('[data-mix]')) {
+    const value = input.value === '' ? null : Number(input.value);
+    if (S.mix[input.dataset.mix] !== value) changes.push({area: 'outcomes', key: input.dataset.mix, value});
+  }
+  if (!changes.length) { noteMsg = 'Inputs are up to date.'; render(); return; }
+  const before = ev();
+  for (const area of new Set(changes.map(x => x.area))) M.change(S, area, 'Seller confirmed ' + area + ' inputs', state => {
+    for (const change of changes.filter(x => x.area === area)) {
+      if (area === 'outcomes') { state.mix[change.key] = change.value; state.mix.source = 'assumed'; }
+      else {
+        state[area][change.key] = change.value;
+        if (area === 'product') { state.product.packedWeightSource = 'measured'; if (change.value > state.product.weightBand) state.fees.R = null; }
+      }
+    }
+  });
+  explain('Seller confirmed inputs', before, ev());
+  if (!S.reviewedCohorts.includes(COHORT_ID)) review = null;
+  noteMsg = 'Inputs updated. Review the recalculated decision before approval.'; render();
+}
+
+document.addEventListener('submit', event => {
+ if(event.target.id!=='shipping-form')return;
+ event.preventDefault();
+ const form=event.target,data=new FormData(form),num=name=>data.get(name)===''?null:Number(data.get(name));
+ const candidate=JSON.parse(JSON.stringify(S)),c=candidate.shipping;
+ candidate.product.packedWeight=num('ship-weight');candidate.product.packedWeightSource='measured';
+ Object.assign(c,{buyer:num('ship-buyer'),panelWeight:num('ship-panel-weight'),zone:data.get('ship-zone'),taxBasis:data.get('ship-tax'),other:num('ship-other'),rateSource:data.get('ship-source'),carrier:data.get('ship-carrier'),returnTaxBasis:data.get('ship-return-tax'),manualForward:[num('ship-forward-min'),num('ship-forward-max')],manualReturn:[num('ship-return-min'),num('ship-return-max')]});
+ if(c.mode==='confirmed'){
+  if(!data.get('panel-confirm')){$('shipping-feedback').textContent='Confirm that these values came from the supplier panel.';return;}
+  c.confirmed={entry:num('panel-entry'),transfer:num('panel-transfer'),returnGross:num('panel-return'),date:data.get('panel-date'),context:PCShipping.context(candidate)};
+ }
+ const result=PCShipping.calculate(candidate);
+ const before=ev();
+ if(S.product.packedWeight!==candidate.product.packedWeight || S.product.packedWeightSource!==candidate.product.packedWeightSource)M.change(S,'product','Packed weight confirmed for shipping calculation',state=>{state.product.packedWeight=candidate.product.packedWeight;state.product.packedWeightSource='measured';});
+ M.change(S,'shipping',c.mode==='confirmed'?'Panel quote confirmed for current shipping context':'Shipping assumptions confirmed; buyer total fixed',state=>{state.shipping=c;});
+ if(!result.ok){render();$('shipping-feedback').textContent=result.errors.join(' ');return;}
+ explain('Shipping calculation updated',before,ev(),['Buyer total remains '+inr(c.buyer)+'. Public rates are not a current quote.']);
+ noteMsg=c.mode==='confirmed'?'Panel net payout saved and used directly; shipping is not deducted again.':'Estimate updated. Confirm the panel quote before approval.';
+ render();
+});
+
+document.addEventListener('submit', event => {
+  if (event.target.id !== 'quote-form') return;
+  event.preventDefault();
+  if (S.mode !== 'scenario') return;
+  const form = event.target, data = new FormData(form);
+  const entry = Number(data.get('entry')), buyer = Number(data.get('buyer')), transfer = Number(data.get('transfer'));
+  if (![entry, buyer, transfer].every(Number.isFinite) || entry <= 0 || buyer <= 0 || transfer < 0 || transfer > buyer || !data.get('confirmed')) {
+    quoteMessage = 'Enter valid prices. The kept-order transfer must be between zero and the buyer price, and all three values must be confirmed.';
+    $('quote-feedback').textContent = quoteMessage; return;
+  }
+  if (S.quotes.some(q => q.buyer === buyer)) { quoteMessage = 'That buyer price already has a candidate. Enter a different offer, or reset the demo.'; $('quote-feedback').textContent = quoteMessage; return; }
+  quoteEditor = false;
+  apply('quotes', 'Seller added a complete candidate quote (demo assumption)', s => {
+    s.quotes.push({ id: 'Qmanual' + s.versions.quotes, label: 'Seller candidate', entry, entryEstimate: null, buyer, transfer, source: 'manual' });
+    if (!s.quoteValid) s.quotes = s.quotes.slice(-1); // changed product: do not revive stale historical pairs
+    s.quoteValid = true;
+  });
+  step = 'decision'; noteMsg = 'Candidate saved as a demo assumption. Earnings, comparable support, downside and cash have been checked; nothing was listed.'; render();
 });
 
 window.PCJ = { getState: () => JSON.parse(JSON.stringify(S)), evaluate: () => M.evaluate(S), demo: n => DEMOS[n](), go: s => { step = s; render(); } };
 render();
+</script><script>/* Local catalogue handoff and pure price calculations. No network access. */
+(function(root){
+ 'use strict';
+ const P=typeof module!=='undefined'?require('./record.js'):root.PCRecord;
+ const M=typeof module!=='undefined'?require('./model.js'):root.PCJourney;
+ const H=typeof module!=='undefined'?require('./shipping.js'):root.PCShipping;
+ const clone=x=>JSON.parse(JSON.stringify(x));
+ const money=x=>typeof x==='number'&&Number.isFinite(x)&&x>=0&&Math.abs(x*100-Math.round(x*100))<.000001;
+ function catalogue(){const b=P.base(),listing=b.quotes.find(q=>q.label==='Current listing');return {product:clone(b.product),buyerPrice:listing.buyer,source:'simulated',label:'Demo using a sample catalogue'};}
+ function start(){const s=P.base();Object.assign(s.shipping,{feeProfile:'supplied',fulfilment:'self',forwardMethod:'half-return',warehouseDistance:'unknown',taxBasis:'exclusive',returnTaxBasis:'exclusive'});s.shipping.mode='online';s.shipping.buyer=catalogue().buyerPrice;s.costs.C=null;s.costs.o=null;s.seller.g=null;s.seller.denominator='dispatch';return s;}
+ function costErrors(s){const e=[];if(!money(s.costs.C))e.push('Enter your purchase cost.');if(!money(s.costs.o))e.push('Enter your packing cost.');if(!money(s.seller.g))e.push('Enter your minimum earnings per order.');if(s.costs.private)e.push('Enter your costs to calculate earnings.');return e;}
+ function evaluatePrice(state,buyer,options={}){
+  const s=clone(state),errors=costErrors(s);s.seller.denominator='dispatch';
+  if(!money(buyer)||buyer<=0)errors.push('Enter a buyer price greater than zero, with no more than two decimal places.');
+  s.shipping.buyer=buyer;
+  const quote=s.shipping.confirmed;
+  const confirmed=!options.estimateOnly&&s.shipping.mode==='confirmed'&&quote&&quote.context===H.context(s);
+  const stale=s.shipping.mode==='confirmed'&&!confirmed&&!options.estimateOnly;
+  if(!confirmed){s.shipping.mode='online';s.shipping.confirmed=null;}
+  if(errors.length)return {ok:false,errors,buyer,payout:null,earnings:null,targetMet:false,confirmed:false,stale:!!stale,estimateStatus:'needs-input'};
+  const evaluation=M.evaluate(s),shipping=evaluation.shipping,row=evaluation.rows[0],cmp=evaluation.cmp;
+  if(!shipping.ok||!row.econRange)return {ok:false,errors:shipping.ok?evaluation.errors:shipping.errors,buyer,payout:shipping.payout,earnings:null,targetMet:false,confirmed:false,stale:!!stale,estimateStatus:'needs-input',comparison:cmp,evaluation};
+  const earnings=row.econRange.expected.map(M.r2),kept=row.econRange.kept.map(M.r2);
+  const targetMet=row.econRange.expected[0]>0&&earnings[0]>0&&row.econRange.expected[0]>=s.seller.g;
+  return {ok:true,errors:[],buyer,payout:shipping.payout,earnings,kept,target:s.seller.g,targetMet,confirmed:!!confirmed,stale:!!stale,supported:cmp.n>0&&buyer>=cmp.min&&buyer<=cmp.max,comparison:cmp,shipping,funding:evaluation.proc,evaluation,estimateStatus:confirmed?'seller-confirmed':'estimated'};
+ }
+ function suggest(state){
+  const cmp=M.comparables(state),errors=costErrors(state);
+  if(errors.length)return {ok:false,price:null,reason:errors[0],errors,comparison:cmp};
+  if(!cmp.n)return {ok:false,price:null,reason:'Comparison prices are missing. You can still check a price.',comparison:cmp};
+  const min=Math.max(1,Math.ceil(cmp.min)),max=Math.floor(cmp.max);
+  if(min>max)return {ok:false,price:null,reason:'No whole-rupee price is available in the comparison range.',comparison:cmp};
+  const top=evaluatePrice(state,max,{estimateOnly:true});
+  if(!top.ok)return {ok:false,price:null,reason:top.errors[0]||'Complete the missing shipping inputs.',comparison:cmp};
+  if(!top.targetMet)return {ok:false,price:null,reason:'No price in the comparison range meets your earnings target. Check your costs or target.',comparison:cmp};
+  // Fixed parcel/fee context makes earnings monotonic in buyer price. Binary search stays fast for wide ranges.
+  let lo=min,hi=max;
+  while(lo<hi){const mid=Math.floor((lo+hi)/2),r=evaluatePrice(state,mid,{estimateOnly:true});if(r.ok&&r.targetMet)hi=mid;else lo=mid+1;}
+  const result=evaluatePrice(state,lo,{estimateOnly:true});
+  return {ok:true,price:lo,result,comparison:cmp,reason:'Lowest price in the comparison range that meets your target using the cautious earnings estimate.'};
+ }
+ function setPrice(state,buyer){
+  if(!money(buyer)||buyer<=0)return false;
+  if(state.shipping.buyer===buyer)return true;
+  M.change(state,'shipping','Buyer price changed',s=>{s.shipping.buyer=buyer;s.shipping.mode='online';});return true;
+ }
+ function confirm(state,transfer,returnFee,date){
+  if(!money(transfer)||transfer>state.shipping.buyer||!money(returnFee))return {ok:false,error:'Enter a valid payout and total return fee. Payout cannot exceed the buyer price.'};
+  const s=clone(state);s.shipping.mode='confirmed';s.shipping.confirmed={entry:null,transfer,returnGross:returnFee,date,context:H.context(s)};
+  const c=H.calculate(s);if(!c.ok)return {ok:false,error:c.errors.join(' ')};
+  M.change(state,'shipping','Payout from Meesho confirmed',x=>{x.shipping=s.shipping;});return {ok:true};
+ }
+ const api={catalogue,start,costErrors,evaluatePrice,suggest,setPrice,confirm,money};
+ if(typeof module!=='undefined')module.exports=api;else root.PCSeller=api;
+})(globalThis);
+</script><script>/* Simple seller screens. The detailed historical workspace keeps its own state. */
+(function(){
+ 'use strict';
+ const A=PCSeller,M=PCJourney,H=PCShipping;
+ let state=A.start(),screen=1,priceDraft=String(state.shipping.buyer),suggestion=null,showPanel=false,notice='',costSource='';
+ const $=id=>document.getElementById(id),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const num=x=>x.trim()===''?null:Number(x);
+ const rupees=x=>Number.isFinite(x)?(x<0?'-':'')+'₹'+Math.abs(x).toLocaleString('en-IN',{minimumFractionDigits:Number.isInteger(M.r2(x))?0:2,maximumFractionDigits:2}):'Not available';
+ const range=x=>x&&x.every(Number.isFinite)?x[0]===x[1]?rupees(x[0]):`${rupees(x[0])} to ${rupees(x[1])}`:'Not available';
+ const plain=x=>String(x??'').replace(/\s*[—]\s*/g,'. ').replace(/\s*[–]\s*/g,' to ').replace('No published band above 2 kg. Enter manual forward and return rates; no extrapolation.','For parcels above 2 kg, enter shipping and return fees in More details.');
+ function cleanCopy(node){const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);let t;while(t=walker.nextNode()){if(!['SCRIPT','STYLE'].includes(t.parentElement?.tagName))t.nodeValue=plain(t.nodeValue);}}
+ function field(label,name,value,help=''){return `<label class="seller-field">${label}<input name="${name}" type="number" min="0" step="0.01" required value="${value??''}" inputmode="decimal">${help?`<small>${help}</small>`:''}</label>`;}
+ function header(){const names=['Product costs','Suggested price','Confirm your price'];$('seller-progress').innerHTML=names.map((name,i)=>`<li ${screen===i+1?'aria-current="step"':''}><button data-seller="step" data-screen="${i+1}" ${i+1>screen?'disabled':''}><span>${i+1}</span>${name}</button></li>`).join('');}
+ function costs(){const c=A.catalogue();return `<h1>Product costs</h1><div class="catalogue-card"><b>${esc(c.product.title)}</b><span>${esc(c.product.unit)} · ${esc(c.product.pack)}</span><div>Current buyer price <b>${rupees(c.buyerPrice)}</b> <span>Catalogue weight <b>${c.product.packedWeight} g</b></span></div><small>Sample catalogue details. You can check parcel weight in More details.</small></div><p>Enter your costs and the minimum you want to earn on each shipped order.</p><form id="seller-costs" novalidate><label class="seller-field">How will you ship?<select name="fulfilment" id="seller-fulfilment"><option value="self" ${state.shipping.fulfilment==='self'?'selected':''}>Ship from my location</option><option value="warehouse" ${state.shipping.fulfilment==='warehouse'?'selected':''}>Use a warehouse</option></select></label><div class="seller-fields">${field('Purchase cost (₹)','cost',state.costs.C,'What you pay for one item.')}${field('Packing cost (₹)','packing',state.costs.o,'What you spend preparing one order.')}${field('Minimum earnings per order (₹)','target',state.seller.g,'Average earnings after returns and failed deliveries.')}</div><p id="seller-cost-error" class="seller-message" role="status"></p><div class="seller-actions"><button class="primary" type="submit">Suggest a price</button><button type="button" data-seller="sample">Try sample values</button></div></form>${costSource?`<p class="seller-small">${esc(costSource)}</p>`:''}`;}
+ function result(r){
+  if(!r.ok){const text=r.errors[0]||'Complete the missing inputs.',cost=/purchase cost|packing cost|minimum earnings|your costs/.test(text),price=/buyer price/.test(text);return `<div class="seller-message bad" role="status">${esc(plain(text))}</div>${price?'':cost?'<button data-seller="step" data-screen="1">Review product costs</button>':'<button data-seller="shipping-settings">Check shipping settings</button>'}`;}
+  const status=!r.targetMet?'This price is below your target.':r.confirmed?'Confirmed payout. This price meets your target.':'This estimate meets your target. Confirm your payout in Meesho.';
+  return `<div class="seller-numbers"><div><span>Buyer pays</span><b>${rupees(r.buyer)}</b></div><div><span>${r.confirmed?'You receive after shipping':'You receive after shipping'}</span><b>${range(r.payout)}</b><small>${r.confirmed?'Payout entered from Meesho':'Estimated payout'}</small></div><div><span>Estimated earnings</span><b>${range(r.earnings)}</b><small>Average earnings per shipped order, including returns and failed deliveries.</small></div></div><p class="seller-target">Your minimum: <b>${rupees(state.seller.g)} per order</b> <button class="text-button" data-seller="step" data-screen="1">Edit costs or target</button></p><p class="seller-message ${r.targetMet?'':'bad'}" role="status">${esc(status)}</p>${!r.supported?'<p class="seller-small">Exploratory price. It is outside the sample comparison range.</p>':''}<p class="seller-small">Uses sample return rates: ${M.r2(state.mix.k)}% kept, ${M.r2(state.mix.r)}% failed deliveries, ${M.r2(state.mix.q)}% customer returns. ${r.confirmed?'Payout is entered from Meesho.':r.shipping.forwardMethod==='half-return'?'Shipping uses a demo assumption.':r.shipping.forwardMethod==='manual'?'Shipping uses your entered rates.':'Shipping uses published estimates.'} ${state.shipping.fulfilment==='warehouse'?(r.confirmed?'Warehouse fulfilment.':'Uses warehouse handling fees.'):''} ${costSource==='Sample values used.'?'Costs are sample values.':'Costs and target are your inputs.'}</p>${r.stale?'<p class="seller-message">The earlier payout needs confirmation for this price or shipping context.</p>':''}`;
+ }
+ function priceScreen(){const cmp=M.comparables(state),hasRange=cmp.n>0&&Math.ceil(cmp.min)<=Math.floor(cmp.max),r=A.evaluatePrice(state,num(priceDraft));return `<h1>${suggestion?.ok?'Suggested buyer price: '+rupees(suggestion.price):'Choose a buyer price'}</h1><p>${esc(plain(suggestion?.ok?'Lowest price in the sample comparison range that meets your minimum earnings.':suggestion?.reason||'Adjust the buyer price to check your earnings.'))}</p><div class="seller-price-control"><label class="seller-field">Buyer price (₹)<input id="seller-price" type="number" min="0.01" step="0.01" value="${esc(priceDraft)}" inputmode="decimal"></label>${hasRange?`<label class="seller-field">Adjust price<input id="seller-price-slider" type="range" min="${Math.ceil(cmp.min)}" max="${Math.floor(cmp.max)}" step="1" value="${Math.min(cmp.max,Math.max(cmp.min,Number(priceDraft)||cmp.min))}" aria-label="Adjust buyer price"><small>Sample comparison range: ${rupees(cmp.min)} to ${rupees(cmp.max)}. You can type a price outside this range.</small></label>`:'<p class="seller-small">Comparison prices are missing. Enter a price to explore.</p>'}</div><div id="seller-price-result">${result(r)}</div><div class="seller-actions"><button class="primary" id="seller-choose" data-seller="choose" ${r.ok?'':'disabled'}>Choose this price</button>${suggestion?.ok?'<button data-seller="suggested">Use suggested price</button>':''}</div>`;}
+ function panelForm(){const q=state.shipping.confirmed||{};return `<form id="seller-panel" class="seller-panel" novalidate><h2>Enter payout from Meesho</h2><p>Use the payout for buyer price ${rupees(state.shipping.buyer)} and the parcel details you are using.</p><div class="seller-fields">${field('Meesho payout (₹)','payout',q.transfer,'Enter the net payout shown in the panel.')}${field('Total customer return fee (₹)','return-fee',q.returnGross,'Include all applicable return deductions and GST in this amount.')}</div><label class="seller-check"><input type="checkbox" name="checked" required> I checked this payout and return fee in Meesho for this price and parcel.</label><p class="seller-small">Shipping, warehouse fees and GST will not be deducted from this net payout again.</p><button type="submit" class="primary">Confirm payout</button><p id="seller-panel-error" role="status"></p></form>`;}
+ function confirmScreen(){const r=A.evaluatePrice(state,state.shipping.buyer),last=state.snapshots[0];return `<h1>Confirm your price</h1><p>You chose buyer price <b>${rupees(state.shipping.buyer)}</b>.</p>${result(r)}<div class="seller-actions"><button data-seller="back-price">Change price</button><button data-seller="panel">Enter payout from Meesho</button></div>${showPanel?panelForm():''}<div class="seller-save"><button class="primary" data-seller="save" ${r.ok?'':'disabled'}>Save price choice</button><p>Saving does not update the Meesho listing. Confirm the corresponding price in your Meesho panel.</p>${last?`<p class="seller-message">Saved buyer price: ${rupees(last.buyerPrice)}. ${last.state==='Current'?'Saved in this session.':'This saved choice needs review.'}</p>`:''}</div>`;}
+ function publishedSources(){return `<details><summary>Rate sources, dates and assumptions</summary><p>The default half-fee method is a demo assumption using the supplied reverse rate card. It is not an official forward shipping quote.</p><p>Published forward estimates are a separate option for shipping from your location:</p>${[H.sources.ecomarray,H.sources.shiprocket].map(x=>`<p><a href="${x.url}" target="_blank" rel="noopener">${esc(x.name)}</a>. Published ${x.published}. Retrieved ${x.retrieved}.</p>`).join('')}<p><a href="${H.sources.rto.url}" target="_blank" rel="noopener">Meesho shipping policy</a>. Retrieved ${H.sources.rto.retrieved}. Additional RTO shipping is ₹0; preparation still costs money.</p><p>The supplied screenshot and the seller's clarification set listed courier and warehouse fees as excluding 18% GST. These assumptions do not confirm a current panel quote. The separate historical demonstrations retain their recorded fee and tax assumptions.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Published forward estimates"><table class="grid"><thead><tr><th>Weight</th><th>Local</th><th>Regional</th><th>National</th></tr></thead><tbody>${H.cards.map((r,i)=>`<tr><td>${i?H.cards[i-1].max:0} to ${r.max} g</td><td>${range(r.local)}</td><td>${range(r.regional)}</td><td>${range(r.national)}</td></tr>`).join('')}</tbody></table></div><p>No exact pincode quote or volumetric divisor is assumed. Other deductions default to ₹0. Costs and outcome rates remain independent scenario inputs.</p></details>`;}
+ function rateCard(){const bands=['Up to 500 g','501 to 1,000 g','1,001 to 1,500 g','1,501 to 2,000 g','2,001 to 2,500 g'],wb=['Up to 150 g','151 to 500 g','501 to 1,000 g','1,001 to 2,000 g','Above 2,000 g'];return `<details><summary>Supplied rate card and assumptions</summary><p>Seller-supplied screenshot, received 5 October 2026. Publication date is unknown. The seller confirmed that listed fees exclude GST and customer returns use the reverse shipping fee only.</p><p>All listed amounts below exclude 18% GST. These are supplied rates, not a verified current Meesho tariff.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Supplied fee table"><table class="grid"><thead><tr><th>Weight</th><th>Warehouse delivery under 500 km</th><th>Warehouse delivery over 500 km</th><th>Return handling, reference only</th><th>Unsold over 30 days, reference only</th><th>B2B reject, reference only</th></tr></thead><tbody>${H.supplied.handling.map((r,i)=>`<tr><td>${wb[i]}</td><td>${rupees(r.local)}</td><td>${rupees(r.national)}</td><td>${rupees(r.returnHandling)}</td><td>${rupees(r.oldInventory)}</td><td>${rupees(r.reject)}</td></tr>`).join('')}</tbody></table></div><p>Warehouse RTO processing, storage and insurance are shown as free in the screenshot. The old-inventory charge is a separate listed row.</p>${['self','warehouse'].map(mode=>`<h3>${mode==='self'?'Ship from my location':'Use a warehouse'}: reverse shipping</h3><div class="table-scroll" tabindex="0" role="region" aria-label="Supplied fee table"><table class="grid"><thead><tr><th>Carrier</th>${bands.map(b=>`<th>${b}</th>`).join('')}</tr></thead><tbody>${Object.entries(H.supplied[mode]).map(([carrier,fees])=>`<tr><td>${esc(H.carrierNames[carrier])}</td>${fees.map(f=>`<td>${rupees(f)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`).join('')}<p>Forward fee is assumed to be half the listed reverse fee when the demo formula is selected. Warehouse delivery handling is assumed additional to forward shipping. No warehouse handling is added to customer-return cost.</p></details>`;}
+ function advanced(){const c=state.shipping,options=(items,v)=>items.map(([id,label])=>`<option value="${id}" ${id===v?'selected':''}>${label}</option>`).join('');return `<details><summary>Shipping and returns</summary><p>Check your parcel, carrier and fees. Listed fees exclude GST; 18% GST is added once.</p><form id="seller-shipping"><div class="seller-fields">${field('Packed weight (g)','weight',state.product.packedWeight,'Include the packaging.')}${field('Meesho chargeable weight (g, optional)','panel-weight',c.panelWeight)}<label class="seller-field">Shipping calculation<select name="method">${options([['half-return','Half the return shipping fee'],...(c.fulfilment==='self'?[['published','Published shipping estimates']]:[]),['manual','Enter shipping rates']],c.forwardMethod)}</select><small>The half-fee formula is a demo assumption.</small></label><label class="seller-field">Return carrier<select name="carrier">${options(Object.entries(H.carrierNames),c.carrier)}</select></label>${c.fulfilment==='warehouse'?`<label class="seller-field">Distance from warehouse<select name="warehouse-distance">${options([['unknown','Not sure'],['local','Under 500 km'],['national','Over 500 km']],c.warehouseDistance)}</select><small>For exactly 500 km, choose Not sure.</small></label>`:`<label class="seller-field">Delivery area for published estimates<select name="zone">${options([['local','Local'],['regional','Regional'],['national','National']],c.zone)}</select><small>The demo formula uses carrier and weight, not delivery area.</small></label>`}${field('Other confirmed deductions (₹)','other',c.other)}<label class="seller-field">Published forward-rate source<select name="source">${options([['ecomarray','EcomArray'],['shiprocket','Shiprocket']],c.rateSource==='manual'?'ecomarray':c.rateSource)}</select><small>Used only for published forward estimates.</small></label></div><details ${c.forwardMethod==='manual'?'open':''} id="seller-manual"><summary>Enter shipping rates</summary><p>Enter fees before GST. Required above 2,500 g unless you supply a complete panel quote.</p><div class="seller-fields">${field('Forward fee minimum (₹)','forward-low',c.manualForward[0])}${field('Forward fee maximum (₹)','forward-high',c.manualForward[1])}${field('Reverse fee minimum (₹)','return-low',c.manualReturn[0])}${field('Reverse fee maximum (₹)','return-high',c.manualReturn[1])}</div></details><button type="submit">Update shipping settings</button><p id="seller-shipping-error" role="status"></p></form><p class="seller-small">GST is 18% on forward shipping, reverse shipping and warehouse delivery handling. Other confirmed deductions are entered as a total including any applicable tax. Additional RTO shipping is ₹0.</p>${c.fulfilment==='warehouse'?'<p class="seller-small">Warehouse handling is assumed additional to forward shipping. Inbound transport, old-inventory and rejected-stock costs are excluded from these order earnings.</p>':''}</details><details><summary>Cash and stock</summary><form id="seller-cash"><div class="seller-fields">${field('Available cash (₹)','cash',state.seller.cash)}${field('Batch limit (units)','cap',state.seller.cap)}${field('Supplier minimum order (units)','moq',state.seller.moq)}${field('Owned units','owned',state.seller.owned)}</div><button type="submit">Update cash and stock</button><p id="seller-cash-error" role="status"></p></form><div id="seller-funding"></div><p class="seller-small">Cash and stock values start as sample inputs. A price choice is not approval to buy stock.</p></details><details><summary>How earnings are calculated</summary><p>The payout is buyer price minus forward shipping, shipping GST, warehouse delivery handling and its GST, and other confirmed deductions. A panel payout is used directly.</p><p>The cautious earnings estimate uses the lowest payout and highest total reverse shipping fee. Customer returns use reverse shipping plus 18% GST, with no additional warehouse handling.</p><p>Average earnings per shipped order: kept share × (payout minus purchase cost), minus packing cost, minus return share × total reverse fee, minus the cost of damaged returns.</p><div id="seller-kept"></div><div id="seller-fees"></div><p class="seller-small">Product tax and withholding are not reconciled here. Estimates are not guaranteed earnings.</p></details>${rateCard()}${publishedSources()}`;}
+ function refreshDetails(){const r=A.evaluatePrice(state,state.shipping.buyer);if($('seller-fees'))$('seller-fees').innerHTML=r.ok?(r.confirmed?'<p>The supplied net payout is used directly. Shipping is not deducted again.</p>':`<p>Shipping fee before GST: <b>${range(r.shipping.forward.base)}</b></p><p>Shipping GST: <b>${range(r.shipping.forward.gst)}</b></p><p>Warehouse delivery handling before GST: <b>${range(r.shipping.warehouse.base)}</b></p><p>Warehouse handling GST: <b>${range(r.shipping.warehouse.gst)}</b></p><p>Other confirmed deductions: <b>${rupees(state.shipping.other)}</b></p>`)+`<p>Total customer return fee: <b>${range(r.shipping.returns.gross)}</b></p>`:'';if($('seller-funding'))$('seller-funding').innerHTML=r.ok&&r.funding.known?`<p>Cash to keep available: <b>${rupees(r.funding.need)}</b>, including ${rupees(r.funding.reserveHeld)} return reserve.</p>${r.funding.blocked?`<p class="seller-message bad">Review batch funding. ${esc(plain(r.funding.reason))}</p>`:''}`:'<p>Enter your costs and shipping details first.</p>';if($('seller-kept'))$('seller-kept').innerHTML=r.ok?`<p>Earnings on an order the buyer keeps: <b>${range(r.kept)}</b>.</p>`:'<p>Enter your costs first.</p>';}
+ function draw(focus=false){if(focus)$('seller-more').open=false;header();$('seller-main').innerHTML=(screen===1?costs():screen===2?priceScreen():confirmScreen())+`<p id="seller-notice" role="status" class="seller-small">${esc(notice)}</p>`;$('seller-advanced').innerHTML=advanced();$('seller-advanced').querySelector('[name="panel-weight"]').required=false;['forward-low','forward-high','return-low','return-high'].forEach(n=>$('seller-advanced').querySelector(`[name="${n}"]`).required=false);refreshDetails();cleanCopy($('seller-shell'));if(focus)$('seller-main').focus();}
+ function changePrice(raw){priceDraft=raw;const buyer=num(raw);A.setPrice(state,buyer);notice=state.shipping.confirmed&&state.shipping.mode==='online'?'Price changed. Showing an estimate.':'';const r=A.evaluatePrice(state,buyer);$('seller-price-result').innerHTML=result(r);$('seller-choose').disabled=!r.ok;$('seller-notice').textContent=notice;refreshDetails();}
+ document.addEventListener('input',e=>{if(e.target.id==='seller-price'){const slider=$('seller-price-slider');if(slider&&A.money(num(e.target.value))&&num(e.target.value)>=Number(slider.min)&&num(e.target.value)<=Number(slider.max))slider.value=e.target.value;changePrice(e.target.value);}if(e.target.id==='seller-price-slider'){$('seller-price').value=e.target.value;changePrice(e.target.value);}});
+ document.addEventListener('change',e=>{if(e.target.id==='seller-fulfilment'){const f=$('seller-costs');state.costs.C=num(f.elements.cost.value);state.costs.o=num(f.elements.packing.value);state.seller.g=num(f.elements.target.value);M.change(state,'product','Fulfilment changed',s=>{s.product.fulfilment=e.target.value==='warehouse'?'Use a warehouse':'Ship from my location';});M.change(state,'shipping','Fulfilment changed',s=>{s.shipping.fulfilment=e.target.value;s.shipping.mode='online';if(e.target.value==='warehouse'&&s.shipping.forwardMethod==='published')s.shipping.forwardMethod='half-return';});suggestion=null;notice='Fulfilment changed. Confirm any earlier payout again.';draw();$('seller-fulfilment').focus();}if(e.target.closest('#seller-shipping')&&e.target.name==='method'&&e.target.value==='manual')$('seller-manual').open=true;});
+ document.addEventListener('click',e=>{const b=e.target.closest('[data-seller]');if(!b)return;const a=b.dataset.seller;
+  if(a==='shipping-settings'){$('seller-more').open=true;$('seller-advanced').querySelector('details').open=true;$('seller-shipping').querySelector('input').focus();}
+  if(a==='sample'){state.costs.C=55;state.costs.o=5;state.seller.g=10;costSource='Sample values used.';notice='Sample values filled. You can change them.';draw();$('seller-costs').querySelector('[type="submit"]').focus();}
+  if(a==='step'){const next=Number(b.dataset.screen);if(next>1&&A.costErrors(state).length){screen=1;notice=A.costErrors(state)[0];}else screen=next;draw(true);}
+  if(a==='choose'){const r=A.evaluatePrice(state,num(priceDraft));if(!r.ok)return;screen=3;showPanel=false;notice='';draw(true);}
+  if(a==='back-price'){screen=2;priceDraft=String(state.shipping.buyer);draw(true);}
+  if(a==='panel'){showPanel=!showPanel;draw();if(showPanel)$('seller-panel').querySelector('input').focus();}
+  if(a==='suggested'&&suggestion?.ok){A.setPrice(state,suggestion.price);priceDraft=String(suggestion.price);draw();}
+  if(a==='save'){const r=A.evaluatePrice(state,state.shipping.buyer);if(!r.ok)return;const snap=M.snapshot(state,r.evaluation,'Save price choice');snap.buyerPrice=r.buyer;snap.expectedRange=r.earnings;snap.target=r.target;snap.kind='price-choice';notice='Price choice saved in this session. No listing was changed.';draw();}
+  if(a==='reset'){state=A.start();screen=1;priceDraft=String(state.shipping.buyer);suggestion=null;showPanel=false;notice='';costSource='';draw(true);}
+ });
+ document.addEventListener('submit',e=>{
+  const f=e.target;if(!['seller-costs','seller-panel','seller-shipping','seller-cash'].includes(f.id))return;e.preventDefault();const d=new FormData(f),n=name=>{const x=d.get(name);return x===null||x===''?null:Number(x)};
+  if(f.id==='seller-costs'){
+   const next=JSON.parse(JSON.stringify(state));next.costs.C=n('cost');next.costs.o=n('packing');next.seller.g=n('target');const errors=A.costErrors(next);if(errors.length){$('seller-cost-error').textContent=errors.join(' ');const name=!A.money(next.costs.C)?'cost':!A.money(next.costs.o)?'packing':'target';f.querySelector(`[name="${name}"]`).focus();return;}
+   M.change(state,'costs','Seller costs entered',s=>{s.costs=next.costs;});M.change(state,'seller','Seller earnings target entered',s=>{s.seller.g=next.seller.g;});
+   if(costSource!=='Sample values used.'||state.costs.C!==55||state.costs.o!==5||state.seller.g!==10)costSource='Your costs and target entered.';
+   suggestion=A.suggest(state);if(suggestion.ok)A.setPrice(state,suggestion.price);priceDraft=String(state.shipping.buyer);screen=2;notice='';draw(true);
+  }
+  if(f.id==='seller-panel'){if(!d.get('checked')){$('seller-panel-error').textContent='Confirm that you checked these values in Meesho.';return;}const q=A.confirm(state,n('payout'),n('return-fee'),new Date().toISOString().slice(0,10));if(!q.ok){$('seller-panel-error').textContent=q.error;return;}showPanel=false;notice='Payout confirmed. Shipping was not deducted again.';draw(true);}
+  if(f.id==='seller-shipping'){
+   const next=JSON.parse(JSON.stringify(state)),c=next.shipping;next.product.packedWeight=n('weight');next.product.packedWeightSource='measured';Object.assign(c,{panelWeight:n('panel-weight'),zone:d.get('zone')||c.zone,warehouseDistance:d.get('warehouse-distance')||c.warehouseDistance,forwardMethod:d.get('method'),taxBasis:'exclusive',other:n('other'),carrier:d.get('carrier'),returnTaxBasis:'exclusive',rateSource:d.get('source'),manualForward:[n('forward-low'),n('forward-high')],manualReturn:[n('return-low'),n('return-high')]});c.mode='online';
+   M.change(state,'product','Packed weight updated',s=>{s.product=next.product;});M.change(state,'shipping','Shipping settings updated',s=>{s.shipping=next.shipping;});suggestion=A.suggest(state);notice='Shipping settings updated. Confirm any earlier payout again.';const error=H.calculate(state);draw();$('seller-more').open=true;$('seller-advanced').querySelector('details').open=true;if(!error.ok)$('seller-shipping-error').textContent=plain(error.errors.join(' '));
+  }
+  if(f.id==='seller-cash'){const vals={cash:n('cash'),cap:n('cap'),moq:n('moq'),owned:n('owned')};if(!A.money(vals.cash)||!['cap','moq','owned'].every(k=>Number.isInteger(vals[k])&&vals[k]>=0)||vals.cap<1){$('seller-cash-error').textContent='Enter available cash and whole numbers for stock. Batch limit must be at least 1.';return;}M.change(state,'seller','Cash and stock updated',s=>Object.assign(s.seller,vals));draw();$('seller-more').open=true;$('seller-advanced').querySelectorAll('details')[1].open=true;}
+ });
+ // Remove display dashes in the retained example workspace without changing stored statuses or calculations.
+ const legacyRender=render;render=function(){legacyRender();cleanCopy($('legacy-workspace'));};render();
+ window.PCSellerUI={getState:()=>JSON.parse(JSON.stringify(state)),evaluate:()=>A.evaluatePrice(state,state.shipping.buyer)};
+ draw();
+})();
 </script></body></html>
